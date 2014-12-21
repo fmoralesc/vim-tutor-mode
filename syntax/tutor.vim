@@ -11,7 +11,7 @@ syn match tutorSectionBullet /#\{,6}/ contained containedin=tutorSection conceal
 
 syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
 
-hi! link tutorLink Underlined
+hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#0088ff 
 hi! link tutorLinkBands Operator
 hi! link tutorLinkAnchor Identifier
 hi! link tutorInternalAnchor Identifier
@@ -21,8 +21,10 @@ syn region tutorNormalVIML matchgroup=Delimiter start=/^-/ end=/^\~\{3}/ conceal
 syn match tutorNormalOp /[dcryp]/ contained containedin=tutorNormalVIML
 syn match tutorNormalMod /[ia]/ contained containedin=tutorNormalVIML
 syn match tutorNormalObject /["'()<>BW\[\]`bpstw{}]/ contained containedin=tutorNormalVIML
+syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML
 
 hi! link tutorNormalOp Operator
 hi! link tutorNormalMod PreProc
 hi! link tutorNormalObject Structure
+hi! link tutorNormalCount Number
 
