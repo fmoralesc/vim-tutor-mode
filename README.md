@@ -2,4 +2,6 @@
 
 create interactive tutorials for vim.
 
-![screenshot](http://i.imgur.com/3V2m20t.png)
+![screenshot 1](http://i.imgur.com/XMAovZq.png) 
+
+![screenshot 2](http://i.imgur.com/MbRpPiV.png)

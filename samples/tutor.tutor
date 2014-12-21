@@ -3,7 +3,7 @@
 ## SECTION 1    *section-1*
 
 This is a tutorial for [let](:let).
-:
+~~~ viml
     let g:pandoc = "test"
 ~~~
 ## SECTION 2    *section-2*
@@ -11,6 +11,6 @@ This is a tutorial for [let](:let).
 As mentioned in [section 1](*section-1*), this might pose some problems.
 
 ## SECTION 3
--
+~~~ normal
     diw
 ~~~

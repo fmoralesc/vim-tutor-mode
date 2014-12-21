@@ -99,7 +99,7 @@ endfunction
 
 function! tutor#FollowHelp()
     if synIDattr(synID(line('.'), col('.'), 0), 'name') == 'tutorLink'
-        call FollowLink(1)
+        call tutor#FollowLink(1)
     else
         exe "help " .expand('<cWORD>')
     endif
