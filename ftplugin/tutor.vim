@@ -93,7 +93,9 @@ function! FollowLink(force)
         endif
         let l:target = matchstr(l:linkData, '(\@<=.*)\@=')
         if a:force != 1 && match(l:target, '\*.\+\*') > -1
-            echom "move to ".l:target
+            call cursor(l:link_start[0], l:link_end[1])
+            call search(l:target, '')
+            normal ^
         else
             exe "help ".l:target
         endif
