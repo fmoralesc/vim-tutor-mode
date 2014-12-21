@@ -11,7 +11,7 @@ syn match tutorSectionBullet /#\{,6}/ contained containedin=tutorSection conceal
 
 syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
 
-hi! link tutorLink Label
+hi! link tutorLink Underlined
 hi! link tutorLinkBands Operator
 hi! link tutorLinkAnchor Identifier
 hi! link tutorInternalAnchor Identifier

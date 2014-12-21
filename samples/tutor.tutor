@@ -4,7 +4,7 @@
 
 This is a tutorial for [let](:let).
 :
-let g:pandoc = "test"
+    let g:pandoc = "test"
 ~~~
 ## SECTION 2    *section-2*
 
@@ -12,5 +12,5 @@ As mentioned in [section 1](*section-1*), this might pose some problems.
 
 ## SECTION 3
 -
-diw
+    diw
 ~~~

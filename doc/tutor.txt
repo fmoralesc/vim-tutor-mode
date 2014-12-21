@@ -1,0 +1,18 @@
+*vim-tutor-mode*
+
+                                VIM-TUTOR-MODE
+
+- USAGE                                                      *vim-tutor-usage*
+
+vim-tutor-mode tutorials are hypertext documents, that is, they have rich text
+and contain links. To stand out from the rest of the text, links are
+underlined. You can follow them by placing the cursor over them and pressing
+<Enter>, or by double-clicking them. Most of the links will open vim's help
+system, but some will move you around the document itself (the current line is
+always highlighted).
+
+TIP: You can consult the help for any word under the cursor (regardless of it
+being in a link or not) by placing the cursor on it and pressing '?'.
+
+
+" vim: set ft=help :

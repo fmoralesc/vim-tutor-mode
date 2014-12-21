@@ -113,3 +113,11 @@ function! tutor#TutorFolds()
     endif
 endfunction
 
+function! tutor#InfoText()
+    let l:info_parts = []
+    if exists('b:tutor_infofunc')
+        call add(l:info_parts, eval(b:tutor_infofunc.'()'))
+    endif
+    call add(l:info_parts, mode())
+    return join(l:info_parts, " ")
+endfunction
