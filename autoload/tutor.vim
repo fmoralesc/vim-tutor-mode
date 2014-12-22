@@ -78,7 +78,8 @@ function! tutor#BackwardSkipConceal(count)
 endfunction
 
 function! tutor#FollowLink(force)
-    if synIDattr(synID(line('.'), col('.'), 0), 'name') == 'tutorLink'
+    let l:stack_s = join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), '')
+    if l:stack_s =~ 'tutorLink'
         let l:link_start = searchpairpos('\[', '', ')', 'nbcW')
         let l:link_end = searchpairpos('\[', '', ')', 'ncW')
         if l:link_start[0] == l:link_end[0] 
