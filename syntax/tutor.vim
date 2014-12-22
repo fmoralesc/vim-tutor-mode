@@ -31,9 +31,9 @@ hi! link tutorSampleText Special
 
 syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends
 syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends
-syn match tutorNormalOp /[dcrypx]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn match tutorNormalMod /[ia]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML 
-syn match tutorNormalObject /["'()<>BW\[\]`bpstw{}]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn match tutorNormalOp /[dcrypx!"#$%&,.-\/:;<>=?@ABCDEFGHIJKLMNOPQRSTUVWXYZfgqstz~]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
+syn match tutorNormalMod /[ia]/ contained  
+syn match tutorNormalObject /["'()<>BW\[\]`bpstwe{}]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 
 hi! link tutorNormalOp Operator
