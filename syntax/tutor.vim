@@ -15,6 +15,7 @@ syn region tutorLesson matchgroup=Delimiter start=/\*\{2}\s\+/ end=/\s\+\*\{2}/ 
 syn match tutorTextMark /--->/ conceal cchar=→
 syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend
 syn match tutorSampleTextMark /--->/ contained containedin=tutorSampleText conceal cchar=→
+syn region tutorSampleTextExpect start=/ {expect:/ end=/}/ contained containedin=tutorSampleText conceal
 
 syn keyword tutorMarks TODO NOTE IMPORTANT TIP
 
@@ -28,6 +29,8 @@ hi! tutorLesson cterm=bold gui=bold
 hi! tutorMarks cterm=bold gui=bold
 
 hi! link tutorSampleText Special
+hi! tutorOK ctermfg=green guifg=#00ff88 cterm=bold gui=bold
+hi! tutorX ctermfg=red guifg=#ff2000  cterm=bold gui=bold
 
 syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends
 syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends

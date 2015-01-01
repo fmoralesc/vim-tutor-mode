@@ -21,3 +21,9 @@ noremap <buffer> <expr> <left> tutor#BackwardSkipConceal(v:count1)
 noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> <2-LeftMouse> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
+
+sign define tutorok text=✓ texthl=tutorOK
+sign define tutorbad text=✗ texthl=tutorX
+
+call tutor#PlaceXMarks()
+au! TextChanged <buffer> call tutor#OnTextChanged()
