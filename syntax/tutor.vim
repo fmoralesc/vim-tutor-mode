@@ -5,6 +5,8 @@ syn region tutorVIML matchgroup=Delimiter start=/^\~\{3} viml$/ end=/^\~\{3}/ co
 syn match tutorLink /\[.\{-}\](.\{-})/ contains=tutorInlineNormalVIML
 syn match tutorLinkBands /\[\|\]\|(\|)/ contained containedin=tutorLink,tutorLinkAnchor conceal
 syn match tutorLinkAnchor /(.\{-})/ contained containedin=tutorLink conceal
+syn match tutorURL /https\?:\/\/[[:graph:]]\+\>\/\?/
+syn match tutorEmail /\<[[:graph:]]\+@[[:graph:]]\+\>/
 
 syn match tutorSection /^#\{1,6}\s.\+$/ fold
 syn match tutorSectionBullet /#\{1,6}/ contained containedin=tutorSection conceal cchar=+
@@ -30,10 +32,26 @@ syn match tutorTOC /\ctable of contents:/
 syn match tutorInlineOK /✓/
 syn match tutorInlineX /✗/
 
+syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
+syn region tutorInlineNormalVIML matchgroup=Delimiter start=/\\\@<!«/ end=/\\\@<!»/ concealends contains=tutorKey
+syn match tutorNormalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
+syn match tutorNormalMod /m\@<![ia]/ contained  
+syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn region tutorNormalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
+syn region tutorNormalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
+syn match tutorNormalCharSearch /\c[ftr]\@<=\w/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn match tutorNormalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+
+syn match tutorKey /<'\@!.\{-}>'\@!/ 
+
 hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#0088ff 
 hi! link tutorLinkBands Operator
 hi! link tutorLinkAnchor Identifier
 hi! link tutorInternalAnchor Identifier
+hi! link tutorURL tutorLink
+hi! link tutorEmail tutorLink
+
 hi! link tutorSection Title
 
 hi! link tutorTOC Directory
@@ -52,18 +70,6 @@ hi! link tutorCommandCmd Statement
 hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
 
-syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
-syn region tutorInlineNormalVIML matchgroup=Delimiter start=/\\\@<!«/ end=/\\\@<!»/ concealends contains=tutorKey
-syn match tutorNormalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
-syn match tutorNormalMod /m\@<![ia]/ contained  
-syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn region tutorNormalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
-syn region tutorNormalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
-syn match tutorNormalCharSearch /\c[ftr]\@<=\w/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn match tutorNormalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-
-syn match tutorKey /<'\@!.\{-}>'\@!/ 
 
 hi! link tutorNormalOp Operator
 hi! link tutorNormalMod PreProc
