@@ -14,5 +14,18 @@ always highlighted).
 TIP: You can consult the help for any word under the cursor (regardless of it
 being in a link or not) by placing the cursor on it and pressing '?'.
 
+- COMMANDS                                                   *:VimTutor* *Tutor*
+
+>
+:Tutor {tutorial}           Opens a tutorial. 
+
+:VimTutor                   Opens the vimtutor tutorial.
+                            is the same as :Tutor vimtutor
+
+- CREATING                                                  *vim-tutor-create*
+
+Consult the tutor.tutor file:
+
+    :Tutor tutor
 
 " vim: set ft=help :
