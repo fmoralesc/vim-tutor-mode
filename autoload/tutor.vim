@@ -150,6 +150,8 @@ endfunction
 
 function! tutor#SetSampleTextMappings()
     noremap <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
+    noremap <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| normal! $ \| endif<cr>
+    onoremap <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| normal! $ \| endif<cr>
 endfunction
 
 
