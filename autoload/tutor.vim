@@ -137,9 +137,10 @@ endfunction
 
 function! tutor#CheckText()
     let l:text = getline('.')
-    if match(l:text, '{expect:NULL}') == -1
-        let l:cur_text = matchstr(l:text, '---> \zs.*\ze {')
-        let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}')
+    if match(l:text, '{expect:NULL}\s*$') == -1
+        let l:cur_text = matchstr(l:text, '---> \zs.\{-}\ze {expect:')
+        let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}\s*$')
+        "echom l:cur_text."|".l:expected_text
         if l:cur_text ==# l:expected_text
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
         else

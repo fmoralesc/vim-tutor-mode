@@ -10,12 +10,13 @@ syn match tutorSection /^#\{1,6}\s.\+$/ fold
 syn match tutorSectionBullet /#\{1,6}/ contained containedin=tutorSection conceal cchar=+
 syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
 
-syn region tutorLesson matchgroup=Delimiter start=/[*!]\{2}\s\+/ end=/\s\+[*!]\{2}/ concealends contains=tutorInlineNormalVIML
+syn region tutorLesson matchgroup=Delimiter start=/\(\\\@<![*!]\)\{2}\s\+/ end=/\s\+\(\\\@<![*!]\)\{2}/ concealends contains=tutorInlineNormalVIML
+syn match tutorConcealedEscapes /\\[*!]\@=/ conceal
 
 syn match tutorTextMark /--->/ conceal cchar=→
 syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
-syn match tutorSampleTextMark /--->/ contained containedin=tutorSampleText conceal cchar=→
-syn region tutorSampleTextExpect start=/ {expect:/ end=/}/ contained containedin=tutorSampleText conceal
+syn match tutorSampleTextMark /^--->/ contained containedin=tutorSampleText conceal cchar=→
+syn match tutorSampleTextExpect /\}\@<! {expect:.\+}\s*$/ contained containedin=tutorSampleText conceal
 
 syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}:/ end=/$/ keepend contains=tutorKey
 syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand

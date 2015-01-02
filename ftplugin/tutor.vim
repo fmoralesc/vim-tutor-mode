@@ -1,10 +1,16 @@
 if !exists('g:tutor_debug') || g:tutor_debug == 0
     setlocal buftype=nofile
-    setlocal concealcursor+=i
+    setlocal concealcursor+=inv
+    setlocal conceallevel=2
+    setlocal cursorline
+else
+    setlocal buftype=
+    setlocal concealcursor&
+    setlocal conceallevel=0
+    setlocal textwidth=80
+    setlocal nocursorline
 endif
-setlocal conceallevel=2
-setlocal concealcursor+=nv
-setlocal cursorline
+
 
 setlocal foldmethod=expr
 setlocal foldexpr=tutor#TutorFolds()
