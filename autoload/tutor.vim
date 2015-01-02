@@ -164,3 +164,10 @@ function! tutor#OnTextChanged()
         call tutor#CheckText()
     endif
 endfunction
+
+let s:path = expand('<sfile>:h:h')."/tutorials/"
+
+function! tutor#TutorCmdComplete(lead,line,pos)
+    let l:tutorials = glob(s:path."*.tutor", 0, 1)
+    return map(tutorials, 'fnamemodify(v:val, ":t:r")')
+endfunction
