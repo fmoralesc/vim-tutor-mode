@@ -151,7 +151,7 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
 
   2. At the shell prompt type this command:
 
-     $ vim tutor <ENTER>
+     $ vim tutor
 
      'vim' is the command to start the Vim editor, 'tutor' is the name of the
      file you wish to edit.  Use a file that may be changed.
@@ -174,7 +174,7 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
 
   2. To start Vim from the shell prompt type:
 
-    $ vim FILENAME <ENTER>
+    $ vim FILENAME
 
   3. To exit Vim type:     <ESC>   :q!   <ENTER>  to trash all changes.
          OR type:      <ESC>   :wq   <ENTER>  to save the changes.
@@ -310,7 +310,7 @@ insert a count before the motion to delete more:
   4. This time fix all the errors on the line using the  «x»  command.
   5. Now type a capital  «U»  to return the line to its original state.
   6. Now type  «u»  a few times to undo the  U  and preceding commands.
-  7. Now type <CTRL-R> (keeping CTRL key pressed while hitting R) a few times
+  7. Now type <CTRL-R> (keeping Ctrl key pressed while hitting R) a few times
      to redo the commands (undo the undo's).
 
 ---> Fiix the errors oon thhis line and reeplace them witth undo. {expect:Fix the errors on this line and replace them with undo.}
@@ -879,7 +879,7 @@ default.  To start using more features you have to create a "vimrc" file.
 
   3. Type the start of a command:  :e
 
-  4. Press  CTRL-D  and Vim will show a list of commands that start with "e".
+  4. Press  <CTRL-D>  and Vim will show a list of commands that start with "e".
 
   5. Press <TAB>  and Vim will complete the command name to ":edit".
 
@@ -887,7 +887,7 @@ default.  To start using more features you have to create a "vimrc" file.
 
   7. Press <TAB>.  Vim will complete the name (if it is unique).
 
-NOTE:  Completion works for many commands.  Just try pressing CTRL-D and
+NOTE:  Completion works for many commands.  Just try pressing <CTRL-D> and
        <TAB>.  It is especially useful for  :help .
 
 # Lesson 7 SUMMARY
@@ -907,10 +907,10 @@ NOTE:  Completion works for many commands.  Just try pressing CTRL-D and
 
 # CONCLUDING
 
-This is all fo the Vim Tutor.  It was intended to give a brief overview of the
-Vim editor, just enough to allow you to use the editor fairly easily. It is far
-from complete as Vim has many many more commands.  Consult the help often. Now, you
-can try a different tutorial:
+It was intended to give a brief overview of the Vim editor, just enough to
+allow you to use the editor fairly easily. It is far from complete as Vim has
+many many more commands.  Consult the help often. Now, you can try a different
+tutorial:
 
     :Tutor learnvim-intermediate
 
@@ -918,7 +918,7 @@ There are many resources online to learn more about vim. Here's a list of a bunc
 
 - Learn Vim Progressively: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 - Learning Vim in 2014: http://benmccormick.org/learning-vim-in-2014/
-- VimCasts: http://vimcasts.org/
+- Vimcasts: http://vimcasts.org/
 - Vim Video-Tutorials by Derek Wyatt: http://derekwyatt.org/vim/tutorials/
 - Learn Vimscript the Hard Way: http://learnvimscriptthehardway.stevelosh.com/
 - 7 Habits of Effective Text Editing: http://www.moolenaar.net/habits.html
