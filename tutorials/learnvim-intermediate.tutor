@@ -186,12 +186,12 @@ for. You can learn the other [tag](tag) commands later.
 «g]»		Show a list of tags matching the keyword under the cursor.
 
 [:tj](:tj)/something   Show a list of tags matching the pattern something. If there
-		is only one tag in the list, don't show the list but instead jump directly to
-		it. See |:tjump|
+		is only one tag in the list, don't show the list but instead jump
+                directly to it. See [:tjump](:tjump)
 
 «g<Ctrl-]»	Show a list of tags matching the keyword under the cursor. If
-		there is only one tag in the list, don't show the list but instead jump
-		directly to it.
+		there is only one tag in the list, don't show the list but instead 
+                jump directly to it.
 
 «[I»		Ordinarily, this just shows all lines in the file matching the
 		keyword under the cursor — a shortcut to ":g/<c-r><c-w>"
