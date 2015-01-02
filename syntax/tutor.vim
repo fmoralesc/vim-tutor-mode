@@ -17,9 +17,13 @@ syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
 syn match tutorSampleTextMark /--->/ contained containedin=tutorSampleText conceal cchar=→
 syn region tutorSampleTextExpect start=/ {expect:/ end=/}/ contained containedin=tutorSampleText conceal
 
-syn region tutorCommand start=/^\s\{4}:/ end=/$/ keepend
+syn region tutorCommand start=/^\s\{4,}:/ end=/$/ keepend
+syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend
+syn match tutorShellPrompt /\$/ contained containedin=tutorShellCommand
 
 syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION
+
+syn match tutorKey /<'\@!.\{-}>'\@!/ 
 
 syn match tutorInlineOK /✓/
 syn match tutorInlineX /✗/
@@ -40,7 +44,8 @@ hi! link tutorInlineOK tutorOK
 hi! link tutorInlineX tutorX
 
 hi! link tutorCommand Statement
-
+hi! link tutorShellCommand Directory
+hi! link tutorShellPrompt Delimiter
 
 syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends
 syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends
@@ -54,3 +59,4 @@ hi! link tutorNormalMod PreProc
 hi! link tutorNormalObject Structure
 hi! link tutorNormalCount Number
 
+hi! link tutorkey Special

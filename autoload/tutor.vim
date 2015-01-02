@@ -130,7 +130,6 @@ function! tutor#PlaceXMarks()
     let b:tutor_sign_id = 1
     while search('^--->', 'W') > 0
         call tutor#CheckText()
-"        exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
         let b:tutor_sign_id+=1
     endwhile
     call cursor(1, 1)
@@ -138,12 +137,14 @@ endfunction
 
 function! tutor#CheckText()
     let l:text = getline('.')
-    let l:cur_text = matchstr(l:text, '---> \zs.*\ze {')
-    let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}')
-    if l:cur_text == l:expected_text
-        exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
-    else
-        exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
+    if match(l:text, '{expect:NULL}') == -1
+        let l:cur_text = matchstr(l:text, '---> \zs.*\ze {')
+        let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}')
+        if l:cur_text == l:expected_text
+            exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
+        else
+            exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
+        endif
     endif
 endfunction
 
