@@ -22,8 +22,11 @@ noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> <2-LeftMouse> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
 
+call tutor#SetSampleTextMappings()
+
 sign define tutorok text=✓ texthl=tutorOK
 sign define tutorbad text=✗ texthl=tutorX
 
 call tutor#PlaceXMarks()
 au! TextChanged <buffer> call tutor#OnTextChanged()
+au! TextChangedI <buffer> call tutor#OnTextChanged()

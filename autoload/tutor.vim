@@ -94,6 +94,7 @@ function! tutor#FollowLink(force)
             normal ^
         else
             exe "help ".l:target
+            noremap <silent> <buffer> q :close<cr>
         endif
     endif
 endfunction
@@ -103,6 +104,7 @@ function! tutor#FollowHelp()
         call tutor#FollowLink(1)
     else
         exe "help " .expand('<cWORD>')
+        noremap <silent> <buffer> q :close<cr>
     endif
 endfunction
 
@@ -127,7 +129,8 @@ function! tutor#PlaceXMarks()
     call cursor(1, 1)
     let b:tutor_sign_id = 1
     while search('^--->', 'W') > 0
-        exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
+        call tutor#CheckText()
+"        exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
         let b:tutor_sign_id+=1
     endwhile
     call cursor(1, 1)
@@ -143,6 +146,11 @@ function! tutor#CheckText()
         exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
     endif
 endfunction
+
+function! tutor#SetSampleTextMappings()
+    noremap <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
+endfunction
+
 
 function! tutor#OnTextChanged()
     if match(getline('.'), '^--->') > -1

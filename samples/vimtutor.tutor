@@ -1,4 +1,80 @@
-# Lesson 1.3: TEXT EDITING - DELETION
+#             Welcome   to   the   VIM   Tutor                     - version 2.0
+
+Vim is a very powerful editor that has many commands, too many to explain in a
+tutor such as this.  This tutor is designed to describe enough of the commands
+that you will be able to easily use Vim as an all-purpose editor. It is
+IMPORTANT to remember that this tutor is set up to teach by use.  That means
+that you need to execute the commands to learn them properly.  If you only read
+the text, you will forget the commands!
+
+NOTE: The commands in the lessons will modify the text, but those changes won't
+be saved.  Feel free to mess things up, and remember that pressing
+[Escape](<Esc>) and then [u](u) will undo the latest change.
+
+This tutorial is interactive, and there are a few things you should know.
+Pressing [Enter](<Enter>) over text highligted [like this](holy-grail) will take you to some relevant 
+help (hopefully), and pressing ? over any word will try to do so too. You can close
+the help window by pressing «q».  Sometimes you will be required to modify text like
+--->  this here {expect:this here}
+Once you have done the changes correctly, the ✗ sign at the left will change 
+to ✓. I imagine you can already see how neat vim can be ;)
+Other times, you'll be prompted to run a command:
+    :help <ENTER>
+Text within <'s and >'s (like <ENTER>) describes a key to press instead of text 
+to type.
+
+Now, make sure that your Shift-Lock key is NOT depressed and press the   «j»
+key enough times to move the cursor so that Lesson 1.1 completely fills the
+screen.
+
+## Lesson 1.1: MOVING THE CURSOR
+
+** To move the cursor, press the «h»,«j»,«k»,«l» keys as indicated. **
+
+ 	     ^
+	     k		    Hint:  The h key is at the left and moves left.
+       < h	 l >		   The l key is at the right and moves right.
+	     j			   The j key looks like a down arrow.
+	     v
+  1. Move the cursor around the screen until you are comfortable.
+
+  2. Hold down the down key (j) until it repeats.
+     Now you know how to move to the next lesson.
+
+  3. Using the down key, move to Lesson 1.2.
+
+NOTE: If you are ever unsure about something you typed, press <ESC> to place
+      you in Normal mode.  Then retype the command you wanted.
+
+NOTE: The cursor keys should also work.  But using hjkl you will be able to
+      move around much faster, once you get used to it.  Really!
+
+# Lesson 1.2: EXITING VIM
+
+!! NOTE: Before executing any of the steps below, read this entire lesson !!
+
+  1. Press the <ESC> key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
+
+  2. Type:	
+  
+    :q! <ENTER>.
+
+     This exits the editor, DISCARDING any changes you have made.
+
+  3. Open vim and get back here by executing the command that got you into this
+     tutor. That might be:  
+     
+    :Vimtutor <ENTER>
+
+  4. If you have these steps memorized and are confident, execute steps
+     1 through 3 to exit and re-enter the editor.
+
+NOTE:  :q! <ENTER>  discards any changes you made.  In a few lessons you
+       will learn how to save the changes to a file.
+
+  5. Move the cursor down to Lesson 1.3.
+
+## Lesson 1.3: TEXT EDITING - DELETION
 
 ** Press  «x»  to delete the character under the cursor. **
 
@@ -16,4 +92,44 @@
 5. Now that the line is correct, go on to Lesson 1.4.
 
 NOTE: As you go through this tutor, do not try to memorize, learn by usage.
+
+# Lesson 1.4: TEXT EDITING: INSERTION
+
+** Press  «i»  to insert text. **
+
+  1. Move the cursor to the first line below marked --->.
+
+  2. To make the first line the same as the second, move the cursor on top
+     of the first character AFTER where the text is to be inserted.
+
+  3. Press  i  and type in the necessary additions.
+
+  4. As each error is fixed press <ESC> to return to Normal mode.
+     Repeat steps 2 through 4 to correct the sentence.
+
+---> There is text misng this . {expect:There is some text missing from this line.}
+---> There is some text missing from this line. {expect:There is some text missing from this line.}
+
+  5. When you are comfortable inserting text move to lesson 1.5.
+
+# Lesson 1.5: TEXT EDITING: APPENDING
+
+** Press  «A»  to append text. **
+
+  1. Move the cursor to the first line below marked --->.
+     It does not matter on what character the cursor is in that line.
+
+  2. Press  [A](A)  and type in the necessary additions.
+
+  3. As the text has been appended press <ESC> to return to Normal mode.
+
+  4. Move the cursor to the second line marked ---> and repeat 
+     steps 2 and 3 to correct this sentence.
+
+---> There is some text missing from th {expect:There is some text missing from this line.}
+---> There is some text missing from this line. {expect:There is some text missing from this line.}
+---> There is also some text miss {expect:There is also some text missing here.}
+---> There is also some text missing here. {expect:There is also some text missing here.}
+
+  5. When you are comfortable appending text move to lesson 1.6.
 
