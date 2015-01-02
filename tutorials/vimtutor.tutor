@@ -4,28 +4,32 @@ Vim is a very powerful editor that has many commands, too many to explain in a
 tutor such as this.  This tutor is designed to describe enough of the commands
 that you will be able to easily use Vim as an all-purpose editor. It is
 IMPORTANT to remember that this tutor is set up to teach by use.  That means
-that you need to execute the commands to learn them properly.  If you only read
-the text, you will forget the commands!
+that you need to do the exercises to learn them properly.  If you only read
+the text, you will soon forget what is most important!
 
 NOTE: The commands in the lessons will modify the text, but those changes won't
 be saved.  Feel free to mess things up, and remember that pressing
-[Escape](<Esc>) and then [u](u) will undo the latest change.
+[«<ESCAPE>»](<Esc>) and then [u](u) will undo the latest change.
 
 This tutorial is interactive, and there are a few things you should know.
-Pressing [Enter](<Enter>) over text highligted [like this](holy-grail) will take you to some relevant 
+Pressing [«<ENTER>»](<Enter>) over text highligted [like this](holy-grail) will take you to some relevant 
 help (hopefully), and pressing ? over any word will try to do so too. You can close
 the help window by pressing «q».  Sometimes you will be required to modify text like
 --->  this here {expect:this here}
 Once you have done the changes correctly, the ✗ sign at the left will change 
 to ✓. I imagine you can already see how neat vim can be ;)
-Other times, you'll be prompted to run a command:
+Other times, you'll be prompted to run a command (I'll explain this later):
 ~~~ viml
     :help <ENTER>
+~~~
+or press a sequence of keys
+~~~ normal
+    <ESC>0f<SPACE>d3wP$P
 ~~~
 Text within <'s and >'s (like <ENTER>) describes a key to press instead of text 
 to type.
 
-Now, make sure that your Shift-Lock key is NOT depressed and press the   «j»
+Now, make sure that your Shift-Lock key is NOT depressed and press the «j»
 key enough times to move the cursor so that Lesson 1.1 completely fills the
 screen.
 
@@ -910,14 +914,27 @@ NOTE:  Completion works for many commands.  Just try pressing CTRL-D and
 
 # CONCLUDING 
 
-This is all fo the Vim Tutor.  It was intended to give a brief overview of
-the Vim editor, just enough to allow you to use the editor fairly easily.
-It is far from complete as Vim has many many more commands.  Read the user
-manual next: ":help user-manual".
+This is all fo the Vim Tutor.  It was intended to give a brief overview of the
+Vim editor, just enough to allow you to use the editor fairly easily. It is far
+from complete as Vim has many many more commands.  Consult the help often. Now, you 
+can try a different tutorial:
 
-This tutorial was written by Michael C. Pierce and Robert K. Ware,
-Colorado School of Mines using ideas supplied by Charles Smith,
-Colorado State University.  E-mail: bware@mines.colorado.edu.
+    :Tutor learnvim-intermediate
+
+There are many resources online to learn more about vim. Here's a list of a bunch of them:
+
+- Learn Vim Progressively: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+- Learning Vim in 2014: http://benmccormick.org/learning-vim-in-2014/
+- VimCasts: http://vimcasts.org/
+- Vim Video-Tutorials by Derek Wyatt: http://derekwyatt.org/vim/tutorials/
+- Learn Vimscript the Hard Way: http://learnvimscriptthehardway.stevelosh.com/
+- 7 Habits of Effective Text Editing: http://www.moolenaar.net/habits.html
+
+If you prefer a book, Practival Vim by Drew Neil is recommended often. 
+
+This tutorial was written by Michael C. Pierce and Robert K. Ware, Colorado
+School of Mines using ideas supplied by Charles Smith, Colorado State
+University.  E-mail: bware@mines.colorado.edu.
 
 Modified for Vim by Bram Moolenaar.
 Modified fov vim-tutor-mode by Felipe Morales.
