@@ -11,15 +11,15 @@ syn match tutorSectionBullet /#\{1,6}/ contained containedin=tutorSection concea
 syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
 
 syn region tutorLesson matchgroup=Delimiter start=/\(\\\@<![*!]\)\{2}\s\+/ end=/\s\+\(\\\@<![*!]\)\{2}/ concealends contains=tutorInlineNormalVIML
-syn match tutorConcealedEscapes /\\[*!]\@=/ conceal
+syn match tutorConcealedEscapes /\\[*!\[\]()«»:$-]\@=/ conceal
 
-syn match tutorTextMark /--->/ conceal cchar=→
+syn match tutorTextMark /\\\@<!--->/ conceal cchar=→
 syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
 syn match tutorSampleTextMark /^--->/ contained containedin=tutorSampleText conceal cchar=→
 syn match tutorSampleTextExpect /\}\@<! {expect:.\+}\s*$/ contained containedin=tutorSampleText conceal
 syn match tutorSampleTextExpect /|\@<! |expect:.\+|\s*$/ contained containedin=tutorSampleText conceal
 
-syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}:/ end=/$/ keepend contains=tutorKey
+syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}\\\@<!:/ end=/$/ keepend contains=@VIM
 syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
 syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend contains=tutorKey
 syn match tutorShellPrompt /\$/ contained containedin=tutorShellCommand
@@ -53,7 +53,7 @@ hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
 
 syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
-syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends contains=tutorKey
+syn region tutorInlineNormalVIML matchgroup=Delimiter start=/\\\@<!«/ end=/\\\@<!»/ concealends contains=tutorKey
 syn match tutorNormalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
 syn match tutorNormalMod /m\@<![ia]/ contained  
 syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML

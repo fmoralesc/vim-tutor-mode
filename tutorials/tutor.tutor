@@ -73,7 +73,10 @@ don't need to mark them specially.
 ---> This is a header with a label {expect:# This is a header with a label {*label*}}
 ---> # This is a header with a label {*label*} {expect:# This is a header with a label {*label*}}
 
-4. Now, create a 4th level section here, and add a label:    *exercise-4*
+4. Now, create a 4th level section here, and add a label like in the previous *exercise-4*
+exercise:
+
+
 
    ATTENTION We will use this label later, so remember it.
 
@@ -83,16 +86,30 @@ It is good practice to include links in your tutorials to reference materials,
 like vim's own help or external documents. You can also link to other parts of
 the document.
 
+Links have the syntax
+
+    \[label\]\(target\)
+
 #### Help links
 
-5.  
+If the target of a link matches a help topic, opening it will open it.
+
+5. Fix the following line:
 
 ---> A link to help for the 'breakindent' option {expect:A link to help for the ['breakindent']('breakindent') option}
 ---> A link to help for the ['breakindent']('breakindent') option {expect:A link to help for the ['breakindent']('breakindent') option}
 
-#### Section links
+#### Anchor links
 
-6. 
+A link can also lead to a place in the file itself. Anchors are written
+
+    \*anchor\*
+
+and are hidden by default. Links to them look like
+
+    \[label\]\(\*anchor\*\)
+
+6. Add the appropiate link:
 
 ---> A link to the Links section {expect:A link to the [Links](*links*) section}
 ---> A link to the [Links](*links*) section {expect:A link to the [Links](*links*) section}
@@ -101,9 +118,21 @@ the document.
    above.
 
 
+
 ### Codeblocks *codeblocks*
 
-8.
+vim-tutor-mode tutorials can include viml sections.
+
+    ~~~ viml
+    echom "hello"
+    ~~~
+
+is displayed as
+~~~ viml
+echom "hello"
+~~~
+
+8. Copy the viml section below
 
 --->  {expect:~~~ viml}
 --->  {expect:echom "the value of &number is".string(&number)}
@@ -113,7 +142,18 @@ the document.
 ---> echom "the value of &number is".string(&number) {expect:echom "the value of &number is".string(&number)}
 ---> ~~~ {expect:~~~}
 
-9.
+[normal](Normal-mode) commands can also be embedded in tutorials.
+
+    ~~~ normal
+    ftdaW
+    ~~~
+
+is displayed as
+~~~ normal
+ftdaW
+~~~
+
+9. Copy the normal section below
 
 --->  {expect:~~~ normal}
 --->  {expect:d2w}
@@ -123,31 +163,86 @@ the document.
 ---> d2w {expect:d2w}
 ---> ~~~ {expect:~~~}
 
-10. 
+You can also inline normal commands by using \« and \»
+
+    \«gq\» is very useful.
+
+is displayed: «gq» is very useful.
+
+10. Complete the line as shown
 
 ---> d {expect:«d2w»}
 ---> «d2w» {expect:«d2w»}
 
-11. 
+Ex commands can also be displayed by indenting (with 4 or more spaces) a line
+starting with ":".
+   
+    \:vnew
+
+is displayed
+
+    :vnew
+
+11. Copy the command below: 
 
 --->  {expect:   :buffers}
 --->    :buffers {expect:   :buffers}
 
-12. 
+Commands to run in the system shell can be highlighted by indenting a line starting with "$".
+
+    \$ vim --version
+
+is displayed
+
+    $ vim --version
+
+12. Copy the command
 
 --->  {expect:   $ ls}
 --->    $ ls {expect:   $ ls}
 
 ## INTERACTIVE ELEMENTS *interactive*
 
+As visible in this very document, vim-tutor-mode includes some interactive
+elements, to provide feedback to the user about his progress. These elements
+all have the syntax
+
+    \---> TEXT {CLAUSE}
+
+where \---> must start at the beginning of the line. If TEXT satisfies CLAUSE,
+a ✓ sign will appear to the left. A ✗ sign is displayed otherwise. The CLAUSE
+itself is hidden unless debug mode is set or ['conceallevel']('conceallevel')
+is 2.
+
 ### expect *expect*
 
-13. 
+The basic clause is "expect", which is satisfied if TEXT is the same as the
+content of the clause. For example
+
+    \---> TEXT {expect:TEXT}
+
+is satisfied, but
+
+    \---> OTHER TEXT {expect:TEXT}
+
+is not.
+
+13. Make both lines the same: 
 
 ---> this is not right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
 ---> ---> this is right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
 
-14.
+
+If the content of a expect clause is NULL, no checks will be performed. This is
+useful to create a line that is highlighted you want the user to play with.
+
+    \---> TEXT {expect:NULL}
+
+is displayed
+
+---> this is free text {expect:NULL}
+
+14. Turn the line below into free text:
 
 ---> this is some text |expect:---> this is some text {expect:NULL}|
 ---> ---> this is some text {expect:NULL} |expect:---> this is some text {expect:NULL}|
