@@ -762,7 +762,7 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
      the next line with  «j$»  and put the text there with  «p».
 
 ---> a) this is the first item.
---->     b) {expect:    b) a second item.}
+--->     b)  {expect:    b) this is the second item}
 
   NOTE: you can also use «y» as an operator; «yw»  yanks one word.
 			    
