@@ -17,7 +17,7 @@ being in a link or not) by placing the cursor on it and pressing '?'.
 - COMMANDS                                                   *:VimTutor* *Tutor*
 
 >
-:Tutor {tutorial}           Opens a tutorial. 
+:Tutor {tutorial}           Opens a tutorial.
 
 :VimTutor                   Opens the vimtutor tutorial.
                             is the same as :Tutor vimtutor

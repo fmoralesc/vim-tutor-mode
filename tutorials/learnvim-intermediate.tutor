@@ -120,9 +120,9 @@ Try it out now:
 
 What else is there to learn from [motion.txt](motion.txt)?
 
-* [object-motions](object-motions) 	Larger objects, like [sentences]((), [paragraphs]({) 
+* [object-motions](object-motions) 	Larger objects, like [sentences]((), [paragraphs]({)
                                         and [sections](]]).
-* [jump-motions](jump-motions)	        Moving up and down the jump list as well as 
+* [jump-motions](jump-motions)	        Moving up and down the jump list as well as
                                         the related [change-list-jumps](change-list-jumps).
 
 There are many other motions in [motion.txt](motion.txt) than mentioned here.  It really
@@ -190,7 +190,7 @@ for. You can learn the other [tag](tag) commands later.
                 directly to it. See [:tjump](:tjump)
 
 «g<Ctrl-]»	Show a list of tags matching the keyword under the cursor. If
-		there is only one tag in the list, don't show the list but instead 
+		there is only one tag in the list, don't show the list but instead
                 jump directly to it.
 
 «[I»		Ordinarily, this just shows all lines in the file matching the

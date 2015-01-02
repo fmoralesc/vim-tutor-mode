@@ -45,7 +45,7 @@ syn match tutorNormalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/ contained containedin=tuto
 
 syn match tutorKey /<'\@!.\{-}>'\@!/ 
 
-hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#0088ff 
+hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#0088ff
 hi! link tutorLinkBands Operator
 hi! link tutorLinkAnchor Identifier
 hi! link tutorInternalAnchor Identifier
@@ -59,7 +59,7 @@ hi! link tutorTOC Directory
 hi! tutorLesson cterm=bold gui=bold
 hi! tutorMarks cterm=bold gui=bold
 
-hi! link tutorSampleText Special 
+hi! link tutorSampleText Special
 hi! tutorOK ctermfg=green guifg=#00ff88 cterm=bold gui=bold
 hi! tutorX ctermfg=red guifg=#ff2000  cterm=bold gui=bold
 hi! link tutorInlineOK tutorOK

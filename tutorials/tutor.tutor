@@ -1,7 +1,7 @@
 # CREATING A VIM TUTORIAL WITH VIM-TUTOR-MODE
 
 This tutorial will guide you thrugh the steps required to create a tutorial
-file for vim-tutor-mode. It is also meant as a demo of vim-tutor-mode 
+file for vim-tutor-mode. It is also meant as a demo of vim-tutor-mode
 capabilities.
 
 Table of contents:
@@ -22,7 +22,7 @@ First, you'll need to enable "debug" mode
     let g:tutor_debug = 1
 ~~~
 This will allow saving changes to the tutor files and will disable conceals, so
-you can more easily check your changes. It will also disable ['cursorline'](cursorline). 
+you can more easily check your changes. It will also disable ['cursorline'](cursorline).
 
 After this, create a new .tutor file (we will be practicing on this very file, so you
 don't need to do this now):
@@ -55,7 +55,7 @@ NOTE the space between the marks and the text is required.
 ---> ** This is a lesson description ** {expect:** This is a lesson description **}
 
 Some words (TODO NOTE IMPORTANT TIP ATTENTION) will also be highlighted. You
-don't need to mark them specially. 
+don't need to mark them specially.
 
 2. Turn the line below into a TODO item:
 
@@ -187,14 +187,14 @@ is displayed: «gq» is very useful.
 
 Ex commands can also be displayed by indenting (with 4 or more spaces) a line
 starting with ":".
-   
+
     \:vnew
 
 is displayed
 
     :vnew
 
-11. Copy the command below: 
+11. Copy the command below:
 
 --->  {expect:   :buffers}
 --->    :buffers {expect:   :buffers}
@@ -238,7 +238,7 @@ is satisfied, but
 
 is not.
 
-13. Make both lines the same: 
+13. Make both lines the same:
 
 ---> this is not right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
 ---> ---> this is right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|

@@ -82,7 +82,7 @@ function! tutor#FollowLink(force)
     if l:stack_s =~ 'tutorLink'
         let l:link_start = searchpairpos('\[', '', ')', 'nbcW')
         let l:link_end = searchpairpos('\[', '', ')', 'ncW')
-        if l:link_start[0] == l:link_end[0] 
+        if l:link_start[0] == l:link_end[0]
             let l:linkData = getline(l:link_start[0])[l:link_start[1]-1:l:link_end[1]-1]
         else
             return
