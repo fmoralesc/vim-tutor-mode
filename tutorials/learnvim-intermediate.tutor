@@ -1,0 +1,337 @@
+Table of Contents:
+- [MOTION](*motion*)
+- [MARKS](*marks*)
+- [TAGS](*tags*)
+- [BUFFERS AND ARGS](*buffer-args*)
+
+You don't need to worry about competencies anymore -- you have your Vim
+Driver's license, provisional plates.  You're allowed to drive solo, but
+you're still on zero tolerance conditions and cautioned against excessive
+night driving until you develop the necessary reflexes to handle yourself in
+challenging environments.  You can get yourself around town, but you lack the
+refined strategies of more accomplished drivers.  In the world of Vim, you're
+ready to learn about expert [navigation](navigation).
+
+## MOTION   *motion*
+
+If you haven't read all of [motion.txt](motion.txt) yet, now would be a good time.  I
+know, though, right? It's like 1300 lines long! That'd take hours to read, let
+alone absorb...  Well, I could say the journey of a thousand miles begins with
+the first step, or the secret to eating an elephant is to do so bite at a
+time, but I won't.  Instead, I offer this path through the motion morass:
+
+### Operators & Text Objects
+
+One of Vim's most powerful features is its ability to perform an action over a
+specific portion of text.  In Vim speak, the action is called an [operator](operator)
+and the portion of text is called a [text-object](text-object).  Get to know these
+operators first:
+
+[c](c)	(change) To delete a portion of text and enter insert mode immediately.
+[d](d)	(delete) To delete a portion of text.
+[y](y)	(yank) To copy a portion of text to Vim's internal clipboard (unnamed
+	register,  [quotequote](quotequote))
+
+And start using them with this motion:
+
+[w](w)	(word) To operate from the current word under the cursor.  See
+	[word-motions](word-motions) for the others in this category.
+
+### Exercises
+
+a. Start with your cursor anywhere on the line below marked with --->.
+   Type the following commands:
+
+   Commands:             Description: ~
+
+   1. «0»                  - move to the first character on the line |0|
+   2. «3w»                 - move forward three words (to "ministers")
+   3. «cwVimmers<Esc>»     - change the word "ministers" to "Vimmers"
+
+---> Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
+
+b. Continue practicing with the change-word command on other words within the
+   sentence.
+
+---> Angels and ministers of grace defend us. {expect:NULL}
+
+    * Experiment with the delete-word («dw») command on various words. Use [p](p) to
+      paste a deleted word after the cursor.
+    * Experiment with the yank-word («yw») command. Again, «p» to paste what you've
+      yanked (copied).
+    * Experiment with counts, like «3dw» or «2ywP».
+
+c. Now, try the following commands:
+~~~ normal
+  0fm3dw^Pdt Ep^~
+~~~
+
+---> Angels and ministers of grace defend us. {expect:Ministers of grace and Angels defend us.}
+---> Ministers of grace and Angels defend us. {expect:Ministers of grace and Angels defend us.}
+
+The breakdown of this command into its constituent pieces is:
+~~~ normal
+  0
+  fm
+  3dw
+  ^
+  P
+  dt<space>
+  E
+  p
+  ^
+  ~
+~~~
+Where the new commands are: [0](0) [f](f) [^](^) [P](P) [t](t) [E](E) [~](~)
+
+## MARKS    *marks*
+
+Vim has marks (bookmarks) -- places you can quickly return to later.  See
+[mark-motions](mark-motions) for a good coverage of the many available builtin marks and how
+to set your own user marks.  Pay special attention to the difference between
+lower-case marks {a-z} versus uppercase marks {A-Z}.  The two symbol marks, '
+(quote) and ` (backquote) are very frequently used by accomplished vimmers.
+Experiment with double-tapping these keys to see the difference in their
+behaviour.
+
+### Law of the Instrument
+
+"It is tempting, if the only tool you have is a hammer, to treat everything as
+if it were a nail."                                   -- Abraham Maslow (1966)
+
+Marks are great, but don't fall into the trap of over using your shiny new
+toys for every problem at hand.  Take for example the operation of deleting
+everything from the current cursor to a word you can see a few lines below in
+your document.  Having just learned about marks, it might seem like a good idea
+to do this:
+~~~ normal
+    ma/foo<CR>d`a
+~~~
+But there's a much better way to do that:
+~~~ normal
+    d/foo<CR>
+~~~
+
+Try it out now:
+
+---> delete all this text before foo {expect:foo}
+
+### Becoming an Expert Navigator
+
+What else is there to learn from [motion.txt](motion.txt)?
+
+* [object-motions](object-motions) 	Larger objects, like [sentences]((), [paragraphs]({) 
+                                        and [sections](]]).
+* [jump-motions](jump-motions)	        Moving up and down the jump list as well as 
+                                        the related [change-list-jumps](change-list-jumps).
+
+There are many other motions in [motion.txt](motion.txt) than mentioned here.  It really
+would pay to eventually work your way through that text.
+
+## TAGS  *tags*
+
+### Setting Up Your Tags Environment
+
+You will need:
+
+1. A ctags generated tags file (Exuberant Ctags is the choice for most cases)
+
+Typically this is as easy as:
+
+    $ ctags -R
+
+in the root of your project.
+
+But if you need anything fancier than that, consult  `man ctags`  for guidance.
+
+2. A correctly set ['tags']('tags') option
+
+The Vim default of "./tags,tags" is probably sufficient for most projects but
+you might want to include library tag files or a project-common tags file.
+
+3. A correctly set ['path']('path') option
+
+A good default is:
+~~~ viml
+    :set path=.,**
+~~~
+Which searches the directory of the current file and all directories beneath
+the current directory. See |file-searching| for more details.
+
+These options can be set in your [$MYVIMRC]($MYVIMRC) or, better, within filetype
+specific plugins in "~/.vim/ftplugin/<the-filetype>.vim" or
+"~/.vim/after/ftplugin/<the-filetype>.vim"
+
+With the right setup, you will enjoy a happy tagging lifestyle.
+
+### The Tag Power Commands
+
+There are many tag commands available in Vim, but I'm going to share with you
+only a select few -- a mere dozen or so. These are the most frequently reached
+for. You can learn the other [tag](tag) commands later.
+
+<ctrl-]>	Jump to the keyword under the cursor. Tag jumps are recorded on
+		a |tag-stack|.
+
+<ctrl-t>	Jump to older tag in the stack.
+
+[:ta](:ta)	Jump to newer tag in the stack.
+
+[:0ta](:0ta) or 	Jump to previously jumped-to tag. Use this to return to the tag
+[:0tn](:0tn)	        after wandering away from it. See [:tag](:tag) and [:tnext](:tnext)
+
+[:ts](:ts)/something	Show a list of tags matching the pattern something. See
+		        [:tselect](:tselect)
+
+«g]»		Show a list of tags matching the keyword under the cursor.
+
+[:tj](:tj)/something   Show a list of tags matching the pattern something. If there
+		is only one tag in the list, don't show the list but instead jump directly to
+		it. See |:tjump|
+
+«g<Ctrl-]»	Show a list of tags matching the keyword under the cursor. If
+		there is only one tag in the list, don't show the list but instead jump
+		directly to it.
+
+«[I»		Ordinarily, this just shows all lines in the file matching the
+		keyword under the cursor — a shortcut to ":g/<c-r><c-w>"
+
+TIP: This map (taken from the Vim help) lets you jump to one of the matches:
+~~~ viml
+    :map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+~~~
+
+NOTE:	Use <ctrl-c> to cancel the choice if you don't want to jump to any of
+	them.
+	Use [``](``) to jump back to where you were if you accidentally pressed
+	<esc> or <enter> instead.
+
+While not strictly tagging commands, these little gems are semantically
+related:
+
+«gd» and «gD»	Jump to the local or global declaration of the keyword under
+		the cursor, respectively.
+
+«gf»		Jump to the file under the cursor.
+
+While these commands may not be in your daily tag toolbox, you might call upon
+them occasionally:
+
+[:tags](:tags)                    To see your current tag stack.
+
+[:ptj](:ptjump)/something           To show the tag match in the [preview window](preview-window).
+
+<ctrl-w><ctrl-i>	and
+<ctrl-w><ctrl-d>	To split the window, showing the associated first line or
+		definition, respectively.
+
+Using tags within Vim will speed up your editing by making it easy for you to
+jump around your pile of files.
+
+While there are heavy plugins that aim to make this prettier, the seasoned
+vimmer knows that the extra bling doesn't add any real value to their edits.
+
+Vanilla, when done right, is a classy choice.
+
+## BUFFERS AND ARGS *buffers-args*
+
+Read [windows-intro](windows-intro) for an overview of buffers, windows and tab-pages in Vim.
+
+### The Buffer List
+
+Use the [:ls](:ls) command to show the list of buffers (files) that you're currently
+editing.
+
+If you have the ['hidden']('hidden') option enabled, you can have multiple modified
+buffers open concurrently.
+
+Use the [:b](:b) command to switch between buffers. You can use a buffer number, or
+the partial name of a buffer as the argument to the :b command. Use [CTRL-D](c_ctrl-d)
+to show a list of possible buffer names.
+
+These three things (two commands and the 'hidden' option) combine together to
+provide a very effective buffer workflow within Vim.  In fact, comics have been
+created about this powerful combination: Entry #4 - Flying is faster than
+cycling ( http://of-vim-and-vigor.blogspot.com/p/vim-vigor-comic.html )
+
+But there are two problems with the buffer list:
+1. It isn't able to be reordered,
+2. It isn't able to be renumbered.
+
+### Ordering
+
+We sometimes wish we could re-order the buffers so that we can group related
+ones together: all text files together and all source files before them, say.
+The buffer number is fixed at the time the buffer is created and can never be
+changed throughout the lifetime of the Vim session - it'd be much nicer to be
+able to re-order these as and when we see fit. We can't do this with the buffer
+list.
+
+### Numbering
+
+When buffers are removed from the buffer list, they leave holes in the
+numbering of listed buffers. Many plugins use temporary buffers (some a LOT)
+which can leave huge holes in the numbering of buffers. If you like to jump to
+buffers by remembering their buffer number, it can be a bit unsettling to know
+that you need to jump to buffers 1, 2, 6 and 11 - it'd be much nicer to (even
+if only temporarily) renumber those buffers to: 1, 2, 3, and 4 respectively. We
+can't do this with the buffer list.
+
+While the buffer list is and always will be useful, to solve these two
+problems, we have the Argument List.
+
+### Argument List
+
+Read [arglist](arglist) for details not covered here.
+
+Each window can have a separate argument list. You're free to set and reset the
+argument list as and when you see fit.
+
+#### Useful Arglist Commands
+
+To set the current window's argument list to the .c files in the src/
+directory:
+~~~ viml
+    :args src/*.c
+~~~
+To do that recursively within all of the subdirectories:
+~~~ viml
+    :args src/**/*.c
+~~~
+To see your current argument list:
+~~~ viml
+    :args
+~~~
+To add the .h files to the argument list:
+~~~ viml
+    :argadd src/**/*.h
+~~~
+To jump to an argument by partial buffer (file) name match:
+~~~ viml
+    :argedit {partial name}
+~~~
+To jump to an argument by (1-based) index:
+~~~ viml
+    :argument {index}
+~~~
+To perform an operation on all of your arguments in a single command:
+~~~ viml
+    :argdo %s/Long live \zsthe buffer list\ze!/argument lists/ge | update
+~~~
+If you [:quit](:quit) before visiting all of the files in your argument list, Vim will
+ask you to confirm. To prevent that, use [:qa](:qa) instead.
+
+#### Local vs Global
+
+If you open a new window, it will inherit the parent window's argument list.
+There are functions which will attach to the global argument list or create a
+new local argument list for the current window.
+See [:argglobal](:argglobal) and [:arglocal](:arglocal).
+
+### Other Buffer Commands~
+
+The list of commands from [:badd](:badd) onwards in the [windows.txt](windows.txt) help file show
+the other buffer commands. Another excellent normal-mode command for navigating
+buffers is [CTRL-6](ctrl-6) to switch between the [current-file](current-file) and the
+[alternate-file](alternate-file).
+>

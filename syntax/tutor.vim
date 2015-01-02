@@ -17,13 +17,13 @@ syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
 syn match tutorSampleTextMark /--->/ contained containedin=tutorSampleText conceal cchar=→
 syn region tutorSampleTextExpect start=/ {expect:/ end=/}/ contained containedin=tutorSampleText conceal
 
-syn region tutorCommand start=/^\s\{4,}:/ end=/$/ keepend
-syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend
+syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}:/ end=/$/ keepend contains=tutorKey
+syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
+syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend contains=tutorKey
 syn match tutorShellPrompt /\$/ contained containedin=tutorShellCommand
 
 syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION
-
-syn match tutorKey /<'\@!.\{-}>'\@!/ 
+syn match tutorTOC /\ctable of contents:/
 
 syn match tutorInlineOK /✓/
 syn match tutorInlineX /✗/
@@ -34,6 +34,8 @@ hi! link tutorLinkAnchor Identifier
 hi! link tutorInternalAnchor Identifier
 hi! link tutorSection Title
 
+hi! link tutorTOC Directory
+
 hi! tutorLesson cterm=bold gui=bold
 hi! tutorMarks cterm=bold gui=bold
 
@@ -43,16 +45,21 @@ hi! tutorX ctermfg=red guifg=#ff2000  cterm=bold gui=bold
 hi! link tutorInlineOK tutorOK
 hi! link tutorInlineX tutorX
 
-hi! link tutorCommand Statement
+hi! link tutorCommand String
+hi! link tutorCommandCmd Statement
 hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
 
-syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends
-syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends
-syn match tutorNormalOp /[dcrypx!"#$%&,.-\/:;<>=?@ABCDEFGHIJKLMNOPQRSTUVWXYZfgqstz~]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
+syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
+syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends contains=tutorKey
+syn match tutorNormalOp /[dcrypx!"#$%&,.-\/:;<>=?@ABCDEFGHIJKLMNOPQRSTUVWXYZfgmqstz~]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
 syn match tutorNormalMod /[ia]/ contained  
 syn match tutorNormalObject /["'()<>BW\[\]`bpstwe{}]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn region tutorNormalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
+syn region tutorNormalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
+
+syn match tutorKey /<'\@!.\{-}>'\@!/ 
 
 hi! link tutorNormalOp Operator
 hi! link tutorNormalMod PreProc

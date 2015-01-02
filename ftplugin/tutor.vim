@@ -9,7 +9,7 @@ setlocal cursorline
 setlocal foldmethod=expr
 setlocal foldexpr=tutor#TutorFolds()
 setlocal foldcolumn=3
-setlocal foldlevel=2
+setlocal foldlevel=4
 
 setlocal statusline=%{toupper(expand('%:t:r'))}\ tutorial%=
 setlocal statusline+=%{tutor#InfoText()}

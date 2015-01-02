@@ -140,7 +140,7 @@ function! tutor#CheckText()
     if match(l:text, '{expect:NULL}') == -1
         let l:cur_text = matchstr(l:text, '---> \zs.*\ze {')
         let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}')
-        if l:cur_text == l:expected_text
+        if l:cur_text ==# l:expected_text
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
         else
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
@@ -152,6 +152,10 @@ function! tutor#SetSampleTextMappings()
     noremap <silent> <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
     noremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
     onoremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
+    noremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bc') \| else \| call search('^', 'bcW') \|endif<cr>
+    onoremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bc') \| else \| call search('^', 'bcW') \|endif<cr>
+    nmap <silent> <buffer> 0 ^<esc>
+    noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
 endfunction
 
 
