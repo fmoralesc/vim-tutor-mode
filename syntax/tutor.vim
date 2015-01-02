@@ -52,13 +52,13 @@ hi! link tutorShellPrompt Delimiter
 
 syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
 syn region tutorInlineNormalVIML matchgroup=Delimiter start=/«/ end=/»/ concealends contains=tutorKey
-syn match tutorNormalOp /[dcrypx!"#$%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
+syn match tutorNormalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
 syn match tutorNormalMod /m\@<![ia]/ contained  
-syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 syn region tutorNormalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
 syn region tutorNormalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
-syn match tutorNormalCharSearch /\c[ft]\@<=\w/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
+syn match tutorNormalCharSearch /\c[ftr]\@<=\w/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 syn match tutorNormalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
 
 syn match tutorKey /<'\@!.\{-}>'\@!/ 
