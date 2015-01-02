@@ -19,7 +19,9 @@ the help window by pressing «q».  Sometimes you will be required to modify tex
 Once you have done the changes correctly, the ✗ sign at the left will change 
 to ✓. I imagine you can already see how neat vim can be ;)
 Other times, you'll be prompted to run a command:
+~~~ viml
     :help <ENTER>
+~~~
 Text within <'s and >'s (like <ENTER>) describes a key to press instead of text 
 to type.
 
@@ -503,30 +505,31 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
      
      NOTE that the [:s](:s) command only changed the first occurrence of "thee" in the line.
 
-  3. Now type  
+  3. Now type
+~~~ viml
      :s/thee/the/g 
-     
+~~~
      Adding the g [flag](:s_flags) means to substitute globally in the line, change
      all occurrences of "thee" in the line.
 
 ---> thee best time to see thee flowers is in thee spring. {expect:the best time to see the flowers is in the spring.}
 
   4. To change every occurrence of a character string between two lines, type 
-
+~~~ viml
      :#,#s/old/new/g    
-
+~~~
      where #,# are the line numbers of the range of lines where the substitution is to be done.
 
      Type   
-
+~~~ viml
      :%s/old/new/g      
-
+~~~
      to change every occurrence in the whole file.
 
      Type   
-
+~~~ viml
      :%s/old/new/gc     
-
+~~~
      to find every occurrence in the whole file, with a prompt whether to substitute or not.
 
 # Lesson 4 SUMMARY
@@ -544,17 +547,26 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 
   3. Typing  «%» while the cursor is on a (,),[,],{, or } goes to its match.
 
-  4. To substitute new for the first old in a line type    
+  4. To substitute new for the first old in a line type
+~~~ viml
         :s/old/new
+~~~
      To substitute new for all 'old's on a line type	   
+~~~ viml
         :s/old/new/g
+~~~
      To substitute phrases between two line #'s type	   
+~~~ viml
         :#,#s/old/new/g
+~~~
      To substitute all occurrences in the file type	   
+~~~ viml
         :%s/old/new/g
+~~~
      To ask for confirmation each time add 'c'		   
+~~~ viml
         :%s/old/new/gc
-
+~~~
 # Lesson 5.1: HOW TO EXECUTE AN EXTERNAL COMMAND
 
 ** Type  :!	followed by an external command to execute that command. **
@@ -762,24 +774,30 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
      Repeat several times by pressing  n .
 
   2. Set the 'ic' (Ignore case) option by entering:   
+~~~ viml
         :set ic
-
+~~~
   3. Now search for 'ignore' again by pressing  n
      Notice that Ignore and IGNORE are now also found.
 
-  4. Set the 'hlsearch' and 'incsearch' options:  
+  4. Set the 'hlsearch' and 'incsearch' options:
+~~~ viml
         :set hls is
-
+~~~
   5. Now type the search command again and see what happens:  /ignore <ENTER>
 
-  6. To disable ignoring case enter:  
+  6. To disable ignoring case enter:
+~~~ viml
         :set noic
-
+~~~
   7. To toggle the value of a setting, prepend it with "inv":
+~~~ viml
         :set invic
-
-NOTE:  To remove the highlighting of matches enter:   
+~~~
+NOTE:  To remove the highlighting of matches enter:
+~~~ viml
         :nohlsearch 
+~~~
 NOTE:  If you want to ignore case for just one search command, use  [\c](/\c)
        in the phrase:  /ignore\c  <ENTER>
 			       
@@ -826,12 +844,12 @@ Type  :q <ENTER>    to close the help window.
 
 You can find help on just about any subject, by giving an argument to the
 ":help" command.  Try these (don't forget pressing <ENTER>):
-
+~~~ viml
     :help w
     :help c_CTRL-D
     :help insert-index
     :help user-manual
-		      
+~~~
 # Lesson 7.2: CREATE A STARTUP SCRIPT
 
 ** Enable Vim features **
