@@ -1,14 +1,14 @@
 # vim-tutor-mode
 
-Create interactive tutorials for vim.
+Create and follow interactive tutorials for vim.
 
 # Screenshots
 
 ![screenshot 1 - Tutor command](http://i.imgur.com/I1rAivL.png) 
 
-![screenshot 2 - vimtutor](http://i.imgur.com/POYGsbO.png)
+![screenshot 2 - vimtutor](http://i.imgur.com/1JtpjET.png)
 
-![screenshot 3 - learnvim](http://i.imgur.com/5drXXL2.png)
+![screenshot 3 - learnvim](http://i.imgur.com/EvjIu09.png)
 
 # Installation
 
