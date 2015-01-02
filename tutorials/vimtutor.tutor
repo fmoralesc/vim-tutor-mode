@@ -122,7 +122,7 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
   1. Move the cursor to the first line below marked --->.
      It does not matter on what character the cursor is in that line.
 
-  2. Press  [A](A)  and type in the necessary additions.
+  2. Press  [«A»](A)  and type in the necessary additions.
 
   3. As the text has been appended press <ESC> to return to Normal mode.
 
@@ -621,7 +621,7 @@ NOTE: If you were to exit Vim and start it again with  vim TEST , the file
 
   1. Move the cursor to this line.
 
-  2. Press  [v](v)  and move the cursor to the fifth item below.  Notice that the
+  2. Press  [«v»](v)  and move the cursor to the fifth item below.  Notice that the
      text is highlighted.
 
   3. Press the  :  character.  At the bottom of the screen  
