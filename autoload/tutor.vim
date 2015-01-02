@@ -154,12 +154,16 @@ function! tutor#CheckText()
 endfunction
 
 function! tutor#SetSampleTextMappings()
-    noremap <silent> <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
-    noremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
-    onoremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
-    noremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bc') \| else \| call search('^', 'bcW') \|endif<cr>
-    onoremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bc') \| else \| call search('^', 'bcW') \|endif<cr>
+    noremap <silent> <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
+    noremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
+    onoremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
+    noremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
+    onoremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
     nmap <silent> <buffer> 0 ^<esc>
+    nmap <silent> <buffer> <Home> ^<esc>
+    nmap <silent> <buffer> <End> $
+    imap <silent> <buffer> <Home> <esc>^<esc>:startinsert<cr>
+    imap <silent> <buffer> <End> <esc>$:startinsert<cr>
     noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
 endfunction
 
