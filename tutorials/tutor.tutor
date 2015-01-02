@@ -119,6 +119,17 @@ and are hidden by default. Links to them look like
 
 
 
+# Tutorial links
+
+You can also have links to other tutorials. For this, you'll write the wnchor in the format
+
+    @tutor:TUTORIAL
+
+7. Create a link to this tutorial:
+
+---> A link to the vim-tutor-mode tutorial {expect:A link to [the vim-tutor-mode tutorial](@tutor:tutor)}
+---> A link to [the vim-tutor-mode tutorial](@tutor:tutor) {expect:A link to [the vim-tutor-mode tutorial](@tutor:tutor)}
+
 ### Codeblocks *codeblocks*
 
 vim-tutor-mode tutorials can include viml sections.

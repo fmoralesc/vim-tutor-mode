@@ -92,6 +92,9 @@ function! tutor#FollowLink(force)
             call cursor(l:link_start[0], l:link_end[1])
             call search(l:target, '')
             normal ^
+        elseif a:force != 1 && match(l:target, '^@tutor:') > -1
+            let l:tutor = matchstr(l:target, '@tutor:\zs.*')
+            exe "Tutor ".l:tutor
         else
             exe "help ".l:target
             noremap <silent> <buffer> q :close<cr>
