@@ -583,7 +583,7 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 
   3. As an example type   ls   following the ! and then hit <ENTER>.  This
      will show you a listing of your directory, just as if you were at the
-     shell prompt.  Or use  :!dir  if ls doesn't work.
+     shell prompt.
 
 NOTE:  It is possible to execute any external command this way, also with
        arguments.
@@ -595,7 +595,7 @@ NOTE:  All  :  commands must be finished by hitting <ENTER>
 
 ** To save the changes made to the text, type  :w FILENAME. **
 
-  1. Type  :!dir  or  :!ls  to get a listing of your directory.
+  1. Type  :!ls to get a listing of your directory.
      You already know you must hit <ENTER> after this.
 
   2. Choose a filename that does not exist yet, such as TEST.
@@ -605,18 +605,12 @@ NOTE:  All  :  commands must be finished by hitting <ENTER>
     (where TEST is the filename you chose.)
 
   4. This saves the whole file (the Vim Tutor) under the name TEST.
-     To verify this, type
-        :!dir
-    or
-        :!ls
-    again to see your directory.
+     To verify this, type  :!ls again to see your directory.
 
 NOTE: If you were to exit Vim and start it again with  vim TEST , the file
       would be an exact copy of the tutor when you saved it.
 
-  5. Now remove the file by typing (MS-DOS):
-        :!del TEST
-     or (Unix):
+  5. Now remove the file by typing:
         :!rm TEST
 
 # Lesson 5.3: SELECTING TEXT TO WRITE
@@ -638,8 +632,8 @@ NOTE: If you were to exit Vim and start it again with  vim TEST , the file
         :'<,'>w TEST
      before you press <ENTER>.
 
-  5. Vim will write the selected lines to the file TEST.  Use  :!dir  or  :!ls
-     to see it.  Do not remove it yet!  We will use it in the next lesson.
+  5. Vim will write the selected lines to the file TEST.  Use  :!ls to see it.
+     Do not remove it yet!  We will use it in the next lesson.
 
 NOTE:  Pressing  [«v»](v)  starts [Visual selection](visual-mode).  You can move
        the cursor around to make the selection bigger or smaller.  Then you can
@@ -672,9 +666,8 @@ NOTE:  You can also read the output of an external command.  For example,
   1.  [:!command](:!cmd)  executes an external command.
 
       Some useful examples are:
-     (MS-DOS)     (Unix)
-      :!dir        :!ls        -  shows a directory listing.
-      :!del FILENAME   :!rm FILENAME   -  removes file FILENAME.
+      :!ls        -  shows a directory listing
+      :!rm FILENAME   -  removes file FILENAME
 
   2.  [:w](:w) FILENAME  writes the current Vim file to disk with name FILENAME.
 
@@ -882,7 +875,7 @@ default.  To start using more features you have to create a "vimrc" file.
   1. Make sure Vim is not in compatible mode:
     :set nocp
 
-  2. Look what files exist in the directory:  :!ls   or  :!dir
+  2. Look what files exist in the directory:  :!ls
 
   3. Type the start of a command:  :e
 
