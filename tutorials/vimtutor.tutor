@@ -195,7 +195,7 @@ Now continue with Lesson 2.
 
   3. Move the cursor to the beginning of a word that needs to be deleted.
 
-  4. Type   [d](d)[w](w)	 to make the word disappear.
+  4. Type [«d»](d)[«w»](w)	 to make the word disappear.
 
 ---> There are a some words fun that don't belong paper in this sentence. {expect:There are some words that don't belong in this sentence.}
 
@@ -221,7 +221,7 @@ Now continue with Lesson 2.
 
 
 Many commands that change text are made from an [operator](operator) and a [motion](navigation).
-The format for a delete command with the  [d](d)  delete operator is as follows:
+The format for a delete command with the  [«d»](d)  delete operator is as follows:
 
   	d   motion
 
@@ -230,9 +230,9 @@ The format for a delete command with the  [d](d)  delete operator is as follows:
     motion - is what the operator will operate on (listed below).
 
   A short list of motions:
-    [w](w) - until the start of the next word, EXCLUDING its first character.
-    [e](e) - to the end of the current word, INCLUDING the last character.
-    [$]($) - to the end of the line, INCLUDING the last character.
+    [«w»](w) - until the start of the next word, EXCLUDING its first character.
+    [«e»](e) - to the end of the current word, INCLUDING the last character.
+    [«$»]($) - to the end of the line, INCLUDING the last character.
 
   Thus typing  «de»  will delete from the cursor to the end of the word.
 
@@ -282,7 +282,7 @@ insert a count before the motion to delete more:
   it would be easier to simply type two d's to delete a line.
 
   1. Move the cursor to the second line in the phrase below.
-  2. Type  [dd](dd)  to delete the line.
+  2. Type  [«dd»](dd)  to delete the line.
   3. Now move to the fourth line.
   4. Type   «2dd»   to delete two lines.
 
@@ -322,12 +322,12 @@ insert a count before the motion to delete more:
   5. The format for a change command is:
                operator   [number]   motion
      where:
-       operator - is what to do, such as  [d](d)  for delete
+       operator - is what to do, such as  [«d»](d)  for delete
        [number] - is an optional count to repeat the motion
-       motion   - moves over the text to operate on, such as  [w](w) (word),
-		  [$]($) (to the end of line), etc.
+       motion   - moves over the text to operate on, such as  [«w»](w) (word),
+		  [«$»]($) (to the end of line), etc.
 
-  6. To move to the start of the line use a zero:  [0](0)
+  6. To move to the start of the line use a zero:  [«0»](0)
 
   7. To undo previous actions, type: 	       «u»  (lowercase u)
      To undo all the changes on a line, type:  «U»  (capital U)
@@ -354,7 +354,7 @@ insert a count before the motion to delete more:
 
 # Lesson 3.2: THE REPLACE COMMAND
 
-** Type  rx  to replace the character at the cursor with  x . **
+** Type «rx»  to replace the character at the cursor with  x . **
 
   1. Move the cursor to the first line below marked --->.
 
@@ -373,7 +373,7 @@ NOTE: Remember that you should be learning by doing, not memorization.
 
 # Lesson 3.3: THE CHANGE OPERATOR
 
-** To change until the end of a word, type  ce  **
+** To change until the end of a word, type «ce»  **
 
   1. Move the cursor to the first line below marked --->.
 
@@ -388,7 +388,7 @@ NOTE: Remember that you should be learning by doing, not memorization.
 ---> This lubw has a few wptfd that mrrf changing usf the change operator. {expect:This line has a few words that need changing using the change operator.}
 ---> This line has a few words that need changing using the change operator. {expect:This line has a few words that need changing using the change operator.}
 
-Notice that  [c](c)e  deletes the word and places you in Insert mode.
+Notice that  [«c»](c)e  deletes the word and places you in Insert mode.
 
 # Lesson 3.4: MORE CHANGES USING c
 
@@ -413,12 +413,11 @@ NOTE:  You can use the Backspace key to correct mistakes while typing.
 
 # Lesson 3 SUMMARY
 
-dd
-  1. To put back text that has just been deleted, type   [p](p) .  This puts the
+  1. To put back text that has just been deleted, type   [«p»](p) .  This puts the
      deleted text AFTER the cursor (if a line was deleted it will go on the
      line below the cursor).
 
-  2. To replace the character under the cursor, type [r](r) and then the
+  2. To replace the character under the cursor, type [«r»](r) and then the
      character you want to have there.
 
   3. The [change operator](c) allows you to change from the cursor to where the
@@ -434,7 +433,7 @@ Now go on to the next lesson.
 # Lesson 4.1: CURSOR LOCATION AND FILE STATUS
 
 ** Type <CTRL-G> to show your location in the file and the file status.
-Type  G  to move to a line in the file. **
+Type  «G»  to move to a line in the file. **
 
 NOTE: Read this entire lesson before executing any of the steps!!
 
@@ -445,8 +444,8 @@ NOTE: Read this entire lesson before executing any of the steps!!
 NOTE:  You may see the cursor position in the lower right corner of the screen
        This happens when the ['ruler']('ruler') option is set (see  :help 'ruler'  )
 
-  2. Press [G](G)  to move you to the bottom of the file.
-     Type  [gg](gg)  to move you to the start of the file.
+  2. Press [«G»](G)  to move you to the bottom of the file.
+     Type  [«gg»](gg)  to move you to the start of the file.
 
   3. Type the number of the line you were on and then  «G» .  This will
      return you to the line you were on when you first pressed <CTRL-G>.
@@ -455,7 +454,7 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
 # Lesson 4.2: THE SEARCH COMMAND
 
-** Type  /  followed by a phrase to search for the phrase. **
+** Type «/» followed by a phrase to search for the phrase. **
 
   1. In Normal mode type the  «/»  character.  Notice that it and the cursor
      appear at the bottom of the screen as with the  :	command.
@@ -481,7 +480,7 @@ NOTE: When the search reaches the end of the file it will continue at the
 
   1. Place the cursor on any (, [, or { in the line below marked --->.
 
-  2. Now type the  [%](%)  character.
+  2. Now type the  [«%»](%)  character.
 
   3. The cursor will move to the matching parenthesis or bracket.
 
@@ -637,7 +636,7 @@ NOTE: If you were to exit Vim and start it again with  vim TEST , the file
   5. Vim will write the selected lines to the file TEST.  Use  :!dir  or  :!ls
      to see it.  Do not remove it yet!  We will use it in the next lesson.
 
-NOTE:  Pressing  [v](v)  starts [Visual selection](visual-mode).  You can move 
+NOTE:  Pressing  [«v»](v)  starts [Visual selection](visual-mode).  You can move 
        the cursor around to make the selection bigger or smaller.  Then you can 
        use an operator to do something with the text.  For example, d deletes 
        the text.
@@ -674,7 +673,7 @@ NOTE:  You can also read the output of an external command.  For example,
 
   2.  [:w](:w) FILENAME  writes the current Vim file to disk with name FILENAME.
 
-  3.  [v](v)  motion  :w FILENAME  saves the Visually selected lines in file
+  3.  [«v»](v)  motion  :w FILENAME  saves the Visually selected lines in file
       FILENAME.
 
   4.  [:r](:r) FILENAME  retrieves disk file FILENAME and puts it below the
@@ -704,7 +703,7 @@ NOTE:  You can also read the output of an external command.  For example,
 
 # Lesson 6.2: THE APPEND COMMAND
 
-** Type  a  to insert text AFTER the cursor. **
+** Type «a» to insert text AFTER the cursor. **
 
   1. Move the cursor to the start of the line below marked --->.
   
@@ -720,7 +719,7 @@ NOTE:  You can also read the output of an external command.  For example,
 ---> This li will allow you to pract appendi text to a line. {expect:This line will allow you to practice appending text to a line.}
 ---> This line will allow you to practice appending text to a line. {expect:This line will allow you to practice appending text to a line.}
 
-NOTE:  [a](a), [i](i) and [A](A) all go to the same Insert mode, the only difference is where
+NOTE:  [«a»](a), [«i»](i) and [«A»](A) all go to the same Insert mode, the only difference is where
        the characters are inserted.
 
 # Lesson 6.3: ANOTHER WAY TO REPLACE
@@ -803,17 +802,17 @@ NOTE:  If you want to ignore case for just one search command, use  [\c](/\c)
 			       
 # Lesson 6 SUMMARY
 
-  1. Type  o  to open a line BELOW the cursor and start Insert mode.
-     Type  O  to open a line ABOVE the cursor.
+  1. Type «o» to open a line BELOW the cursor and start Insert mode.
+     Type «O» to open a line ABOVE the cursor.
 
-  2. Type  a  to insert text AFTER the cursor.
-     Type  A  to insert text after the end of the line.
+  2. Type «a» to insert text AFTER the cursor.
+     Type «A» to insert text after the end of the line.
 
-  3. The  e  command moves to the end of a word.
+  3. The «e» command moves to the end of a word.
 
-  4. The  y  operator yanks (copies) text,  p  puts (pastes) it.
+  4. The «y» operator yanks (copies) text,  p  puts (pastes) it.
 
-  5. Typing a capital  R  enters Replace mode until  <ESC>  is pressed.
+  5. Typing a capital «R» enters Replace mode until  <ESC>  is pressed.
 
   6. Typing "[:set](:set) xxx" sets the option "xxx".  Some options are:
   	'ic' 'ignorecase'	ignore upper/lower case when searching
