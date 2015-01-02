@@ -48,7 +48,7 @@ a. Start with your cursor anywhere on the line below marked with --->.
    2. «3w»                 - move forward three words (to "ministers")
    3. «cwVimmers<Esc>»     - change the word "ministers" to "Vimmers"
 
----> Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
+--->  Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
 
 b. Continue practicing with the change-word command on other words within the
    sentence.
@@ -66,7 +66,7 @@ c. Now, try the following commands:
   0fm3dw^Pdt Ep^~
 ~~~
 
----> Angels and ministers of grace defend us. {expect:Ministers of grace and Angels defend us.}
+---> Angels and defend us. {expect:Ministers of grace and Angels defend us.}
 ---> Ministers of grace and Angels defend us. {expect:Ministers of grace and Angels defend us.}
 
 The breakdown of this command into its constituent pieces is:
