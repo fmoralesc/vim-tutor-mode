@@ -35,7 +35,7 @@ function! tutor#ForwardSkipConceal(count)
             let c+=len(matchstr(line[c-1:], '.'))
         endif
     endwhile
-    return ":\<C-u>\e".mvcnt.'l'
+    return mvcnt.'l'
 endfunction
 
 function! tutor#BackwardSkipConceal(count)
@@ -74,7 +74,7 @@ function! tutor#BackwardSkipConceal(count)
             let c-=len(matchstr(line[:c-2], '.$'))
         endif
     endwhile
-    return ":\<C-u>\e".mvcnt.'h'
+    return mvcnt.'h'
 endfunction
 
 function! tutor#FollowLink(force)
