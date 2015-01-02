@@ -144,11 +144,10 @@ the document.
 
 13. 
 
----> this is not right {expect:---> this is right}
----> ---> this is right {expect:---> this is right}
+---> this is not right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
+---> ---> this is right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
 
 14.
 
-TODO: Fix the syntax file and checker to handle this case.
-
----> ---> this is some text {expect:NULL} {expect:---> this is some text {expect:NULL}}
+---> this is some text |expect:---> this is some text {expect:NULL}|
+---> ---> this is some text {expect:NULL} |expect:---> this is some text {expect:NULL}|

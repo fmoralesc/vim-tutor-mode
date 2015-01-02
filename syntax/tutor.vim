@@ -17,6 +17,7 @@ syn match tutorTextMark /--->/ conceal cchar=→
 syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
 syn match tutorSampleTextMark /^--->/ contained containedin=tutorSampleText conceal cchar=→
 syn match tutorSampleTextExpect /\}\@<! {expect:.\+}\s*$/ contained containedin=tutorSampleText conceal
+syn match tutorSampleTextExpect /|\@<! |expect:.\+|\s*$/ contained containedin=tutorSampleText conceal
 
 syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}:/ end=/$/ keepend contains=tutorKey
 syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
