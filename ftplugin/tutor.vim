@@ -20,10 +20,18 @@ setlocal foldlevel=4
 setlocal statusline=%{toupper(expand('%:t:r'))}\ tutorial%=
 setlocal statusline+=%{tutor#InfoText()}
 
-noremap <buffer> <expr> l tutor#ForwardSkipConceal(v:count1)
-noremap <buffer> <expr> h tutor#BackwardSkipConceal(v:count1)
-noremap <buffer> <expr> <right> tutor#ForwardSkipConceal(v:count1)
-noremap <buffer> <expr> <left> tutor#BackwardSkipConceal(v:count1)
+if mapcheck('l') == ''
+    noremap <buffer> <expr> l tutor#ForwardSkipConceal(v:count1)
+endif
+if mapcheck('h') == ''
+    noremap <buffer> <expr> h tutor#BackwardSkipConceal(v:count1)
+endif
+if mapcheck('<right>') == ''
+    noremap <buffer> <expr> <right> tutor#ForwardSkipConceal(v:count1)
+endif
+if mapcheck('<left>') == ''
+    noremap <buffer> <expr> <left> tutor#BackwardSkipConceal(v:count1)
+endif
 noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> <2-LeftMouse> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
