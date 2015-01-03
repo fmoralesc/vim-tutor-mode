@@ -1,3 +1,77 @@
+" vim: set fdm=marker :
+
+" Setup: {{{1
+function! tutor#SetupVim()
+    if has('syntax') 
+        syntax on
+    endif
+endfunction
+
+" Mappings: {{{1
+
+function! s:CheckMaps()
+    nmap
+endfunction
+
+function! s:MapKeyWithRedirect(key, cmd) 
+    if maparg(a:key) != ''
+        redir => l:keys
+        silent call s:CheckMaps()
+        redir END
+        let l:key_list = split(l:keys, '\n')
+
+        let l:raw_map = filter(copy(l:key_list), "v:val =~ '\\* ".a:key."'")
+        if len(l:raw_map) == 0
+            exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+            return
+        endif
+        let l:map_data = split(l:raw_map[0], '\s*')
+        
+        exe "noremap <buffer> <expr> ".l:map_data[0]." ".a:cmd
+    else
+        exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+    endif
+endfunction
+
+function! tutor#MouseDoubleClick()
+    if foldclosed(line('.')) > -1
+        normal  zo
+    else
+        if match(getline('.'), '^#\{1,} ') > -1
+            normal zc
+        else
+            call tutor#FollowLink(0)
+        endif
+    endif
+endfunction
+
+function! tutor#SetNormalMappings()
+    call s:MapKeyWithRedirect('l', 'tutor#ForwardSkipConceal(v:count1)')
+    call s:MapKeyWithRedirect('h', 'tutor#BackwardSkipConceal(v:count1)')
+    call s:MapKeyWithRedirect('<right>', 'tutor#ForwardSkipConceal(v:count1)')
+    call s:MapKeyWithRedirect('<left>', 'tutor#BackwardSkipConceal(v:count1)')
+
+    noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
+    noremap <silent> <buffer> <2-LeftMouse> :call tutor#MouseDoubleClick()<cr>
+    noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
+endfunction
+
+function! tutor#SetSampleTextMappings()
+    noremap <silent> <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
+    noremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
+    onoremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
+    noremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
+    onoremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
+    nmap <silent> <buffer> 0 ^<esc>
+    nmap <silent> <buffer> <Home> ^<esc>
+    nmap <silent> <buffer> <End> $
+    imap <silent> <buffer> <Home> <esc>^<esc>:startinsert<cr>
+    imap <silent> <buffer> <End> <esc>$:startinsert<cr>
+    noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
+endfunction
+
+" Navigation: {{{1
+
 " taken from http://stackoverflow.com/a/24224578
 
 function! tutor#ForwardSkipConceal(count)
@@ -77,6 +151,8 @@ function! tutor#BackwardSkipConceal(count)
     return mvcnt.'h'
 endfunction
 
+" Hypertext: {{{1
+
 function! tutor#FollowLink(force)
     let l:stack_s = join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), '')
     if l:stack_s =~ 'tutorLink'
@@ -111,6 +187,8 @@ function! tutor#FollowHelp()
     endif
 endfunction
 
+" Folding And Info: {{{1
+
 function! tutor#TutorFolds()
     if getline(v:lnum) =~ '^#\{1,6}'
         return ">". len(matchstr(getline(v:lnum), '^#\{1,6}'))
@@ -128,6 +206,7 @@ function! tutor#InfoText()
     return join(l:info_parts, " ")
 endfunction
 
+" Marks {{{1
 function! tutor#PlaceXMarks()
     call cursor(1, 1)
     let b:tutor_sign_id = 1
@@ -138,15 +217,14 @@ function! tutor#PlaceXMarks()
     call cursor(1, 1)
 endfunction
 
-function! tutor#CheckText()
-    let l:text = getline('.')
-    if match(l:text, '{expect:NULL}\s*$') == -1
+function! tutor#CheckText(text)
+    if match(a:text, '{expect:NULL}\s*$') == -1
         if match(getline('.'), '|expect:.\+|') == -1
-            let l:cur_text = matchstr(l:text, '---> \zs.\{-}\ze {expect:')
-            let l:expected_text = matchstr(l:text, '{expect:\zs.*\ze}\s*$')
+            let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
+            let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')
         else
-            let l:cur_text = matchstr(l:text, '---> \zs.\{-}\ze |expect:')
-            let l:expected_text = matchstr(l:text, '|expect:\zs.*\ze|\s*$')
+            let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
+            let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
         endif
         if l:cur_text ==# l:expected_text
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
@@ -156,32 +234,14 @@ function! tutor#CheckText()
     endif
 endfunction
 
-function! tutor#SetSampleTextMappings()
-    noremap <silent> <buffer> A :if match(getline('.'), '^--->') > -1 \| call search('\s{\@=', 'Wc') \| startinsert \| else \| startinsert! \| endif<cr>
-    noremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
-    onoremap <silent> <buffer> $ :if match(getline('.'), '^--->') > -1 \| call search('.\s{\@=', 'Wc') \| else \| call search('$', 'Wc') \| endif<cr>
-    noremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
-    onoremap <silent> <buffer> ^ :if match(getline('.'), '^--->') > -1 \| call search('\(--->\s\)\@<=.', 'bcW') \| else \| call search('^', 'bcW') \|endif<cr>
-    nmap <silent> <buffer> 0 ^<esc>
-    nmap <silent> <buffer> <Home> ^<esc>
-    nmap <silent> <buffer> <End> $
-    imap <silent> <buffer> <Home> <esc>^<esc>:startinsert<cr>
-    imap <silent> <buffer> <End> <esc>$:startinsert<cr>
-    noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
-endfunction
-
 function! tutor#OnTextChanged()
-    if match(getline('.'), '^--->') > -1
-        call tutor#CheckText()
+    let l:text = getline('.')
+    if match(l:text, '^--->') > -1
+        call tutor#CheckText(l:text)
     endif
 endfunction
 
-function! tutor#SetupVim()
-    if has('syntax') 
-        syntax on
-    endif
-endfunction
-
+" Tutor Cmd: {{{1
 function! tutor#TutorCmd(tutor_name)
     let l:tutors = globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0, 1)
     if len(l:tutors) == 1

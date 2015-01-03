@@ -9,7 +9,7 @@ syn match tutorURL /https\?:\/\/[[:graph:]]\+\>\/\?/
 syn match tutorEmail /\<[[:graph:]]\+@[[:graph:]]\+\>/
 
 syn match tutorSection /^#\{1,6}\s.\+$/ fold
-syn match tutorSectionBullet /#\{1,6}/ contained containedin=tutorSection conceal cchar=+
+syn match tutorSectionBullet /#/ contained containedin=tutorSection conceal cchar=+
 syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
 
 syn region tutorLesson matchgroup=Delimiter start=/\(\\\@<![*!]\)\{2}\s\+/ end=/\s\+\(\\\@<![*!]\)\{2}/ concealends contains=tutorInlineNormalVIML
