@@ -2,6 +2,8 @@
 
 Create and follow interactive tutorials for vim.
 
+### Ideas, suggestions, bug reports, code and tutorials are welcome! :)
+
 # Screenshots
 
 ![screenshot 1 - Tutor command](http://i.imgur.com/I1rAivL.png)
