@@ -34,6 +34,8 @@ call tutor#SetSampleTextMappings()
 sign define tutorok text=✓ texthl=tutorOK
 sign define tutorbad text=✗ texthl=tutorX
 
-call tutor#PlaceXMarks()
-au! TextChanged <buffer> call tutor#OnTextChanged()
-au! TextChangedI <buffer> call tutor#OnTextChanged()
+if  !exists('g:tutor_debug') || g:tutor_debug == 0
+    call tutor#PlaceXMarks()
+    au! TextChanged <buffer> call tutor#OnTextChanged()
+    au! TextChangedI <buffer> call tutor#OnTextChanged()
+endif

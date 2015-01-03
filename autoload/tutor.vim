@@ -22,14 +22,14 @@ function! s:MapKeyWithRedirect(key, cmd)
 
         let l:raw_map = filter(copy(l:key_list), "v:val =~ '\\* ".a:key."'")
         if len(l:raw_map) == 0
-            exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+            exe "nnoremap <buffer> <expr> ".a:key." ".a:cmd
             return
         endif
         let l:map_data = split(l:raw_map[0], '\s*')
         
-        exe "noremap <buffer> <expr> ".l:map_data[0]." ".a:cmd
+        exe "nnoremap <buffer> <expr> ".l:map_data[0]." ".a:cmd
     else
-        exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+        exe "nnoremap <buffer> <expr> ".a:key." ".a:cmd
     endif
 endfunction
 
@@ -45,15 +45,22 @@ function! tutor#MouseDoubleClick()
     endif
 endfunction
 
+function! tutor#InjectCommand()
+    let l:cmd = substitute(getline('.'),  '^\s*', '', '')
+    exe l:cmd
+    redraw | echohl WarningMsg | echon  "tutor: ran" | echohl None | echon " " | echohl Statement | echon l:cmd 
+endfunction
+
 function! tutor#SetNormalMappings()
     call s:MapKeyWithRedirect('l', 'tutor#ForwardSkipConceal(v:count1)')
     call s:MapKeyWithRedirect('h', 'tutor#BackwardSkipConceal(v:count1)')
     call s:MapKeyWithRedirect('<right>', 'tutor#ForwardSkipConceal(v:count1)')
     call s:MapKeyWithRedirect('<left>', 'tutor#BackwardSkipConceal(v:count1)')
 
-    noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
-    noremap <silent> <buffer> <2-LeftMouse> :call tutor#MouseDoubleClick()<cr>
-    noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
+    nnoremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
+    nnoremap <silent> <buffer> <2-LeftMouse> :call tutor#MouseDoubleClick()<cr>
+    nnoremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
+    nnoremap <buffer> >> :call tutor#InjectCommand()<cr>
 endfunction
 
 function! tutor#SetSampleTextMappings()
