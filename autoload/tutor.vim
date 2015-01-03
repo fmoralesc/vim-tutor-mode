@@ -182,11 +182,25 @@ function! tutor#SetupVim()
     endif
 endfunction
 
-
-
-let s:path = expand('<sfile>:h:h')."/tutorials/"
+function! tutor#TutorCmd(tutor_name)
+    let l:tutors = globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0, 1)
+    if len(l:tutors) == 1
+        exe "edit ".l:tutors[0]
+    else
+        let l:idx = 0
+        let l:candidates = ['Several tutorials with that name found. Select one:']
+        for candidate in map(l:tutors, 'fnamemodify(v:val, ":h:h:t")."/".fnamemodify(v:val, ":t")')
+            let l:idx += 1
+            call add(l:candidates, l:idx.'. '.candidate)
+        endfor
+        let l:tutor_to_open = inputlist(l:candidates)
+        exe "edit ".substitute(l:candidates[l:tutor_to_open], '^\d\+. ', '', '')
+    endif
+endfunction
 
 function! tutor#TutorCmdComplete(lead,line,pos)
-    let l:tutorials = glob(s:path."*.tutor", 0, 1)
-    return map(tutorials, 'fnamemodify(v:val, ":t:r")')
+    let l:tutorials = globpath(&rtp, "tutorials/*.tutor", 0, 1)
+    let l:names = uniq(sort(map(l:tutorials, 'fnamemodify(v:val, ":t:r")')))
+    return join(l:names, "\n")
 endfunction
+

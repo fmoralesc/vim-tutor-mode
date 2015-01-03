@@ -1,3 +1,2 @@
-let s:path = expand('<sfile>:h:h')."/tutorials"
-exe "command! -nargs=1 -complete=customlist,tutor#TutorCmdComplete Tutor :e ".s:path."/<args>.tutor"
+exe "command! -nargs=1 -complete=custom,tutor#TutorCmdComplete Tutor call tutor#TutorCmd(<f-args>)"
 command! -nargs=0 VimTutor Tutor vimtutor
