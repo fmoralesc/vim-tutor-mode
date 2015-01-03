@@ -170,12 +170,19 @@ function! tutor#SetSampleTextMappings()
     noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
 endfunction
 
-
 function! tutor#OnTextChanged()
     if match(getline('.'), '^--->') > -1
         call tutor#CheckText()
     endif
 endfunction
+
+function! tutor#SetupVim()
+    if has('syntax') 
+        syntax on
+    endif
+endfunction
+
+
 
 let s:path = expand('<sfile>:h:h')."/tutorials/"
 

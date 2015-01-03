@@ -1,3 +1,5 @@
+call tutor#SetupVim()
+
 if !exists('g:tutor_debug') || g:tutor_debug == 0
     setlocal buftype=nofile
     setlocal concealcursor+=inv
