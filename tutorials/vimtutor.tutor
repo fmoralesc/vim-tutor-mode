@@ -12,11 +12,11 @@ be saved.  Feel free to mess things up, and remember that pressing
 [«<ESCAPE>»](<Esc>) and then [u](u) will undo the latest change.
 
 This tutorial is interactive, and there are a few things you should know.
-Pressing [«<ENTER>»](<Enter>) over text highligted [like this](holy-grail) will take you to some relevant 
+Pressing [«<ENTER>»](<Enter>) over text highligted [like this](holy-grail) will take you to some relevant
 help (hopefully), and pressing ? over any word will try to do so too. You can close
 the help window by pressing «q».  Sometimes you will be required to modify text like
 --->  this here {expect:this here}
-Once you have done the changes correctly, the ✗ sign at the left will change 
+Once you have done the changes correctly, the ✗ sign at the left will change
 to ✓. I imagine you can already see how neat vim can be ;)
 Other times, you'll be prompted to run a command (I'll explain this later):
 ~~~ viml
@@ -26,7 +26,7 @@ or press a sequence of keys
 ~~~ normal
     <ESC>0f<SPACE>d3wP$P
 ~~~
-Text within <'s and >'s (like <ENTER>) describes a key to press instead of text 
+Text within <'s and >'s (like <ENTER>) describes a key to press instead of text
 to type.
 
 Now, make sure that your Shift-Lock key is NOT depressed and press the «j»
@@ -37,11 +37,11 @@ screen.
 
 ** To move the cursor, press the «h»,«j»,«k»,«l» keys as indicated. **
 
- 	     ↑
-	     k		    Hint:  The h key is at the left and moves left.
-       ← h	 l →		   The l key is at the right and moves right.
-	     j			   The j key looks like a down arrow.
-	     ↓
+         ↑
+         k          Hint: The h key is at the left and moves left.
+       ← h   l →          The l key is at the right and moves right.
+         j                The j key looks like a down arrow.
+         ↓
 
   1. Move the cursor around the screen until you are comfortable.
 
@@ -62,15 +62,15 @@ NOTE: The cursor keys should also work.  But using hjkl you will be able to
 
   1. Press the <ESC> key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
 
-  2. Type:	
-  
+  2. Type:
+
      :q! <ENTER>.
 
      This exits the editor, DISCARDING any changes you have made.
 
   3. Open vim and get back here by executing the command that got you into this
-     tutor. That might be:  
-     
+     tutor. That might be:
+
      :Vimtutor <ENTER>
 
   4. If you have these steps memorized and are confident, execute steps
@@ -87,7 +87,7 @@ NOTE:  [:q!](:q) <ENTER>  discards any changes you made.  In a few lessons you
 
 1. Move the cursor to the line below marked --->.
 
-2. To fix the errors, move the cursor until it is on top of the 
+2. To fix the errors, move the cursor until it is on top of the
    character to be deleted.
 
 3. Press [the «x» key](x) to delete the unwanted character.
@@ -130,7 +130,7 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
 
   3. As the text has been appended press <ESC> to return to Normal mode.
 
-  4. Move the cursor to the second line marked ---> and repeat 
+  4. Move the cursor to the second line marked ---> and repeat
      steps 2 and 3 to correct this sentence.
 
 ---> There is some text missing from th {expect:There is some text missing from this line.}
@@ -149,17 +149,17 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
   1. Exit this tutor as you did in lesson 1.2:  :q!
      Or, if you have access to another terminal, do the following there.
 
-  2. At the shell prompt type this command:  
+  2. At the shell prompt type this command:
 
-     $ vim tutor <ENTER>
+     $ vim tutor
 
      'vim' is the command to start the Vim editor, 'tutor' is the name of the
      file you wish to edit.  Use a file that may be changed.
 
   3. Insert and delete text as you learned in the previous lessons.
 
-  4. Save the file with changes and exit Vim with:  
-    
+  4. Save the file with changes and exit Vim with:
+
      :wq  <ENTER>
 
   5. If you have quit vimtutor in step 1 restart the vimtutor and move down to
@@ -170,20 +170,20 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
 # Lesson 1 SUMMARY
 
   1. The cursor is moved using either the arrow keys or the hjkl keys.
-	 h (left)	j (down)       k (up)	    l (right)
+     h (left)   j (down)       k (up)       l (right)
 
-  2. To start Vim from the shell prompt type:  
-  
-    $ vim FILENAME <ENTER>
+  2. To start Vim from the shell prompt type:
 
-  3. To exit Vim type:	   <ESC>   :q!	 <ENTER>  to trash all changes.
-	     OR type:	   <ESC>   :wq	 <ENTER>  to save the changes.
+    $ vim FILENAME
+
+  3. To exit Vim type:     <ESC>   :q!   <ENTER>  to trash all changes.
+         OR type:      <ESC>   :wq   <ENTER>  to save the changes.
 
   4. To delete the character at the cursor type:  x
 
   5. To insert or append text type:
-	 i   type inserted text   <ESC>		insert before the cursor
-	 A   type appended text   <ESC>         append after the line
+     i   type inserted text   <ESC>     insert before the cursor
+     A   type appended text   <ESC>         append after the line
 
 NOTE: Pressing <ESC> will place you in Normal mode or will cancel
       an unwanted and partially completed command.
@@ -200,7 +200,7 @@ Now continue with Lesson 2.
 
   3. Move the cursor to the beginning of a word that needs to be deleted.
 
-  4. Type [«d»](d)[«w»](w)	 to make the word disappear.
+  4. Type [«d»](d)[«w»](w)   to make the word disappear.
 
 ---> There are a some words fun that don't belong paper in this sentence. {expect:There are some words that don't belong in this sentence.}
 
@@ -228,7 +228,7 @@ Now continue with Lesson 2.
 Many commands that change text are made from an [operator](operator) and a [motion](navigation).
 The format for a delete command with the  [«d»](d)  delete operator is as follows:
 
-  	d   motion
+    d   motion
 
   Where:
     d      - is the delete operator.
@@ -268,7 +268,7 @@ NOTE:  Pressing just the motion while in Normal mode without an operator will
 
 In the combination of the delete operator and a motion mentioned above you
 insert a count before the motion to delete more:
-	 d   number   motion
+     d   number   motion
 
   1. Move the cursor to the first UPPER CASE word in the line marked --->.
 
@@ -310,7 +310,7 @@ insert a count before the motion to delete more:
   4. This time fix all the errors on the line using the  «x»  command.
   5. Now type a capital  «U»  to return the line to its original state.
   6. Now type  «u»  a few times to undo the  U  and preceding commands.
-  7. Now type <CTRL-R> (keeping CTRL key pressed while hitting R) a few times
+  7. Now type <CTRL-R> (keeping Ctrl key pressed while hitting R) a few times
      to redo the commands (undo the undo's).
 
 ---> Fiix the errors oon thhis line and reeplace them witth undo. {expect:Fix the errors on this line and replace them with undo.}
@@ -330,17 +330,17 @@ insert a count before the motion to delete more:
        operator - is what to do, such as  [«d»](d)  for delete
        [number] - is an optional count to repeat the motion
        motion   - moves over the text to operate on, such as  [«w»](w) (word),
-		  [«$»]($) (to the end of line), etc.
+          [«$»]($) (to the end of line), etc.
 
   6. To move to the start of the line use a zero:  [«0»](0)
 
-  7. To undo previous actions, type: 	       «u»  (lowercase u)
+  7. To undo previous actions, type:           «u»  (lowercase u)
      To undo all the changes on a line, type:  «U»  (capital U)
-     To undo the undo's, type:		       <CTRL-R>
+     To undo the undo's, type:             <CTRL-R>
 
 # Lesson 3.1: THE PUT COMMAND
 
-** Type	p to put previously deleted text after the cursor. **
+** Type p to put previously deleted text after the cursor. **
 
   1. Move the cursor to the first ---> line below.
 
@@ -431,7 +431,7 @@ NOTE:  You can use the Backspace key to correct mistakes while typing.
 
   4. The format for change is:
 
-	 c   [number]   motion
+     c   [number]   motion
 
 Now go on to the next lesson.
 
@@ -462,7 +462,7 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 ** Type «/» followed by a phrase to search for the phrase. **
 
   1. In Normal mode type the  «/»  character.  Notice that it and the cursor
-     appear at the bottom of the screen as with the  :	command.
+     appear at the bottom of the screen as with the  :  command.
 
   2. Now type 'errroor' <ENTER>.  This is the word you want to search for.
 
@@ -505,34 +505,34 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 
   2. Type
 
-     :s/thee/the <ENTER> 
-     
+     :s/thee/the <ENTER>
+
      NOTE that the [:s](:s) command only changed the first occurrence of "thee" in the line.
 
   3. Now type
 ~~~ viml
-     :s/thee/the/g 
+     :s/thee/the/g
 ~~~
      Adding the g [flag](:s_flags) means to substitute globally in the line, change
      all occurrences of "thee" in the line.
 
 ---> thee best time to see thee flowers is in thee spring. {expect:the best time to see the flowers is in the spring.}
 
-  4. To change every occurrence of a character string between two lines, type 
+  4. To change every occurrence of a character string between two lines, type
 ~~~ viml
-     :#,#s/old/new/g    
+     :#,#s/old/new/g
 ~~~
      where #,# are the line numbers of the range of lines where the substitution is to be done.
 
-     Type   
+     Type
 ~~~ viml
-     :%s/old/new/g      
+     :%s/old/new/g
 ~~~
      to change every occurrence in the whole file.
 
-     Type   
+     Type
 ~~~ viml
-     :%s/old/new/gc     
+     :%s/old/new/gc
 ~~~
      to find every occurrence in the whole file, with a prompt whether to substitute or not.
 
@@ -555,27 +555,27 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 ~~~ viml
         :s/old/new
 ~~~
-     To substitute new for all 'old's on a line type	   
+     To substitute new for all 'old's on a line type
 ~~~ viml
         :s/old/new/g
 ~~~
-     To substitute phrases between two line #'s type	   
+     To substitute phrases between two line #'s type
 ~~~ viml
         :#,#s/old/new/g
 ~~~
-     To substitute all occurrences in the file type	   
+     To substitute all occurrences in the file type
 ~~~ viml
         :%s/old/new/g
 ~~~
-     To ask for confirmation each time add 'c'		   
+     To ask for confirmation each time add 'c'
 ~~~ viml
         :%s/old/new/gc
 ~~~
 # Lesson 5.1: HOW TO EXECUTE AN EXTERNAL COMMAND
 
-** Type  :!	followed by an external command to execute that command. **
+** Type  :! followed by an external command to execute that command. **
 
-  1. Type the familiar command	:  to set the cursor at the bottom of the
+  1. Type the familiar command  :  to set the cursor at the bottom of the
      screen.  This allows you to enter a command-line command.
 
   2. Now type the  [!](:!cmd)  (exclamation point) character.  This allows you to
@@ -583,7 +583,7 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 
   3. As an example type   ls   following the ! and then hit <ENTER>.  This
      will show you a listing of your directory, just as if you were at the
-     shell prompt.  Or use  :!dir  if ls doesn't work.
+     shell prompt.
 
 NOTE:  It is possible to execute any external command this way, also with
        arguments.
@@ -595,28 +595,22 @@ NOTE:  All  :  commands must be finished by hitting <ENTER>
 
 ** To save the changes made to the text, type  :w FILENAME. **
 
-  1. Type  :!dir  or  :!ls  to get a listing of your directory.
+  1. Type  :!ls to get a listing of your directory.
      You already know you must hit <ENTER> after this.
 
   2. Choose a filename that does not exist yet, such as TEST.
 
-  3. Now type:	 
-        :w TEST   
+  3. Now type:
+        :w TEST
     (where TEST is the filename you chose.)
 
   4. This saves the whole file (the Vim Tutor) under the name TEST.
-     To verify this, type    
-        :!dir  
-    or  
-        :!ls   
-    again to see your directory.
+     To verify this, type  :!ls again to see your directory.
 
 NOTE: If you were to exit Vim and start it again with  vim TEST , the file
       would be an exact copy of the tutor when you saved it.
 
-  5. Now remove the file by typing (MS-DOS):    
-        :!del TEST
-     or (Unix):	
+  5. Now remove the file by typing:
         :!rm TEST
 
 # Lesson 5.3: SELECTING TEXT TO WRITE
@@ -628,22 +622,22 @@ NOTE: If you were to exit Vim and start it again with  vim TEST , the file
   2. Press  [«v»](v)  and move the cursor to the fifth item below.  Notice that the
      text is highlighted.
 
-  3. Press the  :  character.  At the bottom of the screen  
-        :'<,'> 
+  3. Press the  :  character.  At the bottom of the screen
+        :'<,'>
     will appear.
 
-  4. Type  
+  4. Type
         :w TEST
-     where TEST is a filename that does not exist yet.  Verify that you see  
-        :'<,'>w TEST  
+     where TEST is a filename that does not exist yet.  Verify that you see
+        :'<,'>w TEST
      before you press <ENTER>.
 
-  5. Vim will write the selected lines to the file TEST.  Use  :!dir  or  :!ls
-     to see it.  Do not remove it yet!  We will use it in the next lesson.
+  5. Vim will write the selected lines to the file TEST.  Use  :!ls to see it.
+     Do not remove it yet!  We will use it in the next lesson.
 
-NOTE:  Pressing  [«v»](v)  starts [Visual selection](visual-mode).  You can move 
-       the cursor around to make the selection bigger or smaller.  Then you can 
-       use an operator to do something with the text.  For example, d deletes 
+NOTE:  Pressing  [«v»](v)  starts [Visual selection](visual-mode).  You can move
+       the cursor around to make the selection bigger or smaller.  Then you can
+       use an operator to do something with the text.  For example, d deletes
        the text.
 
 # Lesson 5.4: RETRIEVING AND MERGING FILES
@@ -655,8 +649,8 @@ NOTE:  Pressing  [«v»](v)  starts [Visual selection](visual-mode).  You can mo
 NOTE:  After executing Step 2 you will see text from Lesson 5.3.  Then move
        DOWN to see this lesson again.
 
-  2. Now retrieve your TEST file using the command   
-        :r TEST   
+  2. Now retrieve your TEST file using the command
+        :r TEST
      where TEST is the name of the file you used.
      The file you retrieve is placed below the cursor line.
 
@@ -664,7 +658,7 @@ NOTE:  After executing Step 2 you will see text from Lesson 5.3.  Then move
      are now two copies of Lesson 5.3, the original and the file version.
 
 NOTE:  You can also read the output of an external command.  For example,
-       :r !ls  
+       :r !ls
        reads the output of the ls command and puts it below the cursor.
 
 # Lesson 5 SUMMARY
@@ -672,9 +666,8 @@ NOTE:  You can also read the output of an external command.  For example,
   1.  [:!command](:!cmd)  executes an external command.
 
       Some useful examples are:
-	 (MS-DOS)	  (Unix)
-	  :!dir		   :!ls		   -  shows a directory listing.
-	  :!del FILENAME   :!rm FILENAME   -  removes file FILENAME.
+      :!ls        -  shows a directory listing
+      :!rm FILENAME   -  removes file FILENAME
 
   2.  [:w](:w) FILENAME  writes the current Vim file to disk with name FILENAME.
 
@@ -711,7 +704,7 @@ NOTE:  You can also read the output of an external command.  For example,
 ** Type «a» to insert text AFTER the cursor. **
 
   1. Move the cursor to the start of the line below marked --->.
-  
+
   2. Press «e»  until the cursor is on the end of  li .
 
   3. Type an  «a»  (lowercase) to [append](a) text AFTER the cursor.
@@ -720,7 +713,7 @@ NOTE:  You can also read the output of an external command.  For example,
      mode.
 
   5. Use «e» to move to the next incomplete word and repeat steps 3 and 4.
-  
+
 ---> This li will allow you to pract appendi text to a line. {expect:This line will allow you to practice appending text to a line.}
 ---> This line will allow you to practice appending text to a line. {expect:This line will allow you to practice appending text to a line.}
 
@@ -753,9 +746,9 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
 ** Use the  y  operator to copy text and  p  to paste it **
 
   1. Go to the line marked with ---> below and place the cursor after "a)".
-  
+
   2. Start Visual mode with «v» and move the cursor to just before "first".
-  
+
   3. Type «y»  to [yank](yank) (copy) the highlighted text.
 
   4. Move the cursor to the end of the next line:  «j$»
@@ -769,7 +762,7 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
 --->     b)  {expect:    b) this is the second item}
 
   NOTE: you can also use «y» as an operator; «yw»  yanks one word.
-			    
+
 # Lesson 6.5: SET OPTION
 
 ** Set an option so a search or substitute ignores case **
@@ -777,7 +770,7 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
   1. Search for 'ignore' by entering:   /ignore  <ENTER>
      Repeat several times by pressing  n .
 
-  2. Set the 'ic' (Ignore case) option by entering:   
+  2. Set the 'ic' (Ignore case) option by entering:
 ~~~ viml
         :set ic
 ~~~
@@ -800,11 +793,11 @@ NOTE:  Replace mode is like Insert mode, but every typed character deletes an
 ~~~
 NOTE:  To remove the highlighting of matches enter:
 ~~~ viml
-        :nohlsearch 
+        :nohlsearch
 ~~~
 NOTE:  If you want to ignore case for just one search command, use  [\c](/\c)
        in the phrase:  /ignore\c  <ENTER>
-			       
+
 # Lesson 6 SUMMARY
 
   1. Type «o» to open a line BELOW the cursor and start Insert mode.
@@ -820,15 +813,15 @@ NOTE:  If you want to ignore case for just one search command, use  [\c](/\c)
   5. Typing a capital «R» enters Replace mode until  <ESC>  is pressed.
 
   6. Typing "[:set](:set) xxx" sets the option "xxx".  Some options are:
-  	'ic' 'ignorecase'	ignore upper/lower case when searching
-	'is' 'incsearch'	show partial matches for a search phrase
-	'hls' 'hlsearch'	highlight all matching phrases
+    'ic' 'ignorecase'   ignore upper/lower case when searching
+    'is' 'incsearch'    show partial matches for a search phrase
+    'hls' 'hlsearch'    highlight all matching phrases
      You can either use the long or the short option name.
 
-  7. Prepend "no" to switch an option off:   
+  7. Prepend "no" to switch an option off:
         :set noic
 
-  8. Prepend "inv" to toggle an option: 
+  8. Prepend "inv" to toggle an option:
         :set invic
 
 # Lesson 7.1: GETTING HELP
@@ -839,7 +832,7 @@ Vim has a comprehensive on-line help system.  To get started, try one of
 these three:
     - press the <HELP> key (if you have one)
     - press the <F1> key (if you have one)
-    - type   
+    - type
         :help <ENTER>
 
 Read the text in the help window to find out how the help works.
@@ -862,14 +855,14 @@ Vim has many more features than Vi, but most of them are disabled by
 default.  To start using more features you have to create a "vimrc" file.
 
   1. Start editing the "vimrc" file.  This depends on your system:
-	:e ~/.vimrc		for Unix
-	:e $VIM/_vimrc		for MS-Windows
+    :e ~/.vimrc     for Unix
+    :e $VIM/_vimrc      for MS-Windows
 
   2. Now read the example "vimrc" file contents:
-	:r $VIMRUNTIME/vimrc_example.vim
+    :r $VIMRUNTIME/vimrc_example.vim
 
   3. Write the file with:
-	:w
+    :w
 
   The next time you start Vim it will use syntax highlighting.
   You can add all your preferred settings to this "vimrc" file.
@@ -879,14 +872,14 @@ default.  To start using more features you have to create a "vimrc" file.
 
 ** Command line completion with CTRL-D and <TAB> **
 
-  1. Make sure Vim is not in compatible mode:  
+  1. Make sure Vim is not in compatible mode:
     :set nocp
 
-  2. Look what files exist in the directory:  :!ls   or  :!dir
+  2. Look what files exist in the directory:  :!ls
 
   3. Type the start of a command:  :e
 
-  4. Press  CTRL-D  and Vim will show a list of commands that start with "e".
+  4. Press  <CTRL-D>  and Vim will show a list of commands that start with "e".
 
   5. Press <TAB>  and Vim will complete the command name to ":edit".
 
@@ -894,7 +887,7 @@ default.  To start using more features you have to create a "vimrc" file.
 
   7. Press <TAB>.  Vim will complete the name (if it is unique).
 
-NOTE:  Completion works for many commands.  Just try pressing CTRL-D and
+NOTE:  Completion works for many commands.  Just try pressing <CTRL-D> and
        <TAB>.  It is especially useful for  :help .
 
 # Lesson 7 SUMMARY
@@ -912,12 +905,12 @@ NOTE:  Completion works for many commands.  Just try pressing CTRL-D and
   6. When typing a  :  command, press <CTRL-D> to see possible completions.
      Press <TAB> to use one completion.
 
-# CONCLUDING 
+# CONCLUDING
 
-This is all fo the Vim Tutor.  It was intended to give a brief overview of the
-Vim editor, just enough to allow you to use the editor fairly easily. It is far
-from complete as Vim has many many more commands.  Consult the help often. Now, you 
-can try a different tutorial:
+It was intended to give a brief overview of the Vim editor, just enough to
+allow you to use the editor fairly easily. It is far from complete as Vim has
+many many more commands.  Consult the help often. Now, you can try a different
+tutorial:
 
     :Tutor learnvim-intermediate
 
@@ -925,12 +918,12 @@ There are many resources online to learn more about vim. Here's a list of a bunc
 
 - Learn Vim Progressively: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 - Learning Vim in 2014: http://benmccormick.org/learning-vim-in-2014/
-- VimCasts: http://vimcasts.org/
+- Vimcasts: http://vimcasts.org/
 - Vim Video-Tutorials by Derek Wyatt: http://derekwyatt.org/vim/tutorials/
 - Learn Vimscript the Hard Way: http://learnvimscriptthehardway.stevelosh.com/
 - 7 Habits of Effective Text Editing: http://www.moolenaar.net/habits.html
 
-If you prefer a book, Practival Vim by Drew Neil is recommended often. 
+If you prefer a book, Practival Vim by Drew Neil is recommended often.
 
 This tutorial was written by Michael C. Pierce and Robert K. Ware, Colorado
 School of Mines using ideas supplied by Charles Smith, Colorado State

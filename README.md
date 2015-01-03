@@ -4,7 +4,7 @@ Create and follow interactive tutorials for vim.
 
 # Screenshots
 
-![screenshot 1 - Tutor command](http://i.imgur.com/I1rAivL.png) 
+![screenshot 1 - Tutor command](http://i.imgur.com/I1rAivL.png)
 
 ![screenshot 2 - vimtutor](http://i.imgur.com/1JtpjET.png)
 
@@ -26,7 +26,7 @@ to your vimrc. Otherwise copy this repo to your `~/.vim` folder.
 :Vimtutor
 ~~~
 
-To learn how to create tutorials using vim-tutor-mode, see 
+To learn how to create tutorials using vim-tutor-mode, see
 
 ~~~ vim
 :Tutor tutor
