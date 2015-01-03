@@ -9,7 +9,6 @@ else
     setlocal buftype=
     setlocal concealcursor&
     setlocal conceallevel=0
-    setlocal textwidth=80
     setlocal nocursorline
 endif
 
@@ -49,7 +48,7 @@ endfunction
 call s:MapKeyWithRedirect('l', 'tutor#ForwardSkipConceal(v:count1)')
 call s:MapKeyWithRedirect('h', 'tutor#BackwardSkipConceal(v:count1)')
 call s:MapKeyWithRedirect('<right>', 'tutor#ForwardSkipConceal(v:count1)')
-call s:MapKeyWithRedirect('<left>', 'tutor#ForwardSkipConceal(v:count1)')
+call s:MapKeyWithRedirect('<left>', 'tutor#BackwardSkipConceal(v:count1)')
 
 noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> <2-LeftMouse> :call tutor#FollowLink(0)<cr>
