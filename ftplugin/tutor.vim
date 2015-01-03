@@ -20,18 +20,35 @@ setlocal foldlevel=4
 setlocal statusline=%{toupper(expand('%:t:r'))}\ tutorial%=
 setlocal statusline+=%{tutor#InfoText()}
 
-if mapcheck('l') == ''
-    noremap <buffer> <expr> l tutor#ForwardSkipConceal(v:count1)
-endif
-if mapcheck('h') == ''
-    noremap <buffer> <expr> h tutor#BackwardSkipConceal(v:count1)
-endif
-if mapcheck('<right>') == ''
-    noremap <buffer> <expr> <right> tutor#ForwardSkipConceal(v:count1)
-endif
-if mapcheck('<left>') == ''
-    noremap <buffer> <expr> <left> tutor#BackwardSkipConceal(v:count1)
-endif
+function! s:CheckMaps()
+    nmap
+endfunction
+
+function! s:MapKeyWithRedirect(key, cmd) 
+    if maparg(a:key) != ''
+        redir => l:keys
+        silent call s:CheckMaps()
+        redir END
+        let l:key_list = split(l:keys, '\n')
+
+        let l:raw_map = filter(copy(l:key_list), "v:val =~ '\\* ".a:key."'")
+        if len(l:raw_map) == 0
+            exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+            return
+        endif
+        let l:map_data = split(l:raw_map[0], '\s*')
+        
+        exe "noremap <buffer> <expr> ".l:map_data[0]." ".a:cmd
+    else
+        exe "noremap <buffer> <expr> ".a:key." ".a:cmd
+    endif
+endfunction
+
+call s:MapKeyWithRedirect('l', 'tutor#ForwardSkipConceal(v:count1)')
+call s:MapKeyWithRedirect('h', 'tutor#BackwardSkipConceal(v:count1)')
+call s:MapKeyWithRedirect('<right>', 'tutor#ForwardSkipConceal(v:count1)')
+call s:MapKeyWithRedirect('<left>', 'tutor#ForwardSkipConceal(v:count1)')
+
 noremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> <2-LeftMouse> :call tutor#FollowLink(0)<cr>
 noremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
