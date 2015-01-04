@@ -218,7 +218,7 @@ function! tutor#PlaceXMarks()
     call cursor(1, 1)
     let b:tutor_sign_id = 1
     while search('^--->', 'W') > 0
-        call tutor#CheckText()
+        call tutor#CheckText(getline('.'))
         let b:tutor_sign_id+=1
     endwhile
     call cursor(1, 1)
@@ -250,7 +250,12 @@ endfunction
 
 " Tutor Cmd: {{{1
 function! tutor#TutorCmd(tutor_name)
-    let l:tutors = globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0, 1)
+    if v:version >= 704
+        let l:tutors = globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0, 1)
+    else
+        let l:tutors = split(globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0), '\n')
+    endif
+    
     if len(l:tutors) == 1
         exe "edit ".l:tutors[0]
     else
@@ -266,8 +271,12 @@ function! tutor#TutorCmd(tutor_name)
 endfunction
 
 function! tutor#TutorCmdComplete(lead,line,pos)
-    let l:tutorials = globpath(&rtp, "tutorials/*.tutor", 0, 1)
-    let l:names = uniq(sort(map(l:tutorials, 'fnamemodify(v:val, ":t:r")')))
+    if v:version >= 704
+        let l:tutors = globpath(&rtp, 'tutorials/*.tutor', 0, 1)
+    else
+        let l:tutors = split(globpath(&rtp, 'tutorials/*.tutor', 0), '\n')
+    endif
+    let l:names = uniq(sort(map(l:tutors, 'fnamemodify(v:val, ":t:r")')))
     return join(l:names, "\n")
 endfunction
 
