@@ -26,7 +26,7 @@ syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorComman
 syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend contains=tutorKey
 syn match tutorShellPrompt /\$/ contained containedin=tutorShellCommand
 
-syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION
+syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION EXERCISE
 syn match tutorTOC /\ctable of contents:/
 
 syn match tutorInlineOK /✓/
