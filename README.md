@@ -32,7 +32,11 @@ To learn how to create tutorials using vim-tutor-mode, see
 
 ~~~ vim
 :Tutor tutor
-~~~
+~~~ 
+
+To see an example of how a third party plugin can use a tutorial, see [vim-pad's
+tutorial](https://github.com/fmoralesc/vim-pad/blob/devel/tutorials/vim-pad.tutor).
+
 
 ## Credits
 
