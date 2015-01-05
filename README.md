@@ -14,6 +14,9 @@ Create and follow interactive tutorials for vim.
 
 # Installation
 
+vim-tutor-mode uses the `+conceal` feature extensively, so a vim version >= 7.4
+is suggested.
+
 Using a plugin manager like [vim-plug](https://github.com/junegunn/vim-plug),
 simply add
 
