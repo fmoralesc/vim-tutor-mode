@@ -48,7 +48,8 @@ a. Start with your cursor anywhere on the line below marked with --->.
    2. «3w»                 - move forward three words (to "ministers")
    3. «cwVimmers<Esc>»     - change the word "ministers" to "Vimmers"
 
---->  Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
+---> Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
+---> Angels and Vimmers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
 
 b. Continue practicing with the change-word command on other words within the
    sentence.
@@ -115,15 +116,16 @@ But there's a much better way to do that:
 Try it out now:
 
 ---> delete all this text before foo {expect:foo}
+---> foo {expect:foo}
 
 ### Becoming an Expert Navigator
 
 What else is there to learn from [motion.txt](motion.txt)?
 
 * [object-motions](object-motions)  Larger objects, like [sentences]((), [paragraphs]({)
-                                        and [sections](]]).
-* [jump-motions](jump-motions)          Moving up and down the jump list as well as
-                                        the related [change-list-jumps](change-list-jumps).
+                  and [sections](]]).
+* [jump-motions](jump-motions)    Moving up and down the jump list as well as
+                  the related [change-list-jumps](change-list-jumps).
 
 There are many other motions in [motion.txt](motion.txt) than mentioned here.  It really
 would pay to eventually work your way through that text.
@@ -170,49 +172,48 @@ There are many tag commands available in Vim, but I'm going to share with you
 only a select few -- a mere dozen or so. These are the most frequently reached
 for. You can learn the other [tag](tag) commands later.
 
-<ctrl-]>    Jump to the keyword under the cursor. Tag jumps are recorded on
-        a |tag-stack|.
+<ctrl-]>        Jump to the keyword under the cursor. Tag jumps are recorded on
+                a |tag-stack|.
 
-<ctrl-t>    Jump to older tag in the stack.
+<ctrl-t>        Jump to older tag in the stack.
 
-[:ta](:ta)  Jump to newer tag in the stack.
+[:ta](:ta)             Jump to newer tag in the stack.
 
-[:0ta](:0ta) or     Jump to previously jumped-to tag. Use this to return to the tag
+[:0ta](:0ta) or         Jump to previously jumped-to tag. Use this to return to the tag
 [:0tn](:0tn)            after wandering away from it. See [:tag](:tag) and [:tnext](:tnext)
 
-[:ts](:ts)/something    Show a list of tags matching the pattern something. See
+[:ts](:ts)/something   Show a list of tags matching the pattern something. See
                 [:tselect](:tselect)
 
-«g]»        Show a list of tags matching the keyword under the cursor.
+«g]»              Show a list of tags matching the keyword under the cursor.
 
 [:tj](:tj)/something   Show a list of tags matching the pattern something. If there
-        is only one tag in the list, don't show the list but instead jump
+                is only one tag in the list, don't show the list but instead jump
                 directly to it. See [:tjump](:tjump)
 
-«g<Ctrl-]»  Show a list of tags matching the keyword under the cursor. If
-        there is only one tag in the list, don't show the list but instead
+«g<Ctrl-]»        Show a list of tags matching the keyword under the cursor. If
+                there is only one tag in the list, don't show the list but instead
                 jump directly to it.
 
-«[I»        Ordinarily, this just shows all lines in the file matching the
-        keyword under the cursor — a shortcut to ":g/<c-r><c-w>"
+«[I»              Ordinarily, this just shows all lines in the file matching the
+                keyword under the cursor — a shortcut to ":g/<c-r><c-w>"
 
 TIP: This map (taken from the Vim help) lets you jump to one of the matches:
 ~~~ viml
     :map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 ~~~
 
-NOTE:   Use <ctrl-c> to cancel the choice if you don't want to jump to any of
-    them.
-    Use [``](``) to jump back to where you were if you accidentally pressed
-    <esc> or <enter> instead.
+NOTE:   Use <ctrl-c> to cancel the choice if you don't want to jump to any of them.
+        Use [``](``) to jump back to where you were if you accidentally pressed <esc> or <enter> 
+        instead.
 
 While not strictly tagging commands, these little gems are semantically
 related:
 
 «gd» and «gD»   Jump to the local or global declaration of the keyword under
-        the cursor, respectively.
+            the cursor, respectively.
 
-«gf»        Jump to the file under the cursor.
+«gf»          Jump to the file under the cursor.
 
 While these commands may not be in your daily tag toolbox, you might call upon
 them occasionally:
@@ -221,9 +222,8 @@ them occasionally:
 
 [:ptj](:ptjump)/something           To show the tag match in the [preview window](preview-window).
 
-<ctrl-w><ctrl-i>    and
-<ctrl-w><ctrl-d>    To split the window, showing the associated first line or
-        definition, respectively.
+<ctrl-w><ctrl-i> and     To split the window, showing the associated first line or
+<ctrl-w><ctrl-d>         definition, respectively.
 
 Using tags within Vim will speed up your editing by making it easy for you to
 jump around your pile of files.
