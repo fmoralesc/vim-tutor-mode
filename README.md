@@ -27,7 +27,7 @@ to your vimrc. Otherwise copy this repo to your `~/.vim` folder.
 # Usage
 
 ~~~ vim
-:Tutor vimtutor
+:Tutor 00-vimtutor
 :Vimtutor
 ~~~
 

@@ -15,6 +15,7 @@ else
     setlocal conceallevel=0
     setlocal nocursorline
 endif
+setlocal noundofile
 
 setlocal foldmethod=expr
 setlocal foldexpr=tutor#TutorFolds()

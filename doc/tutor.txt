@@ -20,7 +20,7 @@ being in a link or not) by placing the cursor on it and pressing '?'.
 :Tutor {tutorial}           Opens a tutorial.
 
 :VimTutor                   Opens the vimtutor tutorial.
-                            is the same as :Tutor vimtutor
+                            is the same as :Tutor 00-vimtutor
 
 - CREATING                                                  *vim-tutor-create*
 
