@@ -28,7 +28,7 @@ to your vimrc. Otherwise copy this repo to your `~/.vim` folder.
 
 ~~~ vim
 :Tutor 00-vimtutor
-:Vimtutor
+:VimTutor
 ~~~
 
 To learn how to create tutorials using vim-tutor-mode, see
