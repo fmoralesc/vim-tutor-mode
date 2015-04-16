@@ -12,4 +12,3 @@ else
     exe "so ". expand("<sfile>:h")."/plugin/tutor-mode.vim"
 endif
 VimTutor
-set ft=tutor
