@@ -1,33 +1,25 @@
 # vim-tutor-mode
 
-Create and follow interactive tutorials for vim.
+Create and follow interactive tutorials.
 
-### Ideas, suggestions, bug reports, code and tutorials are welcome! :)
+![](http://i.imgur.com/1JtpjET.png)
 
-# Screenshots
+## Installation
 
-![screenshot 1 - Tutor command](http://i.imgur.com/I1rAivL.png)
-
-![screenshot 2 - vimtutor](http://i.imgur.com/1JtpjET.png)
-
-![screenshot 3 - learnvim](http://i.imgur.com/EvjIu09.png)
-
-# Installation
-
-vim-tutor-mode uses the `+conceal` feature extensively, so a vim version >= 7.4
+vim-tutor-mode uses the `+conceal` feature extensively, so Vim version >= 7.4
 is suggested.
 
 Using a plugin manager like [vim-plug](https://github.com/junegunn/vim-plug),
-simply add
+add the following to your `vimrc`.
 
     Plug 'fmoralesc/vim-tutor-mode'
 
-to your vimrc. Otherwise copy this repo to your `~/.vim` folder.
+Otherwise copy this repository's contents to your `~/.vim` folder.
 
-# Usage
+## Usage
 
 ~~~ vim
-:Tutor 00-vimtutor
+:Tutor 01-vim-beginner
 :VimTutor
 ~~~
 
@@ -35,11 +27,10 @@ To learn how to create tutorials using vim-tutor-mode, see
 
 ~~~ vim
 :Tutor tutor
-~~~ 
+~~~
 
 To see an example of how a third party plugin can use a tutorial, see [vim-pad's
 tutorial](https://github.com/fmoralesc/vim-pad/blob/devel/tutorials/vim-pad.tutor).
-
 
 ## Credits
 
