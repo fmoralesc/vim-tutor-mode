@@ -1,1 +1,1 @@
-au! BufRead,BufNewFile *.tutor set ft=tutor
+au! BufRead,BufNewFile *.tutor setfiletype tutor
