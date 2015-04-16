@@ -1,4 +1,4 @@
-" vim: set fdm=marker :
+" vim: fdm=marker
 
 " Setup: {{{1
 function! tutor#SetupVim()
