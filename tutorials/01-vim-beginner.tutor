@@ -912,7 +912,7 @@ allow you to use the editor fairly easily. It is far from complete as Vim has
 many many more commands.  Consult the help often. Now, you can try a different
 tutorial:
 
-    :Tutor learnvim-intermediate
+    :Tutor 02-vim-intermediate
 
 There are many resources online to learn more about vim. Here's a list of a bunch of them:
 
