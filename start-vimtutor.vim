@@ -1,6 +1,5 @@
 set nocompatible
 filetype plugin indent on
-syntax on
 hi! link Conceal Operator
 hi! link FoldColumn Comment
 hi! link SignColumn Normal
