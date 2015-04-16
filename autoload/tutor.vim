@@ -2,7 +2,7 @@
 
 " Setup: {{{1
 function! tutor#SetupVim()
-    if has('syntax') 
+    if has('syntax')
         syntax on
     endif
 endfunction
@@ -13,7 +13,7 @@ function! s:CheckMaps()
     nmap
 endfunction
 
-function! s:MapKeyWithRedirect(key, cmd) 
+function! s:MapKeyWithRedirect(key, cmd)
     if maparg(a:key) != ''
         redir => l:keys
         silent call s:CheckMaps()
@@ -26,7 +26,7 @@ function! s:MapKeyWithRedirect(key, cmd)
             return
         endif
         let l:map_data = split(l:raw_map[0], '\s*')
-        
+
         exe "nnoremap <buffer> <expr> ".l:map_data[0]." ".a:cmd
     else
         exe "nnoremap <buffer> <expr> ".a:key." ".a:cmd
@@ -48,7 +48,7 @@ endfunction
 function! tutor#InjectCommand()
     let l:cmd = substitute(getline('.'),  '^\s*', '', '')
     exe l:cmd
-    redraw | echohl WarningMsg | echon  "tutor: ran" | echohl None | echon " " | echohl Statement | echon l:cmd 
+    redraw | echohl WarningMsg | echon  "tutor: ran" | echohl None | echon " " | echohl Statement | echon l:cmd
 endfunction
 
 function! tutor#SetNormalMappings()
@@ -255,7 +255,7 @@ function! tutor#TutorCmd(tutor_name)
     else
         let l:tutors = split(globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0), '\n')
     endif
-    
+
     if len(l:tutors) == 1
         exe "edit ".l:tutors[0]
     else

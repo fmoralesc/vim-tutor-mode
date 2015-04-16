@@ -204,7 +204,7 @@ TIP: This map (taken from the Vim help) lets you jump to one of the matches:
 ~~~
 
 NOTE:   Use <ctrl-c> to cancel the choice if you don't want to jump to any of them.
-        Use [``](``) to jump back to where you were if you accidentally pressed <esc> or <enter> 
+        Use [``](``) to jump back to where you were if you accidentally pressed <esc> or <enter>
         instead.
 
 While not strictly tagging commands, these little gems are semantically
