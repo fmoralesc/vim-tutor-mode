@@ -1,4 +1,3 @@
-set nocompatible
 filetype plugin indent on
 hi! link Conceal Operator
 hi! link FoldColumn Comment

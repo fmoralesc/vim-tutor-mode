@@ -16,6 +16,8 @@ add the following to your `vimrc`.
 
 Otherwise copy this repository's contents to your `~/.vim` folder.
 
+This plugin is only available if 'compatible' is not set.
+
 ## Usage
 
 ~~~ vim

@@ -4,6 +4,8 @@
 
 - USAGE                                                      *vim-tutor-usage*
 
+This plugin is only available if 'compatible' is not set.
+
 vim-tutor-mode tutorials are hypertext documents, that is, they have rich text
 and contain links. To stand out from the rest of the text, links are
 underlined. You can follow them by placing the cursor over them and pressing
