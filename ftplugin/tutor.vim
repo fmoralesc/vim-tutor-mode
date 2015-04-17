@@ -8,12 +8,10 @@ if !exists('g:tutor_debug') || g:tutor_debug == 0
     setlocal buftype=nofile
     setlocal concealcursor+=inv
     setlocal conceallevel=2
-    setlocal cursorline
 else
     setlocal buftype=
     setlocal concealcursor&
     setlocal conceallevel=0
-    setlocal nocursorline
 endif
 setlocal noundofile
 
