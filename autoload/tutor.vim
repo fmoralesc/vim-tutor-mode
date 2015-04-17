@@ -256,6 +256,11 @@ function! tutor#TutorCmd(tutor_name)
         let l:tutors = split(globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0), '\n')
     endif
 
+    if len(l:tutors) == 0
+        echoerr "No tutorials with that name found."
+        return
+    endif
+
     if len(l:tutors) == 1
         exe "edit ".l:tutors[0]
     else
