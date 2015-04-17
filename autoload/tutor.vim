@@ -258,7 +258,7 @@ function! tutor#TutorCmd(tutor_name)
         let l:tutor_name = a:tutor_name
     endif
 
-    if v:version >= 704
+    if v:version >= 704 && has('patch279')
         let l:tutors = globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0, 1)
     else
         let l:tutors = split(globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0), '\n')
