@@ -3,7 +3,9 @@
 " Setup: {{{1
 function! tutor#SetupVim()
     if has('syntax')
-        syntax on
+        if !exists(g:syntax_on) || g:syntax_on == 0
+            syntax on
+        endif
     endif
 endfunction
 
