@@ -250,10 +250,16 @@ endfunction
 
 " Tutor Cmd: {{{1
 function! tutor#TutorCmd(tutor_name)
-    if v:version >= 704
-        let l:tutors = globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0, 1)
+    if match(a:tutor_name, '\.tutor$') > 0
+        let l:tutor_name = fnamemodify(a:tutor_name, ':r')
     else
-        let l:tutors = split(globpath(&rtp, 'tutorials/'.a:tutor_name.'.tutor', 0), '\n')
+        let l:tutor_name = a:tutor_name
+    endif
+
+    if v:version >= 704
+        let l:tutors = globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0, 1)
+    else
+        let l:tutors = split(globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0), '\n')
     endif
 
     if len(l:tutors) == 0
