@@ -1,5 +1,7 @@
 # vim-tutor-mode
 
+[![Join the chat at https://gitter.im/fmoralesc/vim-tutor-mode](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fmoralesc/vim-tutor-mode?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Create and follow interactive tutorials.
 
 ![](http://i.imgur.com/1JtpjET.png)
