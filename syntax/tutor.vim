@@ -1,3 +1,7 @@
+if exists("b:current_syntax")
+    finish
+endif
+
 syn include @VIM syntax/vim.vim
 
 syn region tutorVIML matchgroup=Delimiter start=/^\~\{3} viml$/ end=/^\~\{3}/ contains=@VIM concealends
@@ -78,3 +82,5 @@ hi! link tutorNormalCount Number
 hi! link tutorNormalMark Identifier
 
 hi! link tutorkey Special
+
+let b:current_syntax = "tutor"
