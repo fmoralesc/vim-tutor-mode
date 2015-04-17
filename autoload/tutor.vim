@@ -265,7 +265,7 @@ function! tutor#TutorCmd(tutor_name)
     endif
 
     if len(l:tutors) == 0
-        echoerr "No tutorials with that name found."
+        echom "No tutorials with that name found."
         return
     endif
 
