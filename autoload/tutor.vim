@@ -251,6 +251,11 @@ endfunction
 
 " Tutor Cmd: {{{1
 function! tutor#TutorCmd(tutor_name)
+    if match(a:tutor_name, '[[:space:]]') > 0
+        echom "Only one argument accepted (check spaces)"
+        return
+    endif
+
     if match(a:tutor_name, '\.tutor$') > 0
         let l:tutor_name = fnamemodify(a:tutor_name, ':r')
     else
@@ -264,7 +269,7 @@ function! tutor#TutorCmd(tutor_name)
     endif
 
     if len(l:tutors) == 0
-        echom "No tutorials with that name found"
+        echom "No tutorial with that name found"
         return
     endif
 
