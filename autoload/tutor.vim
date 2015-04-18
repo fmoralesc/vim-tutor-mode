@@ -269,7 +269,7 @@ function! tutor#TutorCmd(tutor_name)
     endif
 
     if len(l:tutors) == 1
-        exe "edit ".l:tutors[0]
+        exe "drop ".l:tutors[0]
     else
         let l:idx = 0
         let l:candidates = ['Several tutorials with that name found. Select one:']
@@ -278,7 +278,7 @@ function! tutor#TutorCmd(tutor_name)
             call add(l:candidates, l:idx.'. '.candidate)
         endfor
         let l:tutor_to_open = inputlist(l:candidates)
-        exe "edit ".substitute(l:candidates[l:tutor_to_open], '^\d\+. ', '', '')
+        exe "drop ".substitute(l:candidates[l:tutor_to_open], '^\d\+. ', '', '')
     endif
 endfunction
 
