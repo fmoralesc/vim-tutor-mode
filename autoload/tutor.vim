@@ -37,10 +37,10 @@ endfunction
 
 function! tutor#MouseDoubleClick()
     if foldclosed(line('.')) > -1
-        normal  zo
+        normal! zo
     else
         if match(getline('.'), '^#\{1,} ') > -1
-            normal zc
+            normal! zc
         else
             call tutor#FollowLink(0)
         endif
@@ -76,7 +76,7 @@ function! tutor#SetSampleTextMappings()
     nmap <silent> <buffer> <End> $
     imap <silent> <buffer> <Home> <esc>^<esc>:startinsert<cr>
     imap <silent> <buffer> <End> <esc>$:startinsert<cr>
-    noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
+    noremap <silent> <buffer> I :exe "normal! 0" \| startinsert<cr>
 endfunction
 
 " Navigation: {{{1
@@ -176,7 +176,7 @@ function! tutor#FollowLink(force)
         if a:force != 1 && match(l:target, '\*.\+\*') > -1
             call cursor(l:link_start[0], l:link_end[1])
             call search(l:target, '')
-            normal ^
+            normal! ^
         elseif a:force != 1 && match(l:target, '^@tutor:') > -1
             let l:tutor = matchstr(l:target, '@tutor:\zs.*')
             exe "Tutor ".l:tutor
