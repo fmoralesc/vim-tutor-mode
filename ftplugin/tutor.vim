@@ -35,6 +35,6 @@ sign define tutorbad text=✗ texthl=tutorX
 
 if  !exists('g:tutor_debug') || g:tutor_debug == 0
     call tutor#PlaceXMarks()
-    au! TextChanged <buffer> call tutor#OnTextChanged()
-    au! TextChangedI <buffer> call tutor#OnTextChanged()
+    autocmd! TextChanged <buffer> call tutor#OnTextChanged()
+    autocmd! TextChangedI <buffer> call tutor#OnTextChanged()
 endif

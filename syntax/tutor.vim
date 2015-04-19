@@ -1,4 +1,4 @@
-if exists("b:current_syntax")
+if exists('b:current_syntax')
     finish
 endif
 
@@ -83,4 +83,4 @@ hi! link tutorNormalMark Identifier
 
 hi! link tutorkey Special
 
-let b:current_syntax = "tutor"
+let b:current_syntax = 'tutor'
