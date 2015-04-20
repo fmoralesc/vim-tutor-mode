@@ -15,6 +15,9 @@ else
 endif
 setlocal noundofile
 
+setlocal keywordprg=:help
+setlocal iskeyword=@,-,_
+
 setlocal foldmethod=expr
 setlocal foldexpr=tutor#TutorFolds()
 setlocal foldcolumn=3
