@@ -226,7 +226,7 @@ function! tutor#PlaceXMarks()
 endfunction
 
 function! tutor#CheckText(text)
-    if match(a:text, '{expect:NULL}\s*$') == -1
+    if match(a:text, '{expect:ANYTHING}\s*$') == -1
         if match(getline('.'), '|expect:.\+|') == -1
             let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
             let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')

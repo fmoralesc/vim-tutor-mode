@@ -1,23 +1,31 @@
 if exists("b:current_syntax")
-    finish
+"    finish
 endif
 
 syn include @VIM syntax/vim.vim
+syn include @NORMAL syntax/vimnormal.vim
+syn include @SHELL syntax/sh.vim
 
-syn region tutorVIML matchgroup=Delimiter start=/^\~\{3} viml$/ end=/^\~\{3}/ contains=@VIM concealends
-
-syn match tutorLink /\[.\{-}\](.\{-})/ contains=tutorInlineNormalVIML
+syn match tutorLink /\[.\{-}\](.\{-})/ contains=tutorInlineNormal
 syn match tutorLinkBands /\[\|\]\|(\|)/ contained containedin=tutorLink,tutorLinkAnchor conceal
 syn match tutorLinkAnchor /(.\{-})/ contained containedin=tutorLink conceal
-syn match tutorURL /https\?:\/\/[[:graph:]]\+\>\/\?/
+syn match tutorURL /\(https\?\|file\):\/\/[[:graph:]]\+\>\/\?/
 syn match tutorEmail /\<[[:graph:]]\+@[[:graph:]]\+\>/
+syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ contained conceal containedin=tutorSection
 
 syn match tutorSection /^#\{1,6}\s.\+$/ fold
-syn match tutorSectionBullet /#/ contained containedin=tutorSection conceal cchar=+
-syn match tutorInternalAnchor /\*[[:alnum:]-]\+\*/ conceal containedin=tutorSection
+syn match tutorSectionBullet /#/ contained containedin=tutorSection
 
-syn region tutorLesson matchgroup=Delimiter start=/\(\\\@<![*!]\)\{2}\s\+/ end=/\s\+\(\\\@<![*!]\)\{2}/ concealends contains=tutorInlineNormalVIML
-syn match tutorConcealedEscapes /\\[*!\[\]()«»:$-]\@=/ conceal
+syn match tutorTOC /\ctable of contents:/
+
+syn match tutorConcealedEscapes /\\[`*!\[\]()«»:$-]\@=/ conceal
+
+syn region tutorEmphasis matchgroup=Delimiter start=/[\*]\@<!\*\*\@!/ end=/[\*]\@<!\*\*\@!/ concealends contains=tutorInlineCommand,tutorInlineNormal
+syn region tutorBold matchgroup=Delimiter start=/\*\{2}/ end=/\*\{2}/ concealends contains=tutorInlineCommand,tutorInlineNormal
+
+syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION EXERCISE
+syn keyword tutorMarks todo note tip attention exercise
+syn keyword tutorMarks Todo Note Tip Excersise
 
 syn match tutorTextMark /\\\@<!--->/ conceal cchar=→
 syn region tutorSampleText start=/^\(--->\)\@=/ end=/$/ keepend contains=@SPELL
@@ -25,43 +33,42 @@ syn match tutorSampleTextMark /^--->/ contained containedin=tutorSampleText conc
 syn match tutorSampleTextExpect /\}\@<! {expect:.\+}\s*$/ contained containedin=tutorSampleText conceal
 syn match tutorSampleTextExpect /|\@<! |expect:.\+|\s*$/ contained containedin=tutorSampleText conceal
 
-syn region tutorCommand matchgroup=Delimiter start=/^\s\{4,}\\\@<!:/ end=/$/ keepend contains=@VIM
-syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
-syn region tutorShellCommand start=/^\s\{4,}\$/ end=/$/ keepend contains=tutorKey
-syn match tutorShellPrompt /\$/ contained containedin=tutorShellCommand
+syn region tutorCodeblock matchgroup=Delimiter start=/^\~\{3}.*$/ end=/^\~\{3}/
 
-syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION EXERCISE
-syn match tutorTOC /\ctable of contents:/
+syn region tutorShell matchgroup=Delimiter start=/^\~\{3} sh\s*$/ end=/^\~\{3}/ keepend contains=@SHELL
+syn match tutorShellPrompt /[$#]/ contained containedin=tutorShell
+
+syn region tutorInlineCode matchgroup=Delimiter start=/\\\@<!`/ end=/\\\@<!\(`{\@!\|`\s\)/
+
+syn region tutorCommand matchgroup=Delimiter start=/^\~\{3} cmd\( :\)\?\s*$/ end=/^\~\{3}/ keepend contains=@VIM
+syn match tutorCommandIdentifier /:/ contained containedin=tutorCommand,Delimiter conceal cchar=:
+syn region tutorInlineCommand matchgroup=Delimiter start=/\\\@<!`\(.*{vim}\)\@=/ end=/\\\@<!`\({vim}\)\@=/ nextgroup=tutorInlineType contains=@VIM
+syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
+
+syn region tutorNormal matchgroup=Delimiter start=/^\~\{3} norm\(al\?\)\?\s*$/ end=/^\~\{3}/ contains=@NORMAL
+syn region tutorInlineNormal matchgroup=Delimiter start=/\\\@<!`\(.*{normal}\)\@=/ end=/\\\@<!`\({normal}\)\@=/ nextgroup=tutorInlineType contains=@NORMAL
+
+syn match tutorInlineType /{\(normal\|vim\)}/ contained conceal
 
 syn match tutorInlineOK /✓/
 syn match tutorInlineX /✗/
 
-syn region tutorNormalVIML matchgroup=Delimiter start=/^\~\{3} normal$/ end=/^\~\{3}/ concealends contains=tutorKey
-syn region tutorInlineNormalVIML matchgroup=Delimiter start=/\\\@<!«/ end=/\\\@<!»/ concealends contains=tutorKey
-syn match tutorNormalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML nextgroup=tutorNormalMod
-syn match tutorNormalMod /m\@<![ia]/ contained
-syn match tutorNormalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn match tutorNormalCount /[0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn region tutorNormalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
-syn region tutorNormalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML contains=tutorKey keepend
-syn match tutorNormalCharSearch /\c[ftr]\@<=\w/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-syn match tutorNormalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/ contained containedin=tutorNormalVIML,tutorInlineNormalVIML
-
-syn match tutorKey /<'\@!.\{-}>'\@!/
-
-hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#3030EE
-hi! link tutorLinkBands Operator
-hi! link tutorLinkAnchor Identifier
-hi! link tutorInternalAnchor Identifier
+hi! tutorLink cterm=underline gui=underline ctermfg=lightblue guifg=#0088ff
+hi! link tutorLinkBands Delimiter
+hi! link tutorLinkAnchor Underlined
+hi! link tutorInternalAnchor Underlined
 hi! link tutorURL tutorLink
 hi! link tutorEmail tutorLink
 
 hi! link tutorSection Title
+hi! link tutorSectionBullet Delimiter
 
 hi! link tutorTOC Directory
 
-hi! tutorLesson cterm=bold gui=bold
 hi! tutorMarks cterm=bold gui=bold
+
+hi! tutorEmphasis gui=italic cterm=italic
+hi! tutorBold gui=bold cterm=bold
 
 hi! link tutorSampleText Special
 hi! tutorOK ctermfg=green guifg=#00ff88 cterm=bold gui=bold
@@ -73,14 +80,5 @@ hi! link tutorCommand String
 hi! link tutorCommandCmd Statement
 hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
-
-
-hi! link tutorNormalOp Operator
-hi! link tutorNormalMod PreProc
-hi! link tutorNormalObject Structure
-hi! link tutorNormalCount Number
-hi! link tutorNormalMark Identifier
-
-hi! link tutorkey Special
 
 let b:current_syntax = "tutor"

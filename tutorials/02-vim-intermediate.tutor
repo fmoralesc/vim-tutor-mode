@@ -44,9 +44,9 @@ a. Start with your cursor anywhere on the line below marked with --->.
 
    Commands:             Description: ~
 
-   1. «0»                  - move to the first character on the line |0|
-   2. «3w»                 - move forward three words (to "ministers")
-   3. «cwVimmers<Esc>»     - change the word "ministers" to "Vimmers"
+   1. `0`{normal}                  - move to the first character on the line |0|
+   2. `3w`{normal}                 - move forward three words (to "ministers")
+   3. `cwVimmers<Esc>`{normal}     - change the word "ministers" to "Vimmers"
 
 ---> Angels and ministers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
 ---> Angels and Vimmers of grace defend us. {expect:Angels and Vimmers of grace defend us.}
@@ -56,11 +56,11 @@ b. Continue practicing with the change-word command on other words within the
 
 ---> Angels and ministers of grace defend us. {expect:NULL}
 
-    * Experiment with the delete-word («dw») command on various words. Use [p](p) to
+    + Experiment with the delete-word («dw») command on various words. Use [p](p) to
       paste a deleted word after the cursor.
-    * Experiment with the yank-word («yw») command. Again, «p» to paste what you've
+    + Experiment with the yank-word («yw») command. Again, «p» to paste what you've
       yanked (copied).
-    * Experiment with counts, like «3dw» or «2ywP».
+    + Experiment with counts, like «3dw» or «2ywP».
 
 c. Now, try the following commands:
 ~~~ normal
@@ -91,7 +91,7 @@ Vim has marks (bookmarks) -- places you can quickly return to later.  See
 [mark-motions](mark-motions) for a good coverage of the many available builtin marks and how
 to set your own user marks.  Pay special attention to the difference between
 lower-case marks {a-z} versus uppercase marks {A-Z}.  The two symbol marks, '
-(quote) and ` (backquote) are very frequently used by accomplished vimmers.
+(quote) and \` (backquote) are very frequently used by accomplished vimmers.
 Experiment with double-tapping these keys to see the difference in their
 behaviour.
 
@@ -122,9 +122,9 @@ Try it out now:
 
 What else is there to learn from [motion.txt](motion.txt)?
 
-* [object-motions](object-motions)  Larger objects, like [sentences]((), [paragraphs]({)
++ [object-motions](object-motions)  Larger objects, like [sentences]((), [paragraphs]({)
                   and [sections](]]).
-* [jump-motions](jump-motions)    Moving up and down the jump list as well as
++ [jump-motions](jump-motions)    Moving up and down the jump list as well as
                   the related [change-list-jumps](change-list-jumps).
 
 There are many other motions in [motion.txt](motion.txt) than mentioned here.  It really
@@ -139,9 +139,9 @@ You will need:
 1. A ctags generated tags file (Exuberant Ctags is the choice for most cases)
 
 Typically this is as easy as:
-
+~~~ sh
     $ ctags -R
-
+~~~
 in the root of your project.
 
 But if you need anything fancier than that, consult  `man ctags`  for guidance.
@@ -154,11 +154,11 @@ you might want to include library tag files or a project-common tags file.
 3. A correctly set ['path']('path') option
 
 A good default is:
-~~~ viml
+~~~ cmd
     :set path=.,**
 ~~~
 Which searches the directory of the current file and all directories beneath
-the current directory. See |file-searching| for more details.
+the current directory. See [file-searching](file-searching) for more details.
 
 These options can be set in your [$MYVIMRC]($MYVIMRC) or, better, within filetype
 specific plugins in "~/.vim/ftplugin/<the-filetype>.vim" or
@@ -172,10 +172,10 @@ There are many tag commands available in Vim, but I'm going to share with you
 only a select few -- a mere dozen or so. These are the most frequently reached
 for. You can learn the other [tag](tag) commands later.
 
-<ctrl-]>        Jump to the keyword under the cursor. Tag jumps are recorded on
+`<ctrl-]>`{normal}      Jump to the keyword under the cursor. Tag jumps are recorded on
                 a |tag-stack|.
 
-<ctrl-t>        Jump to older tag in the stack.
+`<ctrl-t>`{normal}      Jump to older tag in the stack.
 
 [:ta](:ta)             Jump to newer tag in the stack.
 
@@ -185,21 +185,21 @@ for. You can learn the other [tag](tag) commands later.
 [:ts](:ts)/something   Show a list of tags matching the pattern something. See
                 [:tselect](:tselect)
 
-«g]»              Show a list of tags matching the keyword under the cursor.
+`g]`{normal}            Show a list of tags matching the keyword under the cursor.
 
 [:tj](:tj)/something   Show a list of tags matching the pattern something. If there
                 is only one tag in the list, don't show the list but instead jump
                 directly to it. See [:tjump](:tjump)
 
-«g<Ctrl-]»        Show a list of tags matching the keyword under the cursor. If
+`g<Ctrl-]`{normal}      Show a list of tags matching the keyword under the cursor. If
                 there is only one tag in the list, don't show the list but instead
                 jump directly to it.
 
-«[I»              Ordinarily, this just shows all lines in the file matching the
+`[I`{normal}            Ordinarily, this just shows all lines in the file matching the
                 keyword under the cursor — a shortcut to ":g/<c-r><c-w>"
 
 TIP: This map (taken from the Vim help) lets you jump to one of the matches:
-~~~ viml
+~~~ cmd
     :map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 ~~~
 
@@ -210,10 +210,10 @@ NOTE:   Use <ctrl-c> to cancel the choice if you don't want to jump to any of th
 While not strictly tagging commands, these little gems are semantically
 related:
 
-«gd» and «gD»   Jump to the local or global declaration of the keyword under
+`gd`{normal} and `gD`{normal}   Jump to the local or global declaration of the keyword under
             the cursor, respectively.
 
-«gf»          Jump to the file under the cursor.
+`gf`{normal}          Jump to the file under the cursor.
 
 While these commands may not be in your daily tag toolbox, you might call upon
 them occasionally:
@@ -222,8 +222,8 @@ them occasionally:
 
 [:ptj](:ptjump)/something           To show the tag match in the [preview window](preview-window).
 
-<ctrl-w><ctrl-i> and     To split the window, showing the associated first line or
-<ctrl-w><ctrl-d>         definition, respectively.
+`<ctrl-w><ctrl-i>`{normal} and     To split the window, showing the associated first line or
+`<ctrl-w><ctrl-d>`{normal}         definition, respectively.
 
 Using tags within Vim will speed up your editing by making it easy for you to
 jump around your pile of files.
@@ -246,7 +246,7 @@ If you have the ['hidden']('hidden') option enabled, you can have multiple modif
 buffers open concurrently.
 
 Use the [:b](:b) command to switch between buffers. You can use a buffer number, or
-the partial name of a buffer as the argument to the :b command. Use [CTRL-D](c_ctrl-d)
+the partial name of a buffer as the argument to the `:b`{vim} command. Use [CTRL-D](c_ctrl-d)
 to show a list of possible buffer names.
 
 These three things (two commands and the 'hidden' option) combine together to
@@ -291,31 +291,31 @@ argument list as and when you see fit.
 
 To set the current window's argument list to the .c files in the src/
 directory:
-~~~ viml
+~~~ cmd
     :args src/*.c
 ~~~
 To do that recursively within all of the subdirectories:
-~~~ viml
+~~~ cmd
     :args src/**/*.c
 ~~~
 To see your current argument list:
-~~~ viml
+~~~ cmd
     :args
 ~~~
 To add the .h files to the argument list:
-~~~ viml
+~~~ cmd
     :argadd src/**/*.h
 ~~~
 To jump to an argument by partial buffer (file) name match:
-~~~ viml
+~~~ cmd
     :argedit {partial name}
 ~~~
 To jump to an argument by (1-based) index:
-~~~ viml
+~~~ cmd
     :argument {index}
 ~~~
 To perform an operation on all of your arguments in a single command:
-~~~ viml
+~~~ cmd
     :argdo %s/Long live \zsthe buffer list\ze!/argument lists/ge | update
 ~~~
 If you [:quit](:quit) before visiting all of the files in your argument list, Vim will
@@ -334,4 +334,3 @@ The list of commands from [:badd](:badd) onwards in the [windows.txt](windows.tx
 the other buffer commands. Another excellent normal-mode command for navigating
 buffers is [CTRL-6](ctrl-6) to switch between the [current-file](current-file) and the
 [alternate-file](alternate-file).
->

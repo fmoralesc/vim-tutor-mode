@@ -18,7 +18,7 @@ Table of contents:
 ## SETTING UP *setting-up*
 
 First, you'll need to enable "debug" mode
-~~~ viml
+~~~ cmd
     :let g:tutor_debug = 1
 ~~~
 This will allow saving changes to the tutor files and will disable conceals, so
@@ -26,36 +26,44 @@ you can more easily check your changes.
 
 After this, create a new .tutor file (we will be practicing on this very file, so you
 don't need to do this now):
-~~~ viml
+~~~ cmd
     :e new-tutorial.tutor
 ~~~
-## VIM-TUTOR-MODE's MARKUP *markup*
+## VIM-TUTOR-MODE's MARKDOWN *markup*
 
-vim-tutor-mode uses a special markup to format the tutorials. If you've worked
-with markdown, it will surely feel familiar, although it doesn't support many
-features. This section will show you what is supported.
+vim-tutor-mode uses a subset of markdown's syntax to format the tutorials. The
+subset supported should be enough for most tutorials and the maintainers will
+try to keep it as small as possible (if regular markdown allows for several
+ways to do the same thing, tutor markdown will only provide the one the
+maintainers think is easier to handle). 
 
 ### Emphasis *emphasis*
 
-Emphasis in vim-tutor-mode is semantics-based. For example, lesson's
-descriptions are emphasized by surrounding some text with "\*\*" or "\!\!", like
-here
+For emphasized text (italics), as in normal markdown, you use \*. E.g.: 
 
-    \*\* text \*\*
+    \*text\*
 
-which is displayed like
+is displayed like
 
-    ** text **
+    *text*
 
-NOTE the space between the marks and the text is required.
+Note: The underscores variant is not supported. 
+
+For strong emphasis (bold), you use \*\*. E.g.:
+
+    \*\*this\*\*
+
+is displayed like 
+
+    **this**
 
 1. Format the line below so it becomes a lesson description:
 
----> This is a lesson description {expect:** This is a lesson description **}
----> ** This is a lesson description ** {expect:** This is a lesson description **}
+---> This is text with importat information {expect:This is text with **important information**}
+---> This is text with **important information** {expect:This is text with **important information**}
 
-Some words (TODO NOTE IMPORTANT TIP ATTENTION) will also be highlighted. You
-don't need to mark them specially.
+Note: Some words (e.g., NOTE, IMPORTANT, tip, ATTENTION, etc.) will also be
+highlighted. You don't need to mark them specially.
 
 2. Turn the line below into a TODO item:
 
@@ -73,7 +81,7 @@ don't need to mark them specially.
 ---> This is a header with a label {expect:# This is a header with a label {*label*}}
 ---> # This is a header with a label {*label*} {expect:# This is a header with a label {*label*}}
 
-4. Now, create a 4th level section here, and add a label like in the previous *exercise-4*
+4. Now, create a 4th level section here, and add a label like in the previous
 exercise:
 
 
@@ -114,7 +122,7 @@ and are hidden by default. Links to them look like
 ---> A link to the Links section {expect:A link to the [Links](*links*) section}
 ---> A link to the [Links](*links*) section {expect:A link to the [Links](*links*) section}
 
-7. Now, create a link to the section you created on [exercise 4](*exerciser-4*)
+7. Now, create a link to the section you created on exercise 4
    above.
 
 
@@ -132,14 +140,14 @@ You can also have links to other tutorials. For this, you'll write the wnchor in
 
 ### Codeblocks *codeblocks*
 
-vim-tutor-mode tutorials can include viml sections.
+vim-tutor-mode tutorials can include viml sections
 
-    ~~~ viml
+    ~~~ cmd
     echom "hello"
     ~~~
 
 is displayed as
-~~~ viml
+~~~ cmd
 echom "hello"
 ~~~
 
@@ -153,6 +161,14 @@ echom "hello"
 ---> echom "the value of &number is".string(&number) {expect:echom "the value of &number is".string(&number)}
 ---> ~~~ {expect:~~~}
 
+You can inline viml code using "\`" and "\`{vim}":
+
+    \`call myFunction()\`{vim}
+
+is displayed as
+
+    `call myFunction()`{vim}
+
 [normal](Normal-mode) commands can also be embedded in tutorials.
 
     ~~~ normal
@@ -164,6 +180,8 @@ is displayed as
 ftdaW
 ~~~
 
+Note: you can also write `norm` or `normal`. 
+
 9. Copy the normal section below
 
 --->  {expect:~~~ normal}
@@ -174,43 +192,24 @@ ftdaW
 ---> d2w {expect:d2w}
 ---> ~~~ {expect:~~~}
 
-You can also inline normal commands by using \« and \»
+You can also inline normal commands by using "\`" and "\`{normal}":
 
-    \«gq\» is very useful.
+    \`gq\`{normal} is very useful.
 
-is displayed: «gq» is very useful.
+is displayed:
+
+    `gq`{normal} is very useful.
 
 10. Complete the line as shown
 
 ---> d {expect:«d2w»}
 ---> «d2w» {expect:«d2w»}
 
-Ex commands can also be displayed by indenting (with 4 or more spaces) a line
-starting with ":".
-
-    \:vnew
-
-is displayed
-
-    :vnew
-
-11. Copy the command below:
-
---->  {expect:   :buffers}
---->    :buffers {expect:   :buffers}
-
 Commands to run in the system shell can be highlighted by indenting a line starting with "$".
 
-    \$ vim --version
-
-is displayed
-
+~~~ sh
     $ vim --version
-
-12. Copy the command
-
---->  {expect:   $ ls}
---->    $ ls {expect:   $ ls}
+~~~
 
 ## INTERACTIVE ELEMENTS *interactive*
 
@@ -244,16 +243,16 @@ is not.
 ---> ---> this is right {expect:---> this is right} |expect:---> this is right {expect:---> this is right}|
 
 
-If the content of a expect clause is NULL, no checks will be performed. This is
+If the content of a expect clause is ANYTHING, no checks will be performed. This is
 useful to create a line that is highlighted you want the user to play with.
 
-    \---> TEXT {expect:NULL}
+    \---> TEXT {expect:ANYTHING}
 
 is displayed
 
----> this is free text {expect:NULL}
+---> this is free text {expect:ANYTHING}
 
 14. Turn the line below into free text:
 
----> this is some text |expect:---> this is some text {expect:NULL}|
----> ---> this is some text {expect:NULL} |expect:---> this is some text {expect:NULL}|
+---> this is some text |expect:---> this is some text {expect:ANYTHING}|
+---> ---> this is some text {expect:ANYTHING} |expect:---> this is some text {expect:ANYTHING}|
