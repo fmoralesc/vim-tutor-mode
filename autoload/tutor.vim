@@ -3,7 +3,7 @@
 " Setup: {{{1
 function! tutor#SetupVim()
     if has('syntax')
-        if !exists("g:syntax_on") || g:syntax_on == 0
+        if !exists('g:syntax_on') || g:syntax_on == 0
             syntax on
         endif
     endif
@@ -16,13 +16,13 @@ function! s:CheckMaps()
 endfunction
 
 function! s:MapKeyWithRedirect(key, cmd)
-    if maparg(a:key) != ''
+    if maparg(a:key) !=# ''
         redir => l:keys
         silent call s:CheckMaps()
         redir END
         let l:key_list = split(l:keys, '\n')
 
-        let l:raw_map = filter(copy(l:key_list), "v:val =~ '\\* ".a:key."'")
+        let l:raw_map = filter(copy(l:key_list), "v:val =~# '\\* ".a:key."'")
         if len(l:raw_map) == 0
             exe "nnoremap <buffer> <expr> ".a:key." ".a:cmd
             return
@@ -37,10 +37,10 @@ endfunction
 
 function! tutor#MouseDoubleClick()
     if foldclosed(line('.')) > -1
-        normal  zo
+        normal! zo
     else
         if match(getline('.'), '^#\{1,} ') > -1
-            normal zc
+            normal! zc
         else
             call tutor#FollowLink(0)
         endif
@@ -76,7 +76,7 @@ function! tutor#SetSampleTextMappings()
     nmap <silent> <buffer> <End> $
     imap <silent> <buffer> <Home> <esc>^<esc>:startinsert<cr>
     imap <silent> <buffer> <End> <esc>$:startinsert<cr>
-    noremap <silent> <buffer> I :exe "normal 0" \| startinsert<cr>
+    noremap <silent> <buffer> I :exe "normal! 0" \| startinsert<cr>
 endfunction
 
 " Navigation: {{{1
@@ -164,7 +164,7 @@ endfunction
 
 function! tutor#FollowLink(force)
     let l:stack_s = join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), '')
-    if l:stack_s =~ 'tutorLink'
+    if l:stack_s =~# 'tutorLink'
         let l:link_start = searchpairpos('\[', '', ')', 'nbcW')
         let l:link_end = searchpairpos('\[', '', ')', 'ncW')
         if l:link_start[0] == l:link_end[0]
@@ -176,7 +176,7 @@ function! tutor#FollowLink(force)
         if a:force != 1 && match(l:target, '\*.\+\*') > -1
             call cursor(l:link_start[0], l:link_end[1])
             call search(l:target, '')
-            normal ^
+            normal! ^
         elseif a:force != 1 && match(l:target, '^@tutor:') > -1
             let l:tutor = matchstr(l:target, '@tutor:\zs.*')
             exe "Tutor ".l:tutor
@@ -188,7 +188,7 @@ function! tutor#FollowLink(force)
 endfunction
 
 function! tutor#FollowHelp()
-    if synIDattr(synID(line('.'), col('.'), 0), 'name') == 'tutorLink'
+    if synIDattr(synID(line('.'), col('.'), 0), 'name') ==# 'tutorLink'
         call tutor#FollowLink(1)
     else
         exe "help " .expand('<cWORD>')
@@ -199,7 +199,7 @@ endfunction
 " Folding And Info: {{{1
 
 function! tutor#TutorFolds()
-    if getline(v:lnum) =~ '^#\{1,6}'
+    if getline(v:lnum) =~# '^#\{1,6}'
         return ">". len(matchstr(getline(v:lnum), '^#\{1,6}'))
     else
         return "="

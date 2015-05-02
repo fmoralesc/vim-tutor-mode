@@ -1,1 +1,1 @@
-au! BufRead,BufNewFile *.tutor setfiletype tutor
+autocmd! BufRead,BufNewFile *.tutor setfiletype tutor
