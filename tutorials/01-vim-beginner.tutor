@@ -13,8 +13,8 @@ be saved. Don't worry about messing things up; just remember that pressing
 
 This tutorial is interactive, and there are a few things you should know.
 Pressing [<Enter>](<Enter>) over text highlighted [like this](holy-grail) will take you to some relevant
-help (hopefully), and pressing ? over any word will try to do so too. You can close
-the help window by pressing «q».  Sometimes you will be required to modify text like
+help (hopefully), and pressing K over any word will try to do so too. Sometimes
+you will be required to modify text like
 --->  this here {expect:this here}
 Once you have done the changes correctly, the ✗ sign at the left will change
 to ✓. I imagine you can already see how neat Vim can be ;)
@@ -61,7 +61,7 @@ NOTE: The cursor keys should also work.  But using hjkl you will be able to
 
 !! NOTE: Before executing any of the steps below, read this entire lesson !!
 
-  1. Press the <Esc> key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
+  1. Press the <Esc> key (to make sure you are in [Normal mode]().
 
   2. Type:
 

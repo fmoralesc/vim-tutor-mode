@@ -61,7 +61,6 @@ function! tutor#SetNormalMappings()
 
     nnoremap <silent> <buffer> <CR> :call tutor#FollowLink(0)<cr>
     nnoremap <silent> <buffer> <2-LeftMouse> :call tutor#MouseDoubleClick()<cr>
-    nnoremap <silent> <buffer> ? :call tutor#FollowHelp()<cr>
     nnoremap <buffer> >> :call tutor#InjectCommand()<cr>
 endfunction
 
@@ -182,17 +181,7 @@ function! tutor#FollowLink(force)
             exe "Tutor ".l:tutor
         else
             exe "help ".l:target
-            noremap <silent> <buffer> q :close<cr>
         endif
-    endif
-endfunction
-
-function! tutor#FollowHelp()
-    if synIDattr(synID(line('.'), col('.'), 0), 'name') ==# 'tutorLink'
-        call tutor#FollowLink(1)
-    else
-        exe "help " .expand('<cWORD>')
-        noremap <silent> <buffer> q :close<cr>
     endif
 endfunction
 
