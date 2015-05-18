@@ -1,71 +1,73 @@
 #             Welcome   to   the   VIM   Tutor
 
-Vim is a very powerful and popular editor that has many commands. Unlike most
-text editors where you use the keyboard to enter text and arrow keys to move you
-cursor, Vim uses the keyboard to enter commands to manipulate the text.
+Vim is a very powerful text editor that has many commands. Unlike most text
+editors where you use the keyboard to enter text and arrow keys to move your
+cursor, in Vim you use the keyboard to enter commands to manipulate text.
+These commands allow you to express complex thoughts in just a few keystrokes
+to move through text and manipulate it much faster than in most text editors.
 There is a great amount of commands, too many to explain in a tutor such as
-this, but as you will see over the course of this tutorial series these commands
-are not arbitrarily chosen, they form a language with its own grammar.
+this, but as you will see over the course of this tutorial series these
+commands are not arbitrarily chosen, they form a sort of language with its own
+grammar.
 
-This tutor is designed to describe enough of the commands
-that you will be able to easily use Vim as an all-purpose editor.  It is
-IMPORTANT to remember that this tutor is set up to teach by use.  That means
-that you need to do the exercises to learn them properly.  If you only read
-the text, you will soon forget what is most important!
+This tutor is designed to describe enough of the commands that you will be able
+to easily use Vim as an all-purpose editor.  It is important to remember that
+it is set up to teach by use. That means that you need to do the exercises to
+learn them properly.  If you only read the text, you will soon forget what is
+most important!
 
 NOTE: The commands in the lessons will modify the text, but those changes won't
 be saved.  Don't worry about messing things up; just remember that pressing
 [«<Esc>»](<Esc>) and then [u](u) will undo the latest change.
 
 This tutorial is interactive, and there are a few things you should know.
-Pressing [«<Enter>»](<Enter>) over text highlighted [like this](holy-grail) will take you to some relevant
-help (hopefully), and pressing ? over any word will try to do so too.  You can close
-the help window by pressing «q».  Sometimes you will be required to modify text like
+Pressing [«<Enter>»](<Enter>) over text highlighted [like this](holy-grail)
+will take you to some relevant help (hopefully), and pressing ? over any word
+will try to do so too.  You can close the help window by pressing «q».
+Sometimes you will be required to modify text like
+
 --->  this here {expect:this here}
-Once you have done the changes correctly, the ✗ sign at the left will change
-to ✓. I imagine you can already see how neat Vim can be ;)
-Other times, you'll be prompted to run a command (I'll explain this later):
+
+Once you have done the changes correctly, the ✗ sign at the left will change to
+✓. I imagine you can already see how neat Vim can be ;) Other times, you'll be
+prompted to run a command (I'll explain this later):
+
 ~~~ viml
     :help <Enter>
 ~~~
+
 or press a sequence of keys
 
     <Esc>0f<SPACE>d3wP$P
 
-Text within <'s and >'s (like <Enter>) describes a key to press instead of text
-to type.
+Text within angle brackets (like <Enter>) describes a key to press instead of
+text to type.
 
-Now, make sure that your Shift-Lock key is NOT depressed and press the «j»
-key enough times to move the cursor so that Lesson 1.1 completely fills the
-screen.
+Now, make sure that your Shift-Lock key is NOT depressed and press the «j» key
+enough times to move the cursor so that Lesson 1.1 completely fills the screen.
 
 ## Lesson 1.1: MOVING THE CURSOR
 
 ** To move the cursor, press the «h», «j», «k», «l» keys as indicated. **
 
-           ↑
-           k       Hint: The h key is at the left and moves left.
-        ←h   l→          The l key is at the right and moves right.
-           j             The j key looks like a down arrow.
-           ↓
+        ← ↓ ↑ →    Hint: The h key is at the left and moves left.
+        h j k l          The l key is at the right and moves right.
+                         The j key looks like a down arrow.
 
-        ← ↓ ↑ →
-        h j k l
 
   1. Move the cursor around the screen until you are comfortable.
 
-  2. Hold down the down key (j) until it repeats.
-     Now you know how to move to the next lesson.
+  2. Hold down the «j» and move to the next lesson.
 
-  3. Using the down key, move to Lesson 1.2.
 
 NOTE: If you are ever unsure about something you typed, press <Esc> to place
       you in Normal mode.  Then retype the command you wanted.
 
-NOTE: The cursor keys should also work, but these keys have not been chosen
-      arbitrarily, they are on the right-hand side of the home row, allowing you
-      to mode the curse without taking youre hand off. Once getting used to hjkl
-      you will be able to move around much faster. Really!
+NOTE: The cursor keys should also work, but the «h» «j» «k» «l» keys have not
+      been chosen arbitrarily, they are on the right-hand side of the home row,
+      allowing you to mode the curse without taking youre hand off. Once
+      getting used to «h» «j» «k» «l» you will be able to move around much
+      faster. Really!
 
 # Lesson 1.2: EXITING VIM
 
@@ -78,7 +80,7 @@ NOTE: The cursor keys should also work, but these keys have not been chosen
      :q! <Enter>.
 
      This exits the editor, DISCARDING any changes you have made. The
-	 exclamation mark "supercharges" the [:q](:q) command.
+     exclamation mark "supercharges" the [:q](:q) command.
 
   3. Open vim and get back here by executing the command that got you into this
      tutor. That might be:
@@ -96,7 +98,7 @@ NOTE:  The command  [:q!](:q) <Enter>  discards any changes you have made. In a
 # Part 1: COUNT, OPERATOR, MOTION -- ACTION
 
 Before we continue we need to understand the concept of modal editing first:
-most editors have two modes, a mode where you enter text and a mode where you
+most editors have two "modes", a mode where you enter text and a mode where you
 select text.
 
 You have already met two of Vim's modes so far: normal mode which
@@ -106,14 +108,14 @@ lets you type text and visual mode which lets you visually select text. Out of
 these normal mode is where you will spend most of your time.
 
 Keyboard keys have different effects depending on the mode you are in: pressing
-the j key in normal mode will move the cursor downwards, but pressing the same
-key in insert mode will place a j character in your text.
+the «j» key in normal mode will move the cursor downwards, but pressing the
+same key in insert mode will place a 'j' character in your text.
 
 The next important thing we need to keep in mind is how the syntax of Vim
 commands works: unlike most editor where keyboard commands are just shortcuts,
 Vim commands are part of a language with its own grammar and vocabulary.
 
-The structure of a "sentence" is *count**operator**motion*. Don't think too
+The structure of a "sentence" is *count* *operator* *motion*. Don't think too
 much about if for now, all that is important to know is that once you have
 learned a new vocable you can use it along with the ones you already know to
 construct completely new sentences. This is what makes Vim so productive, you
@@ -229,8 +231,8 @@ delete the current word. We will use a different operator for that.
   2. To make the first line the same as the second, move the cursor on top
      of the first character AFTER where the text is to be inserted.
 
-	 Tip: use the «w» motion you learned before to jump to the beginning of the
-	      word where you want to insert.
+     Tip: use the «w» motion you learned before to jump to the beginning of the
+          word where you want to insert.
 
   3. Press  [«i»](i)  and type in the necessary additions.
 
@@ -241,8 +243,8 @@ delete the current word. We will use a different operator for that.
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
 
   5. You can use the upper-case version «I» to insert text at the beginning of
-     the line regardless of where on the line your custor is. Place the cursor
-	 anywhere on the line below and hit «I» to insert.
+     the line regardless of where on the line your cursor is. Place the cursor
+     anywhere on the line below and hit «I» to insert.
 
 ---> is some text missing from this line. {expect:There is some text missing from this line.}
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
@@ -260,8 +262,8 @@ before transitioning into insert mode, but they wouldn't make sense here.
   2. To make the first line the same as the second, move the cursor on top
      of the first character BEFORE where the text is to be inserted.
 
-	 Tip: use the «e» motion you learned before to jump to the end of the word
-	 where you want to append.
+     Tip: use the «e» motion you learned before to jump to the end of the word
+     where you want to append.
 
   3. As the text has been appended press <Esc> to return to Normal mode.
 
@@ -284,7 +286,7 @@ Get early into the habit of being lazy.
 
 # Lesson 6.1: THE OPEN COMMAND
 
-** Type  o  to open a line below the cursor and place you in Insert mode. **
+** Press  «o»  to open a line below the cursor and place you in Insert mode. **
 
 You can create a new line and enter insert mode immediately using this one
 operator.
@@ -455,16 +457,17 @@ operator as motion as well to affect the entire line.
 ---> This is the way it should be. {expect:This is the way it should be.}
 
 This is generally preferrable to the underscore motion above. Ultimately it
-makes no difference, but most instruction use the doubled form.
+makes no difference, but most instructions you will come across use the doubled
+form.
 
 
-# Lesson something.something: FINDING MOTION
+# Lesson something.something: FIND MOTION
 
 ** The «f» and «t» motions can jump to a particular character **
 
 We have already learned about word-wise motions, but what if we want to make
 even bigger jumps? We can specify a character to jump to. We can repeat the
-jump with «;».
+jump with «;» or with «,» in the other direction.
 
   1. Move the cursor to the beginning of the line.
 
@@ -507,7 +510,7 @@ correct the position by one or two.
 
 ** We can undo and redo changes. More imporantly though, we can repeat them **
 
-To undo a change press «u», press «C-R» to redo it again.
+To undo a change press «u», press <C-R> to redo it again.
 
   1. Make some change to the line to break it.
 
@@ -531,44 +534,41 @@ operator.
 ---> Roses are red, and tomatoes are red as well. {expect:Roses are red, and tomatoes are red as well.}
 
 An action consits of a count, an operator and a motion, you know that already.
-What I did not tell you is that everything you type in isert mode is part of
+What I did not tell you is that everything you type in insert mode is part of
 the action as well. This means you can repeat entire phrases, sentences or even
 paragraphs. The only catch is that you cannot leave insert mode or it ends the
 action.
 
-The dot is actually a macro and always contains the last action. We will
-later learn how to define our own macros which are more powerful than that. We
-will also learn how to transplant text properly.
-
-The dot is still very powerful and you should use it whenever the possibility
-arises. Like most other operators it can be combined with a motion.
+The dot is still very powerful because it assigns itself automatically and you
+should use it whenever the possibility arises. Like most other operators it can
+be combined with a motion.
 
 ## Lesson something.something: THE PUT COMMAND
 
-** Typ p to put previously deleted text after the cursor. **
+** Type «p» to put previously deleted text after the cursor. **
 
 The «p» operator can put previously deleted text after the cursor, and the
 upper-case variant places it in front of the cursor.
 
-  1. Type  «dd»  on the d) line to delete the.
+  1. Type «dd» on the d) line to delete it.
 
-  2. Move the cursor to the c) line, ABOVE where the deleted line should go.
+  2. Move the cursor to the c) line, above where the deleted line should go.
 
-  3. Type   «p»   to put the line below the cursor.
+  3. Type «p» to put the line below the cursor.
 
   4. Now delete the a) line below and move the cursor to the b) line.
 
-  5. Type   «P»   to put the line above the cursor.
+  5. Type «P» to put the line above the cursor.
 
 ---> d) Can you learn too? {expect:NULL}
 ---> b) Violets are blue, {expect:NULL}
 ---> c) Intelligence is learned, {expect:NULL}
 ---> a) Roses are red, {expect:NULL}
 
-The deleted text is stored in a register and always contains the last deletion
-or yank (see next lesson).  You will later learn about custom registers you can
-assign yourself. This operator allows you to transplant blocks of text at any
-size.
+The deleted text is stored in a so-called register, memory holding some text
+temporarliy, and always contains the last deletion or yank (see next lesson).
+You will later learn about custom registers you can assign yourself. This
+operator allows you to transplant blocks of text at any size.
 
 # Lesson something.something: COPY AND PASTE TEXT
 
@@ -660,11 +660,11 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
   1. Place the cursor on any (, [, or { in the line below marked --->.
 
-  2. Now type the  [«%»](%)  character.
+  2. Now press the [«%»](%) key.
 
   3. The cursor will move to the matching parenthesis or bracket.
 
-  4. Type  «%»  to move the cursor to the other matching bracket.
+  4. Type «%» to move the cursor to the other matching bracket.
 
   5. Move the cursor to another (,),[,],{ or } and see what  %  does.
 
@@ -676,34 +676,35 @@ NOTE: This is very useful in debugging a program with unmatched parentheses!
 # Conclusion
 
 So far we have learned how to do basic text operation, we know how to navigate
-the text quickly, how to insert text and finally we learned how to transplant
-text. We also learned that Vim actions are actually sentences constructed
+text quickly, how to insert text and finally we learned how to transplant text.
+We have also learned that Vim actions are actually sentences constructed
 acctording to a grammar. Learning how to express our thoughts in this Vim
-language is the key to getting really producive, allowing you to execute actions
-as fast as you can think them.
+language is the key to getting really producive, allowing you to execute
+actions as fast as you can think them.
 
 =========  =================        ========  ========================
  Motion          Effect             Operator  Effect
 =========  =================        ========  ========================
-    h      left                        x      Delete current character
-    j      down                        i      Insert before cursor
-    k      up                          a      Append after cursor
-    l      right                       o      Open a new line
-    w      next word                   d      Delete text with motion
-    e      end of word                 y      Yank text with motion
-    b      beginning of word           c      Change text with motion
-    0      beginning of line           r      Replace character/text
-    $      end of line                 u      Undo action
-l <SPACE>  current character         <C-R>    Redo action
-    _      current line                p      Put yanked/deleted text
-    f      fing character           ========  ========================
-    t      'till character
-    i      inside something         Pressing an operator twice acts as
-    a      around something         a motion on the entire line.
-   gg      first line
-    G      last line
-    %      matching braces
-=========  =================
+   «h»     left                       «x»     Delete current character
+   «j»     down                       «i»     Insert before cursor
+   «k»     up                         «a»     Append after cursor
+   «l»     right                      «o»     Open a new line
+   «w»     next word                  «d»     Delete text with motion
+   «e»     end of word                «y»     Yank text with motion
+   «b»     beginning of word          «c»     Change text with motion
+   «0»     beginning of line          «r»     Replace character/text
+   «$»     end of line                «u»     Undo action
+   «l»     current character         <C-R>    Redo action
+ <SPACE>   current character          «p»     Put yanked/deleted text
+   «_»     current line             ========  ========================  
+   «f»     fing character
+   «t»     'till character         Pressing an operator twice acts as
+   «i»     inside something        a motion on the entire line.
+   «a»     around something
+   «g»     first line
+   «G»     last line
+   «%»     matching braces
+===«=»===  =================
 
 
 
@@ -720,7 +721,7 @@ from a previous UNIX text editor called "ex". Ex was a predecessor to vi, which
 is a predecessor to Vim, and was operated exclusively using such commands.
 
 While in command mode you can auto-complete the same way as in the shell by
-hitting the <TAB> key. While typing a command you can press <C-D> to like
+hitting the <TAB> key. While typing a command you can press <C-D> to list
 possible suggestions.
 
 # Lesson 2.1: WRITING AND CLOSING A FILE
@@ -749,9 +750,6 @@ To write and close a file in one go use ':wq'.
 You can close all open files with 'qall' or 'qa' and write all files with
 ':wall' or ':wa'. And you might have guessed it already, use ':wqall' or 'wqa'
 to write and quit all files.
-
-Unlike actions there is not really a grammar to ex commands, but the commands
-have been chosen in a way that does look like a grammer where it makes sense.
 
 A file is saved under the same name it already has, to save it as a new file
 enter a file name as an argument: ':w newfile.txt'
@@ -1212,6 +1210,7 @@ allow you to use the editor fairly easily. It is far from complete as Vim has
 many many more commands.  Consult the help often.
 
 Now, you can try a different tutorial:
+To proceed to the next tutorial, enter the following command
 
     :Tutor 02-vim-intermediate
 
