@@ -239,6 +239,30 @@ function! tutor#OnTextChanged()
 endfunction
 
 " Tutor Cmd: {{{1
+
+function! s:Locale()
+    let l:lang = ""
+    if exists('v:lang') && v:lang =~ '\a\a'
+        let l:lang = v:lang
+    elseif $LC_ALL =~ '\a\a'
+        let l:lang = $LC_ALL
+    elseif $LANG =~ '\a\a'
+        let l:lang = $LANG
+    endif
+    return split(l:lang, '_')
+endfunction
+
+function! s:GlobTutorials(name)
+    if v:version >= 704 && has('patch279')
+        let l:tutors = globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0, 1)
+        call extend(l:tutors, globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0, 1))
+    else
+        let l:tutors = split(globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0), '\n')
+        call extend(l:tutors, split(globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0), '\n'))
+    endif
+    return l:tutors
+endfunction
+
 function! tutor#TutorCmd(tutor_name)
     if match(a:tutor_name, '[[:space:]]') > 0
         echom "Only one argument accepted (check spaces)"
@@ -251,11 +275,7 @@ function! tutor#TutorCmd(tutor_name)
         let l:tutor_name = a:tutor_name
     endif
 
-    if v:version >= 704 && has('patch279')
-        let l:tutors = globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0, 1)
-    else
-        let l:tutors = split(globpath(&rtp, 'tutorials/'.l:tutor_name.'.tutor', 0), '\n')
-    endif
+    let l:tutors = s:GlobTutorials(l:tutor_name)
 
     if len(l:tutors) == 0
         echom "No tutorial with that name found"
@@ -277,11 +297,7 @@ function! tutor#TutorCmd(tutor_name)
 endfunction
 
 function! tutor#TutorCmdComplete(lead,line,pos)
-    if v:version >= 704 && has('patch279')
-        let l:tutors = globpath(&rtp, 'tutorials/*.tutor', 0, 1)
-    else
-        let l:tutors = split(globpath(&rtp, 'tutorials/*.tutor', 0), '\n')
-    endif
+    let l:tutors = s:GlobTutorials('*')
     let l:names = uniq(sort(map(l:tutors, 'fnamemodify(v:val, ":t:r")')))
     return join(l:names, "\n")
 endfunction
