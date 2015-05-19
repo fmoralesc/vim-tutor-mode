@@ -259,15 +259,14 @@ function! s:GlobTutorials(name)
         if len(l:locale_tutors) == 0
             let l:locale_tutors = globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0, 1)
         endif
-        call extend(l:tutors, l:locale_tutors)
     else
         let l:tutors = split(globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0), '\n')
         let l:locale_tutors = split(globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0), '\n')
         if len(l:locale_tutors) == 0
             let l:locale_tutors = split(globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0), '\n')
         endif
-        call extend(l:tutors, l:locale_tutors)
     endif
+    call extend(l:tutors, l:locale_tutors)
     return l:tutors
 endfunction
 
@@ -303,7 +302,7 @@ function! tutor#TutorCmd(tutor_name)
         let l:to_open = substitute(l:candidates[l:tutor_to_open], '^\d\+. ', '', '')
     endif
 
-    if exists(':drop') == 2
+    if has('gui') || has('nvim')
         exe "drop ".l:to_open
     else
         exe "edit ".l:to_open
