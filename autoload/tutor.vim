@@ -255,10 +255,18 @@ endfunction
 function! s:GlobTutorials(name)
     if v:version >= 704 && has('patch279')
         let l:tutors = globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0, 1)
-        call extend(l:tutors, globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0, 1))
+        let l:locale_tutors = globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0, 1)
+        if len(l:locale_tutors) == 0
+            let l:locale_tutors = globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0, 1)
+        endif
+        call extend(l:tutors, l:locale_tutors)
     else
         let l:tutors = split(globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0), '\n')
-        call extend(l:tutors, split(globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0), '\n'))
+        let l:locale_tutors = split(globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0), '\n')
+        if len(l:locale_tutors) == 0
+            let l:locale_tutors = split(globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0), '\n')
+        endif
+        call extend(l:tutors, l:locale_tutors)
     endif
     return l:tutors
 endfunction
