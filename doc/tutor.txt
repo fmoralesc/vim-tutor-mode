@@ -1,10 +1,14 @@
+*tutor.txt* Interactive tutorials.
+Author: Felipe Morales <hel.sheep@gmail.com>
+
 *vim-tutor-mode*
 
                                 VIM-TUTOR-MODE
 
-- USAGE                                                      *vim-tutor-usage*
+vim-tutor-mode provides a system to create and follow interactive tutorials
+for vim and third party plugins. It replaces the venerable `vimtutor` system.
 
-This plugin is only available if 'compatible' is not set.
+- USAGE                                                      *vim-tutor-usage*
 
 vim-tutor-mode tutorials are hypertext documents, that is, they have rich text
 and contain links. To stand out from the rest of the text, links are
@@ -14,16 +18,16 @@ system, but some will move you around the document itself.
 
 - COMMANDS                                                  *:VimTutor* *:Tutor*
 
->
 :Tutor {tutorial}           Opens a tutorial.
 
 :VimTutor                   Opens the vimtutor tutorial.
-                            is the same as :Tutor 00-vimtutor
+                            is the same as :Tutor 01-vim-beginner
 
 - CREATING                                                  *vim-tutor-create*
 
-Consult the tutor.tutor file:
+Writing vim-tutor-mode tutorials is easy. Please consult the tutor.tutor
+file: >
 
     :Tutor tutor
-
+<
 " vim: set ft=help :
