@@ -252,22 +252,36 @@ function! s:Locale()
     return split(l:lang, '_')
 endfunction
 
-function! s:GlobTutorials(name)
-    if v:version >= 704 && has('patch279')
-        let l:tutors = globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0, 1)
-        let l:locale_tutors = globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0, 1)
-        if len(l:locale_tutors) == 0
-            let l:locale_tutors = globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0, 1)
-        endif
+function s:GlobPath(lp, pat)
+    if version >= 704 && has('patch279')
+        return globpath(a:lp, a:pat, 0, 1)
     else
-        let l:tutors = split(globpath(&rtp, 'tutorials/'.a:name.'.tutor', 0), '\n')
-        let l:locale_tutors = split(globpath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor', 0), '\n')
-        if len(l:locale_tutors) == 0
-            let l:locale_tutors = split(globpath(&rtp, 'tutorials/en/'.a:name.'.tutor', 0), '\n')
-        endif
+        return split(globpath(a:lp, a:pat, 0), '\n')
+    endif
+endfunction
+
+function! s:GroupByName(a, b)
+    if fnamemodify(a:a, ':t') == fnamemodify(a:b, ':t')
+        return 0
+    elseif a:a > a:b
+       return 1
+   else
+      return -1
+  endif
+endfunction
+
+function! s:GlobTutorials(name)
+    " search for tutorials:
+    " 1. non-localized
+    let l:tutors = s:GlobPath(&rtp, 'tutorials/'.a:name.'.tutor')
+    " 2. localized for current locale
+    let l:locale_tutors = s:GlobPath(&rtp, 'tutorials/'.s:Locale()[0].'/'.a:name.'.tutor')
+    " 3. fallback to 'en'
+    if len(l:locale_tutors) == 0
+        let l:locale_tutors = s:GlobPath(&rtp, 'tutorials/en/'.a:name.'.tutor')
     endif
     call extend(l:tutors, l:locale_tutors)
-    return l:tutors
+    return uniq(sort(l:tutors, 's:GroupByName'), 's:GroupByName')
 endfunction
 
 function! tutor#TutorCmd(tutor_name)
@@ -294,14 +308,15 @@ function! tutor#TutorCmd(tutor_name)
     else
         let l:idx = 0
         let l:candidates = ['Several tutorials with that name found. Select one:']
-        for candidate in map(l:tutors, 'fnamemodify(v:val, ":h:h:t")."/".fnamemodify(v:val, ":t")')
+        for candidate in map(copy(l:tutors),
+                    \'fnamemodify(v:val, ":h:h:t")."/".s:Locale()[0]."/".fnamemodify(v:val, ":t")')
             let l:idx += 1
             call add(l:candidates, l:idx.'. '.candidate)
         endfor
         let l:tutor_to_open = inputlist(l:candidates)
-        let l:to_open = substitute(l:candidates[l:tutor_to_open], '^\d\+. ', '', '')
+        let l:to_open = l:tutors[l:tutor_to_open-1]
     endif
-
+    
     if has('gui') || has('nvim')
         exe "drop ".l:to_open
     else
