@@ -223,9 +223,7 @@ function! tutor#CheckText(text)
             let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
             let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
         endif
-        if l:cur_text =~ '\s*'
-            exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
-        elseif l:cur_text ==# l:expected_text
+        if l:cur_text ==# l:expected_text
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
         else
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
