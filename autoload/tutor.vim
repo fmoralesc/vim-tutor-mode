@@ -216,18 +216,22 @@ endfunction
 
 function! tutor#CheckText(text)
     if match(a:text, '{expect:ANYTHING}\s*$') == -1
-        if match(getline('.'), '|expect:.\+|') == -1
-            let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
-            let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')
-        else
-            let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
-            let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
-        endif
-        if l:cur_text ==# l:expected_text
-            exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
-        else
+	if match(getline('.'), '^--->\s*$') > -1
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
-        endif
+	else
+	    if match(getline('.'), '|expect:.\+|') == -1
+		let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
+		let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')
+	    else
+		let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
+		let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
+	    endif
+	    if l:cur_text ==# l:expected_text
+		exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
+	    else
+		exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
+	    endif
+	endif
     endif
 endfunction
 
