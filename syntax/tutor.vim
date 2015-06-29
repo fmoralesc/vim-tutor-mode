@@ -2,8 +2,10 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn include @TUTORSHELL syntax/sh.vim
 syn include @VIM syntax/vim.vim
+unlet b:current_syntax
+syn include @TUTORSHELL syntax/sh.vim
+unlet b:current_syntax
 syn include @VIMNORMAL syntax/vimnormal.vim
 
 syn match tutorLink /\[.\{-}\](.\{-})/ contains=tutorInlineNormal
@@ -20,8 +22,10 @@ syn match tutorTOC /\ctable of contents:/
 
 syn match tutorConcealedEscapes /\\[`*!\[\]()«»:$-]\@=/ conceal
 
-syn region tutorEmphasis matchgroup=Delimiter start=/[\*]\@<!\*\*\@!/ end=/[\*]\@<!\*\*\@!/ concealends contains=tutorInlineCommand,tutorInlineNormal
-syn region tutorBold matchgroup=Delimiter start=/\*\{2}/ end=/\*\{2}/ concealends contains=tutorInlineCommand,tutorInlineNormal
+syn region tutorEmphasis matchgroup=Delimiter start=/[\*]\@<!\*\*\@!/ end=/[\*]\@<!\*\*\@!/
+	    \ concealends contains=tutorInlineCommand,tutorInlineNormal
+syn region tutorBold matchgroup=Delimiter start=/\*\{2}/ end=/\*\{2}/
+	    \ concealends contains=tutorInlineCommand,tutorInlineNormal
 
 syn keyword tutorMarks TODO NOTE IMPORTANT TIP ATTENTION EXERCISE
 syn keyword tutorMarks todo note tip attention exercise
@@ -36,14 +40,12 @@ syn match tutorSampleTextExpect /|\@<! |expect:.\+|\s*$/ contained containedin=t
 syn region tutorCodeblock matchgroup=Delimiter start=/^\~\{3}.*$/ end=/^\~\{3}/
 
 syn region tutorShell matchgroup=Delimiter start=/^\~\{3} sh\s*$/ end=/^\~\{3}/ keepend contains=@TUTORSHELL
-syn match tutorShellPrompt /[$#]/ contained containedin=tutorShell
+syn match tutorShellPrompt /\(^\s*\)\@<=[$#]/ contained containedin=tutorShell
 
 syn region tutorInlineCode matchgroup=Delimiter start=/\\\@<!`/ end=/\\\@<!\(`{\@!\|`\s\)/
 
 syn region tutorCommand matchgroup=Delimiter start=/^\~\{3} cmd\( :\)\?\s*$/ end=/^\~\{3}/ keepend contains=@VIM
-syn match tutorCommandIdentifier /:/ contained containedin=tutorCommand,Delimiter conceal cchar=:
 syn region tutorInlineCommand matchgroup=Delimiter start=/\\\@<!`\(.*{vim}\)\@=/ end=/\\\@<!`\({vim}\)\@=/ nextgroup=tutorInlineType contains=@VIM
-syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
 
 syn region tutorNormal matchgroup=Delimiter start=/^\~\{3} norm\(al\?\)\?\s*$/ end=/^\~\{3}/ contains=@VIMNORMAL
 syn region tutorInlineNormal matchgroup=Delimiter start=/\\\@<!`\(\S*{normal}\)\@=/ end=/\\\@<!`\({normal}\)\@=/ nextgroup=tutorInlineType contains=@VIMNORMAL
@@ -76,10 +78,6 @@ hi! tutorX ctermfg=red guifg=#ff2000  cterm=bold gui=bold
 hi! link tutorInlineOK tutorOK
 hi! link tutorInlineX tutorX
 
-hi! link tutorCommand String
-hi! link tutorCommandCmd Statement
-hi! link tutorInlineCommand Statement
-hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
 
 let b:current_syntax = "tutor"
