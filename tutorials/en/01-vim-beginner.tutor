@@ -940,14 +940,14 @@ Now, you can try a different tutorial:
 
     `:Tutor 02-vim-intermediate`{vim}
 
-There are many resources online to learn more about vim. Here's a list of a bunch of them:
+There are many resources online to learn more about vim. Here's a bunch of them:
 
-- Learn Vim Progressively: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
-- Learning Vim in 2014: http://benmccormick.org/learning-vim-in-2014/
+- *Learn Vim Progressively*: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+- *Learning Vim in 2014*: http://benmccormick.org/learning-vim-in-2014/
 - Vimcasts: http://vimcasts.org/
 - Vim Video-Tutorials by Derek Wyatt: http://derekwyatt.org/vim/tutorials/
-- Learn Vimscript the Hard Way: http://learnvimscriptthehardway.stevelosh.com/
-- 7 Habits of Effective Text Editing: http://www.moolenaar.net/habits.html
+- *Learn Vimscript the Hard Way*: http://learnvimscriptthehardway.stevelosh.com/
+- *7 Habits of Effective Text Editing*: http://www.moolenaar.net/habits.html
 
 If you prefer a book, *Practival Vim* by Drew Neil is recommended often.
 
