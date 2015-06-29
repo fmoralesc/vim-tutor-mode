@@ -23,8 +23,7 @@ This plugin is only available if 'compatible' is not set.
 ## Usage
 
 ~~~ vim
-:Tutor 01-vim-beginner
-:VimTutor
+:Tutor
 ~~~
 
 To learn how to create tutorials using vim-tutor-mode, see

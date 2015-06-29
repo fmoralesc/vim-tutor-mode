@@ -19,9 +19,9 @@ system, but some will move you around the document itself.
 - COMMANDS                                                  *:VimTutor* *:Tutor*
 
 :Tutor {tutorial}           Opens a tutorial.
-
-:VimTutor                   Opens the vimtutor tutorial.
-                            is the same as :Tutor 01-vim-beginner
+			    If no arguments are provided, it opens the
+			    '01-vim-beginner' tutorial, which is equivalent to
+			    Vim's vimtutor.
 
 - CREATING                                                  *vim-tutor-create*
 

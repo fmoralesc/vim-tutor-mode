@@ -294,10 +294,14 @@ function! tutor#TutorCmd(tutor_name)
         return
     endif
 
-    if match(a:tutor_name, '\.tutor$') > 0
-        let l:tutor_name = fnamemodify(a:tutor_name, ':r')
+    if a:tutor_name == ''
+	let l:tutor_name = '01-vim-beginner.tutor'
     else
-        let l:tutor_name = a:tutor_name
+	let l:tutor_name = a:tutor_name
+    endif
+
+    if match(l:tutor_name, '\.tutor$') > 0
+        let l:tutor_name = fnamemodify(l:tutor_name, ':r')
     endif
 
     let l:tutors = s:GlobTutorials(l:tutor_name)
