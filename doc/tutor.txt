@@ -16,14 +16,14 @@ underlined. You can follow them by placing the cursor over them and pressing
 <Enter>, or by double-clicking them. Most of the links will open vim's help
 system, but some will move you around the document itself.
 
-- COMMANDS                                                  *:VimTutor* *:Tutor*
+- COMMANDS                                                   *:Tutor*
 
 :Tutor {tutorial}           Opens a tutorial.
 			    If no arguments are provided, it opens the
 			    '01-vim-beginner' tutorial, which is equivalent to
 			    Vim's vimtutor.
 
-- CREATING                                                  *vim-tutor-create*
+- CREATING                                                   *vim-tutor-create*
 
 Writing vim-tutor-mode tutorials is easy. Please consult the tutor.tutor
 file: >
