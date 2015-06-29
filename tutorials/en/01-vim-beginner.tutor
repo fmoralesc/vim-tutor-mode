@@ -30,7 +30,7 @@ or press a sequence of keys
 Text within <'s and >'s (like `<Enter>`{normal}) describes a key to press instead of text
 to type.
 
-Now, make sure that your Shift-Lock key is NOT depressed and press the «j»
+Now, make sure that your Shift-Lock key is NOT depressed and press the `j`{normal}
 key enough times to move the cursor so that Lesson 1.1 completely fills the
 screen.
 
@@ -222,7 +222,7 @@ Now continue with Lesson 2.
 
   3. Move the cursor to the end of the correct line (AFTER the first . ).
 
-  4. Type «d$» to delete to the end of the line.
+  4. Type `d$`{normal} to delete to the end of the line.
 
 ---> Somebody typed the end of this line twice. end of this line twice. {expect:ANYTHING}
 
@@ -313,7 +313,7 @@ insert a count before the motion to delete more:
      first error.
   2. Type  `x`{normal}  to delete the first unwanted character.
   3. Now type  `u`{normal}  to undo the last command executed.
-  4. This time fix all the errors on the line using the  «x»  command.
+  4. This time fix all the errors on the line using the  `x`{normal}  command.
   5. Now type a capital  `U`{normal}  to return the line to its original state.
   6. Now type  `u`{normal}  a few times to undo the  U  and preceding commands.
   7. Now type  `<Ctrl-r>`{normal}  a few times to redo the commands (undo the undo's).
