@@ -2,9 +2,9 @@ if exists("b:current_syntax")
     finish
 endif
 
+syn include @TUTORSHELL syntax/sh.vim
 syn include @VIM syntax/vim.vim
-syn include @NORMAL syntax/vimnormal.vim
-syn include @SHELL syntax/sh.vim
+syn include @VIMNORMAL syntax/vimnormal.vim
 
 syn match tutorLink /\[.\{-}\](.\{-})/ contains=tutorInlineNormal
 syn match tutorLinkBands /\[\|\]\|(\|)/ contained containedin=tutorLink,tutorLinkAnchor conceal
@@ -35,7 +35,7 @@ syn match tutorSampleTextExpect /|\@<! |expect:.\+|\s*$/ contained containedin=t
 
 syn region tutorCodeblock matchgroup=Delimiter start=/^\~\{3}.*$/ end=/^\~\{3}/
 
-syn region tutorShell matchgroup=Delimiter start=/^\~\{3} sh\s*$/ end=/^\~\{3}/ keepend contains=@SHELL
+syn region tutorShell matchgroup=Delimiter start=/^\~\{3} sh\s*$/ end=/^\~\{3}/ keepend contains=@TUTORSHELL
 syn match tutorShellPrompt /[$#]/ contained containedin=tutorShell
 
 syn region tutorInlineCode matchgroup=Delimiter start=/\\\@<!`/ end=/\\\@<!\(`{\@!\|`\s\)/
@@ -45,8 +45,8 @@ syn match tutorCommandIdentifier /:/ contained containedin=tutorCommand,Delimite
 syn region tutorInlineCommand matchgroup=Delimiter start=/\\\@<!`\(.*{vim}\)\@=/ end=/\\\@<!`\({vim}\)\@=/ nextgroup=tutorInlineType contains=@VIM
 syn match tutorCommandCmd /\(:\||\s\)\@<=\S\+/ contained containedin=tutorCommand
 
-syn region tutorNormal matchgroup=Delimiter start=/^\~\{3} norm\(al\?\)\?\s*$/ end=/^\~\{3}/ contains=@NORMAL
-syn region tutorInlineNormal matchgroup=Delimiter start=/\\\@<!`\(\S*{normal}\)\@=/ end=/\\\@<!`\({normal}\)\@=/ nextgroup=tutorInlineType contains=@NORMAL
+syn region tutorNormal matchgroup=Delimiter start=/^\~\{3} norm\(al\?\)\?\s*$/ end=/^\~\{3}/ contains=@VIMNORMAL
+syn region tutorInlineNormal matchgroup=Delimiter start=/\\\@<!`\(\S*{normal}\)\@=/ end=/\\\@<!`\({normal}\)\@=/ nextgroup=tutorInlineType contains=@VIMNORMAL
 
 syn match tutorInlineType /{\(normal\|vim\)}/ contained conceal
 
