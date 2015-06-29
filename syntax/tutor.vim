@@ -78,6 +78,7 @@ hi! link tutorInlineX tutorX
 
 hi! link tutorCommand String
 hi! link tutorCommandCmd Statement
+hi! link tutorInlineCommand Statement
 hi! link tutorShellCommand Directory
 hi! link tutorShellPrompt Delimiter
 

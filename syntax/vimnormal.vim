@@ -3,7 +3,7 @@ syn match normalMod /m\@<![ia]/
 syn match normalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/
 syn match normalCount /[0-9]/
 syn region normalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contains=normalKey keepend
-syn region normalChange start=/\([cr][wWbBeE()<>\[\]{}pst]\)\@<=./ end=/.<Esc>\@=/ contains=normalKey keepend
+syn region normalChange start=/\([cr][wWbBeE()\[\]{}pst]\)\@<=./ end=/.\@=/ contains=normalKey keepend
 syn match normalCharSearch /\c[ftr]\@<=\w/
 syn match normalMark /\(f\@<!m\)\@<=[a-zA-Z0-9]/
 syn match normalKey /<'\@!.\{-}>'\@!/
