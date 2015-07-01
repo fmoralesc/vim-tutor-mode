@@ -1,4 +1,4 @@
-*tutor.txt* Interactive tutorials.
+*pi_tutor.txt* Interactive tutorials.
 *vim-tutor-mode*
 
 vim-tutor-mode provides a system to follow and create interactive tutorials
