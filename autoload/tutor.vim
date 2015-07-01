@@ -264,14 +264,25 @@ function! s:GlobPath(lp, pat)
     endif
 endfunction
 
-function! s:GroupByName(a, b)
-    if fnamemodify(a:a, ':t') == fnamemodify(a:b, ':t')
-        return 0
-    elseif a:a > a:b
-       return 1
-   else
-      return -1
-  endif
+function! s:Sort(a, b)
+    let mod_a = fnamemodify(a:a, ':t')
+    let mod_b = fnamemodify(a:b, ':t')
+    if mod_a == mod_b
+        let retval =  0
+    elseif mod_a > mod_b
+        if match(mod_a, '^vim-') > -1 && match(mod_b, '^vim-') == -1
+            let retval = -1
+        else
+            let retval = 1
+        endif
+    else
+        if match(mod_b, '^vim-') > -1 && match(mod_a, '^vim-') == -1
+            let retval = 1
+        else
+            let retval = -1
+        endif
+    endif
+    return retval
 endfunction
 
 function! s:GlobTutorials(name)
@@ -285,7 +296,7 @@ function! s:GlobTutorials(name)
         let l:locale_tutors = s:GlobPath(&rtp, 'tutorials/en/'.a:name.'.tutor')
     endif
     call extend(l:tutors, l:locale_tutors)
-    return uniq(sort(l:tutors, 's:GroupByName'), 's:GroupByName')
+    return uniq(sort(l:tutors, 's:Sort'), 's:Sort')
 endfunction
 
 function! tutor#TutorCmd(tutor_name)
@@ -295,7 +306,7 @@ function! tutor#TutorCmd(tutor_name)
     endif
 
     if a:tutor_name == ''
-        let l:tutor_name = '01-vim-beginner.tutor'
+        let l:tutor_name = 'vim-01-beginner.tutor'
     else
         let l:tutor_name = a:tutor_name
     endif
@@ -334,6 +345,6 @@ endfunction
 
 function! tutor#TutorCmdComplete(lead,line,pos)
     let l:tutors = s:GlobTutorials('*')
-    let l:names = uniq(sort(map(l:tutors, 'fnamemodify(v:val, ":t:r")')))
+    let l:names = uniq(sort(map(l:tutors, 'fnamemodify(v:val, ":t:r")'), 's:Sort'))
     return join(l:names, "\n")
 endfunction
