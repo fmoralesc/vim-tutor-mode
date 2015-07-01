@@ -29,17 +29,18 @@ don't need to do this now):
 ~~~ cmd
     :e new-tutorial.tutor
 ~~~
+
 ## VIM-TUTOR-MODE's MARKDOWN *markup*
 
 vim-tutor-mode uses a subset of markdown's syntax to format the tutorials. The
 subset supported should be enough for most tutorials and the maintainers will
 try to keep it as small as possible (if regular markdown allows for several
 ways to do the same thing, tutor markdown will only provide the one the
-maintainers think is easier to handle). 
+maintainers think is easier to handle).
 
 ### Emphasis *emphasis*
 
-For emphasized text (italics), as in normal markdown, you use \*. E.g.: 
+For emphasized text (italics), as in normal markdown, you use \*. E.g.:
 
     \*text\*
 
@@ -47,13 +48,13 @@ is displayed like
 
     *text*
 
-Note: The underscores variant is not supported. 
+Note: The underscores variant is not supported.
 
 For strong emphasis (bold), you use \*\*. E.g.:
 
     \*\*this\*\*
 
-is displayed like 
+is displayed like
 
     **this**
 
@@ -180,7 +181,7 @@ is displayed as
 ftdaW
 ~~~
 
-Note: you can also write `norm` or `normal`. 
+Note: you can also write `norm` or `normal`.
 
 9. Copy the normal section below
 
