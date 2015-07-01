@@ -1,4 +1,4 @@
-" vim: fdm=marker
+" vim: fdm=marker et ts=4 sw=4
 
 " Setup: {{{1
 function! tutor#SetupVim()
@@ -216,22 +216,22 @@ endfunction
 
 function! tutor#CheckText(text)
     if match(a:text, '{expect:ANYTHING}\s*$') == -1
-	if match(getline('.'), '^--->\s*$') > -1
+        if match(getline('.'), '^--->\s*$') > -1
             exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
-	else
-	    if match(getline('.'), '|expect:.\+|') == -1
-		let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
-		let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')
-	    else
-		let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
-		let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
-	    endif
-	    if l:cur_text ==# l:expected_text
-		exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
-	    else
-		exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
-	    endif
-	endif
+        else
+            if match(getline('.'), '|expect:.\+|') == -1
+                let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze {expect:')
+                let l:expected_text = matchstr(a:text, '{expect:\zs.*\ze}\s*$')
+            else
+                let l:cur_text = matchstr(a:text, '---> \zs.\{-}\ze |expect:')
+                let l:expected_text = matchstr(a:text, '|expect:\zs.*\ze|\s*$')
+            endif
+            if l:cur_text ==# l:expected_text
+                exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorok buffer=".bufnr('%')
+            else
+                exe "sign place ".b:tutor_sign_id." line=".line('.')." name=tutorbad buffer=".bufnr('%')
+            endif
+        endif
     endif
 endfunction
 
@@ -295,9 +295,9 @@ function! tutor#TutorCmd(tutor_name)
     endif
 
     if a:tutor_name == ''
-	let l:tutor_name = '01-vim-beginner.tutor'
+        let l:tutor_name = '01-vim-beginner.tutor'
     else
-	let l:tutor_name = a:tutor_name
+        let l:tutor_name = a:tutor_name
     endif
 
     if match(l:tutor_name, '\.tutor$') > 0
@@ -324,7 +324,7 @@ function! tutor#TutorCmd(tutor_name)
         let l:tutor_to_open = inputlist(l:candidates)
         let l:to_open = l:tutors[l:tutor_to_open-1]
     endif
-    
+
     if has('gui') || has('nvim')
         exe "drop ".l:to_open
     else
@@ -337,4 +337,3 @@ function! tutor#TutorCmdComplete(lead,line,pos)
     let l:names = uniq(sort(map(l:tutors, 'fnamemodify(v:val, ":t:r")')))
     return join(l:names, "\n")
 endfunction
-
