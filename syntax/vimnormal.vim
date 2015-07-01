@@ -14,4 +14,3 @@ hi! link normalObject Structure
 hi! link normalCount Number
 hi! link normalMark Identifier
 hi! link normalKey Special
-

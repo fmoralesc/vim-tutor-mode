@@ -692,16 +692,16 @@ NOTE:  You can also read the output of an external command.  For example,
       `:!ls`{vim}              -  shows a directory listing
       `:!rm FILENAME`{vim}     -  removes file FILENAME
 
-  2.  [:w](:w) FILENAME             writes the current Vim file to disk with 
+  2.  [:w](:w) FILENAME             writes the current Vim file to disk with
                                     name FILENAME.
 
   3.  [v](v)  motion  :w FILENAME   saves the Visually selected lines in file
                                     FILENAME.
 
-  4.  [:r](:r) FILENAME             retrieves disk file FILENAME and puts it 
+  4.  [:r](:r) FILENAME             retrieves disk file FILENAME and puts it
                                     below the cursor position.
 
-  5.  [:r !dir](:r!)                reads the output of the dir command and 
+  5.  [:r !dir](:r!)                reads the output of the dir command and
                                     puts it below the cursor position.
 
 # Lesson 6.1: THE OPEN COMMAND
@@ -836,7 +836,7 @@ NOTE:  If you want to ignore case for just one search command, use  [\c](/\c)
   5. Typing a capital `R`{normal} enters Replace mode until `<Esc>`{normal} is pressed.
 
   6. Typing "[:set](:set) xxx" sets the option "xxx".  Some options are:
-    
+
         'ic' 'ignorecase'   ignore upper/lower case when searching
         'is' 'incsearch'    show partial matches for a search phrase
         'hls' 'hlsearch'    highlight all matching phrases
@@ -916,7 +916,7 @@ NOTE:  Completion works for many commands. It is especially useful for `:help`{v
 
 # Lesson 7 SUMMARY
 
-  1. Type `:help`{vim} 
+  1. Type `:help`{vim}
      or press `<F1>`{normal} or `<Help>`{normal} to open a help window.
 
   2. Type  `:help TOPIC`{vim} to find help on TOPIC.
