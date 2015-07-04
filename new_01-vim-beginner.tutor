@@ -12,9 +12,9 @@ grammar.
 
 This tutor is designed to describe enough of the commands that you will be able
 to easily use Vim as an all-purpose editor.  It is important to remember that
-it is set up to teach by use. That means that you need to do the exercises to
-learn them properly.  If you only read the text, you will soon forget what is
-most important!
+it is set up to teach by use. That means you need to do the exercises to learn
+them properly.  If you only read the text, you will soon forget what is most
+important!
 
 NOTE: The commands in the lessons will modify the text, but those changes won't
 be saved.  Don't worry about messing things up; just remember that pressing
@@ -29,8 +29,8 @@ Sometimes you will be required to modify text like
 --->  this here {expect:this here}
 
 Once you have done the changes correctly, the ✗ sign at the left will change to
-✓. I imagine you can already see how neat Vim can be ;) Other times, you'll be
-prompted to run a command (I'll explain this later):
+✓. We imagine you can already see how neat Vim can be ;) Other times, you'll be
+prompted to run a command (we will explain this later):
 
 ~~~ viml
     :help <Enter>
@@ -520,8 +520,8 @@ To undo a change press «u», press <C-R> to redo it again.
 
 ---> Everything is great. {expect:Everything is great.}
 
-In the lessons above I have been metioning repeatability of actions and here is
-where it comes into play. We can repeat any last action using the period «.»
+In the lessons above we have been metioning repeatability of actions and here
+is where it comes into play. We can repeat any last action using the period «.»
 operator.
 
   1. Navigate to the first wrong word and change it with «ce».
@@ -534,7 +534,7 @@ operator.
 ---> Roses are red, and tomatoes are red as well. {expect:Roses are red, and tomatoes are red as well.}
 
 An action consits of a count, an operator and a motion, you know that already.
-What I did not tell you is that everything you type in insert mode is part of
+What we did not tell you is that everything you type in insert mode is part of
 the action as well. This means you can repeat entire phrases, sentences or even
 paragraphs. The only catch is that you cannot leave insert mode or it ends the
 action.
@@ -716,7 +716,7 @@ You have already met command-mode before when you quit Vim. First you press
 «:», then you enter your command and possibly some arguments and hit <CR> to
 execute it. Executing a command puts us back into normal mode.
 
-The name "ex command" has no particular reason, it is a historical leftover
+The name "ex command" has no particular meaning, it is a historical leftover
 from a previous UNIX text editor called "ex". Ex was a predecessor to vi, which
 is a predecessor to Vim, and was operated exclusively using such commands.
 
@@ -737,13 +737,14 @@ accidently closing. You can force a quit by supercharging the command with an
 exclamation mark: 'quit!'. This is a common convention, similar to the upper
 case for operators.
 
-Now it a good time to try it out. Close this file and then re-open it the same
+Now is a good time to try it out. Close this file and then re-open it the same
 way you did last time.
 
 Typing out ':write' and ':quit' every time is cumbersome, so pretty much every
-ex command can be shortened. The shortes unambiguous part does the job, so you
+ex command can be shortened. The shortest unambiguous part does the job, so you
 could also write ':wri' and get the same results. On top of that many commands
-also have special abbreviations. You will always see ':w' and ':q' written.
+also have special abbreviations. You will often see these two commands written
+as ':w' and ':q'.
 
 To write and close a file in one go use ':wq'.
 
@@ -770,7 +771,7 @@ enter a file name as an argument: ':w newfile.txt'
      it to ':e'.
 
 If you want to open a file in a vertical window rather than a horizontal
-prepent a 'v' to the command: ':vnew'.
+prepend a 'v' to the command: ':vnew'.
 
 # Lesson 2.3: SPLITTING A VIEW
 
@@ -827,8 +828,8 @@ command.
 
 ---> Paste file below this.
 
-If you provide a file as an argument that file will be appended. We can do
-something more useful though:
+If you provide a file as an argument that file will be appended. Here is
+another useful thing we can do with it:
 
   1. Place the cursor on the marked file below.
 
@@ -863,7 +864,8 @@ Now you can work with the output of the shell.
 The substitution command is followed by a pattern to search for, then the
 replacement and finally a series of option flags. There are other flages as
 well, but 'g' is the most important one. The pattern is a regular expression,
-but in this example we used the literal string we wanted.
+but in this example we cared only about a specific word so we used the literal
+string we wanted.
 
 Here are a few more examples of what is possible with the substitute command:
 
@@ -871,7 +873,8 @@ Here are a few more examples of what is possible with the substitute command:
 ~~~ viml
      :#,#s/old/new/g
 ~~~
-     where #,# are the line numbers of the range of lines where the substitution is to be done.
+     where #,# are the line numbers of the range of lines where the
+     substitution is to be done.
 
      Type
 ~~~ viml
@@ -883,7 +886,8 @@ Here are a few more examples of what is possible with the substitute command:
 ~~~ viml
      :%s/old/new/gc
 ~~~
-     to find every occurrence in the whole file, with a prompt whether to substitute or not.
+     to find every occurrence in the whole file, with a prompt whether to
+     substitute or not.
 
 # Lesson 2.8: THE SET OPTION COMMAND
 
@@ -895,7 +899,9 @@ Here are a few more examples of what is possible with the substitute command:
 
   3. Type ':set list!' to toggle the option on and off.
 
-  4. Type ':set list?' to print the current state of the option.
+  4. Type ':set invlist' to toggle the option as well.
+
+  5. Type ':set list?' to print the current state of the option.
 
 Most options in Vim are boolean values. The syntax for set set command is
 ~~~ viml
@@ -903,19 +909,19 @@ Most options in Vim are boolean values. The syntax for set set command is
 ~~~
 where 'option' is the name of the option. The option name without prefix always
 turns it on and with the 'no' prefix always turns it off. The exclamation mark
-postfix always toggles between on and off.
+postfix or the 'inv' prefix always toggles between on and off.
 
 Some actions take values instead:
 
-  5. Type ':set foldcolumn=4' to make Vim display a column to the right
+  5. Type ':set foldcolumn=4' to make Vim display a column to the left
 
 You can also reset any option to its default:
 
   6. Type ':set foldcolumn&' to reset.
 
 There are more ways to manipulate options, see the help manual for all of them.
-Check the manual for the option as well, usually there is an abbreviated form
-of them as well.
+Check the manual for every individual option as well, usually there is an
+abbreviated form of them as well.
 
 # Lesson 2.9: SEARCH MODE
 
@@ -931,8 +937,7 @@ all the matches, so keep pressing it until you are back here. To search in the
 other direction use «N».
 
 We can also issue a search in the opposite direction using the «?» key. Search
-again for the word "fox". (or at least we could if it wasn't for this plugin)
-Try it out.
+again for the word "fox". Try it out.
 
 As you have seen the «n» and «N» keys are now reversed as well. It's easier to
 issue one backwards search and then keep hitting «n» than hitting «N»
@@ -950,7 +955,7 @@ asdf
 # Part 3: VISUAL MODE
 
 Visual mode is similar to selecting text in other text editors. We define a
-visual selection over a piece of text and execute and action or command over
+visual selection over a piece of text and execute an action or command over
 that selection.
 
 # Lesson 3.1: VISUAL MODE
@@ -993,7 +998,7 @@ we'll transplant two lines at a time.
 
   1. Move the cursor on the first line.
 
-  2. Press «V» to select the entire line. Move to cursor down.
+  2. Press «V» to select the entire line. Move to cursor down with «j».
 
   3. Press «d» to delete the selection, move to cursor on the second line.
 
@@ -1005,7 +1010,7 @@ we'll transplant two lines at a time.
 ---> b) Violets are blue, {expect:NULL}
 
 We could have used «2dd» here as well, but in practice we will often have to
-transplant entire paragraphs consisting of tens of lines.
+transplant many more lines.
 
 # Lesson 3.3: VISUAL BLOCK MODE
 
@@ -1017,6 +1022,8 @@ transplant entire paragraphs consisting of tens of lines.
   2. Press <C-V> to enter visual mode.
 
   3. Move the cursor down and right to cover all prefixes.
+
+  3. Press «e» to select the rest of the word.
 
   4. Press «c» to change the prefix to "-". When you exit insert mode the
      change will be applied to the entire selection.
@@ -1036,7 +1043,7 @@ transplant entire paragraphs consisting of tens of lines.
   2. Press «:» to enter command mode. The command will already be be prefixed
      with a range: ':'<,'>'
 
-  3. Compete the command to read ':'<,'>w selection.txt' and press enter to
+  3. Complete the command to read ':'<,'>w selection.txt' and press enter to
      save only the selected slice to a file.
 
 ---> Select this sentence.
@@ -1044,109 +1051,57 @@ transplant entire paragraphs consisting of tens of lines.
 The strings "'<" and "'>" act as delimiters for a range: the range of the
 visual selection. Most commands can operate on a range.
 
+# Lesson 3.5: MODIFYING A SELECTION
+
+** Change the visually selected region using «o» **
+
+We know that we can use any motion to change the contents of our selection, but
+they work only on one end of the selection. We can toggle to the other end by
+pressing «o» when in visual mode.
+
+  1. Make a visual selection of any kind on the lines below and try modifying
+     it.
+
+  2. Press «o» and try modifying it again.
+
+---> a) Roses are red, {expect:NULL}
+---> b) Violets are blue, {expect:NULL}
+---> c) Intelligence is learned, {expect:NULL}
+---> d) Can you learn too? {expect:NULL}
+
 # Summary
 
-asdf
+Visual mode is a tool that lets us fine-tune a selection of text before
+perforing an action on it.
 
 
+# Part 4: PERMANENT SETTINGS AND GETTING HELP
 
+** Enable Vim features **
 
+Vim has many more features than Vi, but most of them are disabled by default.
+To start using more features you have to create a "vimrc" file.
 
+  1. Start editing the "vimrc" file.  This depends on your system:
+    :e ~/.nvimrc     "for Unix-like systems
+    :e $VIM/_vimrc   "for Microsoft Windows
 
+  2. Now read the example "vimrc" file contents:
+    :r $VIMRUNTIME/vimrc_example.vim
 
+  3. Write the file with:
+    :w
 
-
-
-
-
-
-
-
-# Lesson 4 SUMMARY
-
-  1. <Ctrl-g>  displays your location in the file and the file status.
-             «G»  moves to the end of the file.
-     number  «G»  moves to that line number.
-            «gg»  moves to the first line.
-
-  2. Typing «/» followed by a phrase searches FORWARD for the phrase.
-     Typing «?» followed by a phrase searches BACKWARD for the phrase.
-     After a search type  «n»  to find the next occurrence in the same direction
-     or  «N»  to search in the opposite direction.
-     <Ctrl-o> takes you back to older positions, <Ctrl-i> to newer positions.
-
-  3. Typing  «%» while the cursor is on a (,),[,],{, or } goes to its match.
-
-  4. To substitute new for the first old in a line type
-~~~ viml
-        :s/old/new
-~~~
-     To substitute new for all 'old's on a line type
-~~~ viml
-        :s/old/new/g
-~~~
-     To substitute phrases between two line #'s type
-~~~ viml
-        :#,#s/old/new/g
-~~~
-     To substitute all occurrences in the file type
-~~~ viml
-        :%s/old/new/g
-~~~
-     To ask for confirmation each time add 'c'
-~~~ viml
-        :%s/old/new/gc
-~~~
-
-
-# Lesson 5 SUMMARY
-
-  1.  [:!command](:!cmd)  executes an external command.
-
-      Some useful examples are:
-      :!ls        -  shows a directory listing
-      :!rm FILENAME   -  removes file FILENAME
-
-  2.  [:w](:w) FILENAME  writes the current Vim file to disk with name FILENAME.
-
-  3.  [«v»](v)  motion  :w FILENAME  saves the Visually selected lines in file
-      FILENAME.
-
-  4.  [:r](:r) FILENAME  retrieves disk file FILENAME and puts it below the
-      cursor position.
-
-  5.  [:r !dir](:r!) reads the output of the dir command and puts it below the
-      cursor position.
-
-# Lesson 6 SUMMARY
-
-  1. Type «o» to open a line BELOW the cursor and start Insert mode.
-     Type «O» to open a line ABOVE the cursor.
-
-  2. Type «a» to insert text AFTER the cursor.
-     Type «A» to insert text after the end of the line.
-
-  3. The «e» command moves to the end of a word.
-
-  4. The «y» operator yanks (copies) text,  p  puts (pastes) it.
-
-  5. Typing a capital «R» enters Replace mode until  <Esc>  is pressed.
-
-  6. Typing "[:set](:set) xxx" sets the option "xxx".  Some options are:
-    'ic' 'ignorecase'   ignore upper/lower case when searching
-    'is' 'incsearch'    show partial matches for a search phrase
-    'hls' 'hlsearch'    highlight all matching phrases
-     You can either use the long or the short option name.
-
-  7. Prepend "no" to switch an option off:
-        :set noic
-
-  8. Prepend "inv" to toggle an option:
-        :set invic
-
-# Lesson 7.1: GETTING HELP
+The next time you start Vim it will use syntax highlighting.  You can add all
+your preferred settings to this "vimrc" file.  For more information type  :help
+vimrc-intro
 
 ** Use the on-line help system **
+
+You now know the basics of using Vim, enough for everyday text editing. We have
+only scratched the surface of what is possible even on the topics we covered in
+this tutorial. If you want to learn more about individual topics the user
+manual is the next place to go to.
 
 Vim has a comprehensive on-line help system.  To get started, try one of
 these three:
@@ -1166,42 +1121,8 @@ You can find help on just about any subject, by giving an argument to the
     :help c_CTRL-D
     :help insert-index
     :help user-manual
-~~~
-# Lesson 7.2: CREATE A STARTUP SCRIPT
 
-** Enable Vim features **
 
-Vim has many more features than Vi, but most of them are disabled by
-default.  To start using more features you have to create a "vimrc" file.
-
-  1. Start editing the "vimrc" file.  This depends on your system:
-    :e ~/.nvimrc     for Unix-like systems
-    :e $VIM/_vimrc      for Microsoft Windows
-
-  2. Now read the example "vimrc" file contents:
-    :r $VIMRUNTIME/vimrc_example.vim
-
-  3. Write the file with:
-    :w
-
-  The next time you start Vim it will use syntax highlighting.
-  You can add all your preferred settings to this "vimrc" file.
-  For more information type  :help vimrc-intro
-
-# Lesson 7 SUMMARY
-
-  1. Type  :help  or press <F1> or <Help>  to open a help window.
-
-  2. Type  :help cmd  to find help on  cmd .
-
-  3. Type  <Ctrl-w><Ctrl-w>  to jump to another window
-
-  4. Type  :q  to close the help window
-
-  5. Create a vimrc startup script to keep your preferred settings.
-
-  6. While in command mode, press <Ctrl-d> to see possible completions.
-     Press <Tab> to use one completion.
 
 # CONCLUSION
 
@@ -1231,3 +1152,4 @@ University.  E-mail: bware@mines.colorado.edu.
 
 Modified for Vim by Bram Moolenaar.
 Modified fov vim-tutor-mode by Felipe Morales.
+
