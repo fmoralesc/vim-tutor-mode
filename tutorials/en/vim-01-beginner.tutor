@@ -24,7 +24,7 @@ Other times, you'll be prompted to run a command (I'll explain this later):
 ~~~
 or press a sequence of keys
 ~~~ normal
-    <Esc\>0f<Space>d3wP$P
+    <Esc>0f<Space>d3wP$P
 ~~~
 
 Text within <'s and >'s (like `<Enter>`{normal}) describes a key to press instead of text
@@ -40,7 +40,7 @@ screen.
 
          ↑
          k          Hint: The h key is at the left and moves left.
-       ← h   l →          The l key is at the right and moves right.
+     ← h   l →            The l key is at the right and moves right.
          j                The j key looks like a down arrow.
          ↓
 
