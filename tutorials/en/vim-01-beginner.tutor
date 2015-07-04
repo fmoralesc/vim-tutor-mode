@@ -72,7 +72,7 @@ NOTE: The cursor keys should also work.  But using hjkl you will be able to
   3. Open vim and get back here by executing the command that got you into this
      tutor. That might be:
 
-     :Vimtutor <Enter>
+     :Tutor <Enter>
 
   4. If you have these steps memorized and are confident, execute steps
      1 through 3 to exit and re-enter the editor.
