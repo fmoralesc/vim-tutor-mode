@@ -9,4 +9,4 @@ else
     exe 'let &rtp.=",'.expand("<sfile>:h").'"'
     exe "so ". expand("<sfile>:h")."/plugin/tutor-mode.vim"
 endif
-VimTutor
+Tutor
