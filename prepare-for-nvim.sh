@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -z "$(which tar)" ]
-then
-	echo "requires tar, can't proceed"
-	exit -1
-fi
-
 if [[ $1 == "package" ]]
 then
 	echo "packaging for neovim..."
