@@ -5,16 +5,12 @@ editors where you use the keyboard to enter text and arrow keys to move your
 cursor, in Vim you use the keyboard to enter commands to manipulate text.
 These commands allow you to express complex thoughts in just a few keystrokes
 to move through text and manipulate it much faster than in most text editors.
-There is a great amount of commands, too many to explain in a tutor such as
-this, but as you will see over the course of this tutorial series these
-commands are not arbitrarily chosen, they form a sort of language with its own
-grammar.
 
-This tutor is designed to describe enough of the commands that you will be able
-to easily use Vim as an all-purpose editor.  It is important to remember that
-it is set up to teach by use. That means you need to do the exercises to learn
-them properly.  If you only read the text, you will soon forget what is most
-important!
+These commands form a sort of language with its own grammar. This tutor is
+designed to describe enough of the commands that you will be able to easily use
+Vim as an all-purpose editor.  It is important to remember that it is set up to
+teach by use. That means you need to do the exercises to learn them properly.
+If you only read the text, you will soon forget what is most important!
 
 NOTE: The commands in the lessons will modify the text, but those changes won't
 be saved.  Don't worry about messing things up; just remember that pressing
@@ -112,7 +108,7 @@ the «j» key in normal mode will move the cursor downwards, but pressing the
 same key in insert mode will place a 'j' character in your text.
 
 The next important thing we need to keep in mind is how the syntax of Vim
-commands works: unlike most editor where keyboard commands are just shortcuts,
+commands works: unlike most editors where keyboard commands are just shortcuts,
 Vim commands are part of a language with its own grammar and vocabulary.
 
 The structure of a "sentence" is *count* *operator* *motion*. Don't think too
@@ -126,7 +122,7 @@ tell it exactly what it is you want to do. Soon a sequence like this
 will read to you like a regular sentence instead of a seemingly random
 collection of letters and symbols.
 
-You have already learned four motions so far: h, j, k and l.
+So far You have learned four motions: h, j, k and l.
 
 
 # Lesson 2.4: USING A COUNT FOR A MOTION
@@ -143,7 +139,7 @@ You have already learned four motions so far: h, j, k and l.
 
   5. Repeat steps 2 and 3 with different numbers.
 
----> This is just a line with words you can move around in. {expect:NULL}
+---> This is just a line with words you can move around in. {expect:ANYTHING}
 
   6. Move on to Lesson 2.5.
 
