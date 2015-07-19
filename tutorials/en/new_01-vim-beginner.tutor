@@ -54,7 +54,7 @@ enough times to move the cursor so that Lesson 1.1 completely fills the screen.
   2. Hold down the `j`{normal} key and move to the next lesson.
 
 
-NOTE: If you are ever unsure about something you typed, press <Esc> to place
+NOTE: If you are ever unsure about something you typed, press `<Esc>`{normal} to place
       you in Normal mode.  Then retype the command you wanted.
 
 NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{normal} `l`{normal} keys have not
@@ -67,7 +67,7 @@ NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{norm
 
 !! NOTE: Before executing any of the steps below, read this entire lesson !!
 
-  1. Press the <Esc> key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
+  1. Press the `<Esc>`{normal} key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
 
   2. Type:
 
@@ -79,12 +79,12 @@ NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{norm
   3. Open vim and get back here by executing the command that got you into this
      tutor. That might be:
 
-     :Vimtutor <Enter>
+     :Vimtutor `<Enter>`{normal}
 
   4. If you have these steps memorized and are confident, execute steps
      1 through 3 to exit and re-enter the editor.
 
-NOTE:  The command  [:q!](:q) <Enter>  discards any changes you have made. In a
+NOTE:  The command  [:q!](:q) `<Enter>`{normal}  discards any changes you have made. In a
        few lessons you will learn how to save the changes to a file.
 
   5. Move the cursor down to Lesson 1.3.
@@ -120,7 +120,7 @@ tell it exactly what it is you want to do. Soon a sequence like this
 will read to you like a regular sentence instead of a seemingly random
 collection of letters and symbols.
 
-So far You have learned four motions: h, j, k and l.
+So far You have learned four motions: `h`{normal}, `j`{normal}, `k`{normal} and `l`{normal}.
 
 # Lesson 1.1: USING A COUNT FOR A MOTION
 
@@ -164,7 +164,7 @@ count is cumbersome. There are better motions for moving around.
 
   6. Press `W`{normal}, `E`{normal} and `B`{normal}, moves across WORDs instead of words.
 
----> This is just a line with words you can move around in. {expect:NULL}
+---> This is just a line with words you can move around in. {expect:ANYTHING}
 
 The mnemonics of these operators have been chosen to be easy to remember:
 [w](w) stands for *word*, [e](e) stands for *end* and [b](b) stands for
@@ -176,7 +176,7 @@ pretty much all the time, because it is more restrictive, while a WORD is any
 sequence of non-blank characters. Try it out, compare the lower-case motions
 with their upper-case variants.
 
----> The string class.method is three words but only one WORD. {expect:NULL}
+---> The string class.method is three words but only one WORD. {expect:ANYTHING}
 
 For the exact definitions consult the help. This also goes to demonstrate a
 common convention: an upper-case variant of an operator performs a similar but
@@ -186,7 +186,6 @@ We will learn more motions later, but with these three you can already move
 much faster through your text than if you were using the cursor keys directly,
 especially if you combine them with a count. Character-wise movement should
 only be used for small position adjustments from now on.
-
 
 ## Lesson 1.3: TEXT EDITING - DELETION
 
@@ -213,7 +212,6 @@ combine it with a count, but it does not take a motion, it always operates on
 the character it is on. So you can tell it to delete two characters, but not to
 delete the current word. We will use a different operator for that.
 
-
 # Lesson 1.4: TEXT EDITING: INSERTION
 
 **Press  `i`{normal} and `I`{normal} to insert text. **
@@ -228,7 +226,7 @@ delete the current word. We will use a different operator for that.
 
   3. Press  [`i`](i)  and type in the necessary additions.
 
-  4. As each error is fixed press <Esc> to return to Normal mode.
+  4. As each error is fixed press `<Esc>`{normal} to return to Normal mode.
      Repeat steps 2 through 4 to correct the sentence.
 
 ---> There is text misng this . {expect:There is some text missing from this line.}
@@ -290,12 +288,12 @@ operator.
 
   3. Now type some text and press `<Esc>`{normal} to exit Insert mode.
 
----> After typing  o  the cursor is placed on the open line in Insert mode. {expect:NULL}
+---> After typing  o  the cursor is placed on the open line in Insert mode. {expect:ANYTHING}
 
   4. To open up a line ABOVE the cursor, simply type a [capital O](O), rather
      than a lowercase `o`{normal}.  Try this on the line below.
 
----> Open up a line above this by typing O while the cursor is on this line. {expect:NULL}
+---> Open up a line above this by typing O while the cursor is on this line. {expect:ANYTHING}
 
 This is faster and more repeatable than moving to the end of a line,
 entering append mode and adding a new line.
@@ -393,7 +391,6 @@ to hit `r`{normal} every time. There is a supercharged version of the operator.
 ---> Adding 123 to xxx gives you xxx. {expect:Adding 123 to 456 gives you 579.}
 ---> Adding 123 to 456 gives you 579. {expect:Adding 123 to 456 gives you 579.}
 
-
 # Lesson 1.10: BEGINNING AND END OF LINE MOTIONS
 
 Often times we want to do something with the beginning or the end of a line.
@@ -417,7 +414,6 @@ We have already met the `D`{normal} and `C`{normal} operators which act exacly t
 `d$`{normal} and `c$`{normal}, so which one should you use? They are both equally repeatable
 because both are only once action, but the former require fewer keystrokes.
 
-
 # Lesson 1.11: CHARACTER- AND LINEWISE MOTION
 
 **The `l`{normal} motion operates on a single character and `_`{normal} on the line **
@@ -438,7 +434,7 @@ Now let's try the line-wise motion.
 
   2. Press `d_`{normal} to delete the entire line.
 
----> This line has to go. {expect:NULL}
+---> This line has to go. {expect:ANYTHING}
 
 Line-wise actions are very common and so there is a special convention: use the
 operator as motion as well to affect the entire line.
@@ -451,7 +447,6 @@ operator as motion as well to affect the entire line.
 This is generally preferrable to the underscore motion above. Ultimately it
 makes no difference, but most instructions you will come across use the doubled
 form.
-
 
 # Lesson 1.12: FIND MOTION
 
@@ -502,13 +497,13 @@ correct the position by one or two.
 
 **We can undo and redo changes. More imporantly though, we can repeat them **
 
-To undo a change press `u`{normal}, press <C-R> to redo it again.
+To undo a change press `u`{normal}, press `<C-R>`{normal} to redo it again.
 
   1. Make some change to the line to break it.
 
   2. Undo your change by pressing `u`{normal}.
 
-  3. You can re-apply the change pressing `C-R`{normal}.
+  3. You can re-apply the change pressing `<C-r>`{normal}.
 
 ---> Everything is great. {expect:Everything is great.}
 
@@ -539,8 +534,8 @@ be combined with a motion.
 
 **Type `p`{normal} to put previously deleted text after the cursor. **
 
-The `p`{normal} operator can put previously deleted text after the cursor, and the
-upper-case variant places it in front of the cursor.
+The `p`{normal} operator can [put](put) (paste) previously deleted text after
+the cursor, and the upper-case variant places it in front of the cursor.
 
   1. Type `dd`{normal} on the d) line to delete it.
 
@@ -552,10 +547,10 @@ upper-case variant places it in front of the cursor.
 
   5. Type `P`{normal} to put the line above the cursor.
 
----> d) Can you learn too? {expect:NULL}
----> b) Violets are blue, {expect:NULL}
----> c) Intelligence is learned, {expect:NULL}
----> a) Roses are red, {expect:NULL}
+---> d) Can you learn too? {expect:ANYTHING}
+---> b) Violets are blue, {expect:ANYTHING}
+---> c) Intelligence is learned, {expect:ANYTHING}
+---> a) Roses are red, {expect:ANYTHING}
 
 The deleted text is stored in a so-called register, memory holding some text
 temporarliy, and always contains the last deletion or yank (see next lesson).
@@ -564,7 +559,7 @@ operator allows you to transplant blocks of text at any size.
 
 # Lesson 1.15: COPY AND PASTE TEXT
 
-**Use the  y  operator to copy text and  p  to paste it **
+**Use the `y`{normal}  operator to copy text**
 
 The operator `y`{normal} stands for "yank", it's essentially the same as "copy" in
 other editors. After yanking the text we can put it somewhere else.
@@ -573,7 +568,7 @@ other editors. After yanking the text we can put it somewhere else.
 
   2. Type `yy`{normal}  to [yank](yank) (copy) the endtire line.
 
-  4. Now press `p`{normal} to [put](put) (paste) end line below the cursor.
+  4. Now press `p`{normal} to put end line below the cursor.
 
   5. You can go ahead and fix the two wrong word.
 
@@ -585,7 +580,6 @@ other editors. After yanking the text we can put it somewhere else.
 
 Like other operators `y`{normal} can be be used with a count to yank for example several
 words in one go: `2yw`{normal} would yank two words and `2yy`{normal} would yank two lines.
-
 
 # Lesson 1.6: MOTIONS INSIDE AND AROUND
 
@@ -626,12 +620,12 @@ you the jumping back and forth and makes the action more repeatable.
 
 # Lesson 1.17: CURSOR LOCATION AND FILE STATUS
 
-**Type <Ctrl-g> to show your location in the file and the file status.
+**Type `<Ctrl-g>`{normal} to show your location in the file and the file status.
 Type  `G`{normal}  to move to a line in the file. **
 
 NOTE: Read this entire lesson before executing any of the steps.
 
-  1. Press <Ctrl-g>, a message will appear at the bottom of the page with the
+  1. Press `<Ctrl-g>`{normal}, a message will appear at the bottom of the page with the
      filename and the position in the file.  Remember the line number for Step
      3.
 
@@ -648,7 +642,7 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
 # Lesson 1.18: MATCHING PARENTHESES SEARCH
 
-**Type  %  to find a matching ),], or } . **
+**Type `%`{normal} to find a matching ), ], or } . **
 
   1. Place the cursor on any (, [, or { in the line below marked --->.
 
@@ -660,12 +654,11 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
   5. Move the cursor to another (,),[,],{ or } and see what  %  does.
 
----> This ( is a test line with ('s, ['s ] and {'s } in it. )) {expect:NULL}
+---> This ( is a test line with ('s, ['s ] and {'s } in it. )) {expect:ANYTHING}
 
 NOTE: This is very useful in debugging a program with unmatched parentheses!
 
-
-# SUMMARY of PART 1
+# Summary of Part 1
 
 So far we have learned how to do basic text operation, we know how to navigate
 text quickly, how to insert text and finally we learned how to transplant text.
@@ -687,7 +680,7 @@ actions as fast as you can think them.
    `0`{normal}       beginning of line          `r`{normal}       Replace character/text
    `$`{normal}       end of line                `u`{normal}       Undo action
    `l`{normal}       current character         <C-R>    Redo action
- <SPACE>   current character          `p`{normal}       Put yanked/deleted text
+ `<SPACE>`{normal}   current character          `p`{normal}       Put yanked/deleted text
    `_`{normal}       current line             ========  ========================
    `f`{normal}       fing character
    `t`{normal}       'till character         Pressing an operator twice acts as
@@ -704,7 +697,7 @@ actions as fast as you can think them.
 **Command mode is where we can execute powerful commands**
 
 You have already met command-mode before when you quit Vim. First you press
-`:`{normal}, then you enter your command and possibly some arguments and hit <CR> to
+`:`{normal}, then you enter your command and possibly some arguments and hit `<CR>`{normal} to
 execute it. Executing a command puts us back into normal mode.
 
 The name "ex command" has no particular meaning, it is a historical leftover
@@ -712,110 +705,110 @@ from a previous UNIX text editor called "ex". Ex was a predecessor to vi, which
 is a predecessor to Vim, and was operated exclusively using such commands.
 
 While in command mode you can auto-complete the same way as in the shell by
-hitting the <TAB> key. While typing a command you can press <C-D> to list
+hitting the `<TAB>`{normal} key. While typing a command you can press <C-D> to list
 possible suggestions.
 
 # Lesson 2.1: WRITING AND CLOSING A FILE
 
-**Use the ':write' command to write the current file and ':quit' to close it.**
+**Use the `:write`{vim} command to write the current file and `:quit`{vim} to close it.**
 
-You have already met 'quit' when you quit Vim. If you have a file open you can
-use ':write' to save it to disc, assuming the file is not write-protected.
+You have already met `:quit`{vim} when you quit Vim. If you have a file open you can
+use `:write`{vim} to save it to disc, assuming the file is not write-protected.
 
-To close a file use the ':quit' command. If the file has been edited Vim will
+To close a file use the `:quit`{vim} command. If the file has been edited Vim will
 not allow you to close it, this is to protect you from losing you changes by
 accidently closing. You can force a quit by supercharging the command with an
-exclamation mark: 'quit!'. This is a common convention, similar to the upper
+exclamation mark: `quit!`{vim}. This is a common convention, similar to the upper
 case for operators.
 
 Now is a good time to try it out. Close this file and then re-open it the same
 way you did last time.
 
-Typing out ':write' and ':quit' every time is cumbersome, so pretty much every
+Typing out `:write`{vim} and `:quit`{vim} every time is cumbersome, so pretty much every
 ex command can be shortened. The shortest unambiguous part does the job, so you
-could also write ':wri' and get the same results. On top of that many commands
+could also write `:wri`{vim} and get the same results. On top of that many commands
 also have special abbreviations. You will often see these two commands written
-as ':w' and ':q'.
+as `:w`{vim} and `:q`{vim}.
 
-To write and close a file in one go use ':wq'.
+To write and close a file in one go use `:wq`{vim}.
 
-You can close all open files with 'qall' or 'qa' and write all files with
-':wall' or ':wa'. And you might have guessed it already, use ':wqall' or 'wqa'
+You can close all open files with `:qall`{vim} or `:qa`{vim} and write all files with
+`:wall`{vim} or `:wa`{vim}. And you might have guessed it already, use `:wqall`{vim} or `:wqa`{vim}
 to write and quit all files.
 
 A file is saved under the same name it already has, to save it as a new file
-enter a file name as an argument: ':w newfile.txt'
+enter a file name as an argument: `:w newfile.txt`{vim}
 
 # Lesson 2.2: NEW AND EXISTING FILES
 
-**Use ':new' and 'edit' to open new or existing files **
+**Use `:new`{vim} and `:edit`{vim} to open new or existing files **
 
-  1. Type ':new' to open a new window. Try it out right now, you will see a new
+  1. Type `:new`{vim} to open a new window. Try it out right now, you will see a new
      window pop up.
 
-  2. Now type in some text and save the file under some name (':w newfile.txt').
+  2. Now type in some text and save the file under some name (`:w newfile.txt`{vim}).
      Quit the file.
 
   3. Open a new window again.
 
-  4. Type ':edit newfile.txt' to open the file again. You can also abbreviate
-     it to ':e'.
+  4. Type `:edit newfile.txt`{vim} to open the file again. You can also abbreviate
+     it to `:e`{vim}.
 
 If you want to open a file in a vertical window rather than a horizontal
-prepend a 'v' to the command: ':vnew'.
+prepend a 'v' to the command: `:vnew`{vim}.
 
 # Lesson 2.3: SPLITTING A VIEW
 
-**Use ':split' and 'vsplit' to split a window **
+**Use `:split`{vim} and `:vsplit`{vim} to split a window **
 
-  1. Type ':split' and see your file split in two horizontally.
+  1. Type `:split`{vim} and see your file split in two horizontally.
 
-  2. Now type ':vsplit' to split a windo vertically.
+  2. Now type `:vsplit`{vim} to split a windo vertically.
 
-  3. You can close the windows again with the ':q' command.
+  3. You can close the windows again with the `:q`{vim} command.
 
 Split windows are still the same file, so any changes in one window apply to
 other windows as well.
 
 # Lesson 2.4: THE WORKING DIRECTORY
 
-**Use ':pwd' to print the current working directory **
+**Use `:pwd`{vim} to print the current working directory **
 
-  1. Type ':pwd' and the command line will show the path in the command line.
+  1. Type `:pwd`{vim} and the command line will show the path in the command line.
 
 Vim is usually run from a terminal emulator, but even when you are using a GUI
 you still have a working directory. Every path and every file name is relative
 to it. We'll learn how to change it in a second.
 
-# Lessong 2.5: EXECUTING EXTERNAL COMMANDS
+# Lesson 2.5: EXECUTING EXTERNAL COMMANDS
 
 **Vim provides a shell to execute external commands **
 
 You can use any command for your operating system by prepending it with an
 exclamation mark.
 
-  1. Type ':!ls' and you will get the contents of the working directory printed.
+  1. Type `:!ls`{vim} and you will get the contents of the working directory printed.
 
-  2. Type ':!cd' with an argument to change the working directory.
+  2. Type `:!cd`{vim} with an argument to change the working directory.
 
-  3. Type ':!rm' with an argument to delete a file.
+  3. Type `:!rm`{vim} with an argument to delete a file.
 
 The shell is very limited and only good for such simple commands. Don't try
 running a REPL or another instance for Vim that way.
 
-Of course you can try it out if you are really curious. Type ':!vim' and watch
-your screen turn into a mess. You can type ':q' to get back.
+Of course you can try it out if you are really curious. Type `:!vim`{vim} and watch
+your screen turn into a mess. You can type `:q`{vim} to get back.
 
 # Lesson 2.6: RETRIEVING AND MERGING FILES
 
-**Use ':r' to read contents of a fil into the current file **
+**Use `:r`{vim} to read contents of a fil into the current file **
 
-If you want to append the contents of a file to an open file use the ':r'
+If you want to append the contents of a file to an open file use the `:r`{vim}
 command.
 
   1. Place the cursor on the marked file below.
 
-  2. Type ':r' and the current file will be pasted below.
+  2. Type `:r`{vim} and the current file will be pasted below.
 
 ---> Paste file below this.
 
@@ -824,15 +817,15 @@ another useful thing we can do with it:
 
   1. Place the cursor on the marked file below.
 
-  2. Type ':r !ls' to paste the result of a shell command.
+  2. Type `:r !ls`{vim} to paste the result of a shell command.
 
 ---> Contents of the working directory:
 
 Now you can work with the output of the shell.
 
-# Lesson 2.7 THE SUBSTITUTION COMMAND
+# Lesson 2.7: THE SUBSTITUTION COMMAND
 
-**The ':s/old/new/g' command can find and replace text **
+**The `:s/old/new/g` command can find and replace text **
 
   1. Move the cursor to the line below.
 
@@ -884,19 +877,19 @@ Here are a few more examples of what is possible with the substitute command:
 
 **Setting Vim options is done using a command **
 
-  1. Type ':set list' to make Vim display whitespace characters.
+  1. Type `:set list` to make Vim display whitespace characters.
 
-  2. Type ':set nolist' to make Vim hide whitespace characters.
+  2. Type `:set nolist` to make Vim hide whitespace characters.
 
-  3. Type ':set list!' to toggle the option on and off.
+  3. Type `:set list!` to toggle the option on and off.
 
-  4. Type ':set invlist' to toggle the option as well.
+  4. Type `:set invlist` to toggle the option as well.
 
-  5. Type ':set list?' to print the current state of the option.
+  5. Type `:set list?` to print the current state of the option.
 
 Most options in Vim are boolean values. The syntax for set set command is
 ~~~ cmd
-    :set [no]option
+    :set [no|inv]option[!]
 ~~~
 where 'option' is the name of the option. The option name without prefix always
 turns it on and with the 'no' prefix always turns it off. The exclamation mark
@@ -945,13 +938,12 @@ repeatedly.
 The pattern does not have to be just a word, it can be any regular expression.
 Try searching for "f.x". You will find matches for both "fox" and "fix".
 
+# Summary of Part 2
 
-# SUMMARY of PART 2
-
-asdf
+TODO
 
 
-# Part 3: VISUAL MODE
+# PART 3: VISUAL MODE
 
 Visual mode is similar to selecting text in other text editors. We define a
 visual selection over a piece of text and execute an action or command over
@@ -1003,10 +995,10 @@ we'll transplant two lines at a time.
 
   4. Press `p`{normal} to put the two lines below the cursor.
 
----> c) Intelligence is learned, {expect:NULL}
----> d) Can you learn too? {expect:NULL}
----> a) Roses are red, {expect:NULL}
----> b) Violets are blue, {expect:NULL}
+---> c) Intelligence is learned, {expect:ANYTHING}
+---> d) Can you learn too? {expect:ANYTHING}
+---> a) Roses are red, {expect:ANYTHING}
+---> b) Violets are blue, {expect:ANYTHING}
 
 We could have used `2dd`{normal} here as well, but in practice we will often have to
 transplant many more lines.
@@ -1063,12 +1055,12 @@ pressing `o`{normal} when in visual mode.
 
   2. Press `o`{normal} and try modifying it again.
 
----> a) Roses are red, {expect:NULL}
----> b) Violets are blue, {expect:NULL}
----> c) Intelligence is learned, {expect:NULL}
----> d) Can you learn too? {expect:NULL}
+---> a) Roses are red, {expect:ANYTHING}
+---> b) Violets are blue, {expect:ANYTHING}
+---> c) Intelligence is learned, {expect:ANYTHING}
+---> d) Can you learn too? {expect:ANYTHING}
 
-# Summary
+# Summary of Part 3
 
 Visual mode is a tool that lets us fine-tune a selection of text before
 perforing an action on it.
@@ -1104,17 +1096,17 @@ manual is the next place to go to.
 
 Vim has a comprehensive on-line help system.  To get started, try one of
 these three:
-    - press the <HELP> key (if you have one)
-    - press the <F1> key (if you have one)
+    - press the `<HELP>`{normal} key (if you have one)
+    - press the `<F1>`{normal} key (if you have one)
     - type
-        :help <Enter>
+        `:help`{vim} `<Enter>`{normal}
 
 Read the text in the help window to find out how the help works.
-Type  <Ctrl-w><Ctrl-w>   to jump from one window to another.
-Type  :q <Enter>    to close the help window.
+Type  `<Ctrl-w><Ctrl-w>`{normal}   to jump from one window to another.
+Type  `:q`{vim} `<Enter>`{normal}    to close the help window.
 
 You can find help on just about any subject, by giving an argument to the
-":help" command.  Try these (don't forget pressing <Enter>):
+":help" command.  Try these (don't forget pressing `<Enter>`{normal}):
 ~~~ cmd
     :help w
     :help c_CTRL-D
