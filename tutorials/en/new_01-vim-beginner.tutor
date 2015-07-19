@@ -34,15 +34,15 @@ or press a sequence of keys
 ~~~ norm
     <Esc>0f<SPACE>d3wP$P
 ~~~
-Text within angle brackets (like <Enter>) describes a key to press instead of
+Text within angle brackets (like `<Enter>`{normal}) describes a key to press instead of
 text to type.
 
 Now, make sure that your Shift-Lock key is NOT depressed and press the `j`{normal} key
 enough times to move the cursor so that Lesson 1.1 completely fills the screen.
 
-## Lesson 1.1: MOVING THE CURSOR
+## Lesson 0.1: MOVING THE CURSOR
 
-** To move the cursor, press the `h`{normal}, `j`{normal}, `k`{normal}, `l`{normal} keys as indicated. **
+**To move the cursor, press the `h`{normal}, `j`{normal}, `k`{normal}, `l`{normal} keys as indicated. **
 
         ← ↓ ↑ →    Hint: The h key is at the left and moves left.
         h j k l          The l key is at the right and moves right.
@@ -51,7 +51,7 @@ enough times to move the cursor so that Lesson 1.1 completely fills the screen.
 
   1. Move the cursor around the screen until you are comfortable.
 
-  2. Hold down the `j`{normal} and move to the next lesson.
+  2. Hold down the `j`{normal} key and move to the next lesson.
 
 
 NOTE: If you are ever unsure about something you typed, press <Esc> to place
@@ -63,7 +63,7 @@ NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{norm
       getting used to `h`{normal} `j`{normal} `k`{normal} `l`{normal} you will be able to move around much
       faster. Really!
 
-# Lesson 1.2: EXITING VIM
+# Lesson 0.2: EXITING VIM
 
 !! NOTE: Before executing any of the steps below, read this entire lesson !!
 
@@ -95,15 +95,15 @@ Before we continue we need to understand the concept of modal editing first:
 most editors have two "modes", a mode where you enter text and a mode where you
 select text.
 
-You have already met two of Vim's modes so far: normal mode which
-is the default mode of Vim where you move around the cursor, and command mode
-when you entered the command to quit Vim. You will soon meet insert mode which
-lets you type text and visual mode which lets you visually select text. Out of
-these normal mode is where you will spend most of your time.
+You have already met two of Vim's modes so far: normal mode which is the
+default mode of Vim where you move around the cursor, and command mode when you
+entered the command to quit Vim. You will soon meet insert mode which lets you
+type text and visual mode which lets you visually select text. Out of these
+normal mode is where you will spend most of your time.
 
 Keyboard keys have different effects depending on the mode you are in: pressing
-the `j`{normal} key in normal mode will move the cursor downwards, but pressing the
-same key in insert mode will place a 'j' character in your text.
+the `j`{normal} key in normal mode will move the cursor downwards, but pressing
+the same key in insert mode will place a 'j' character in your text.
 
 The next important thing we need to keep in mind is how the syntax of Vim
 commands works: unlike most editors where keyboard commands are just shortcuts,
@@ -122,10 +122,9 @@ collection of letters and symbols.
 
 So far You have learned four motions: h, j, k and l.
 
+# Lesson 1.1: USING A COUNT FOR A MOTION
 
-# Lesson 2.4: USING A COUNT FOR A MOTION
-
-** Typing a number before a motion repeats it that many times. **
+**Typing a number before a motion repeats it that many times. **
 
   1. Move the cursor to the start of the line marked ---> below.
 
@@ -148,9 +147,9 @@ will move the cursor ten lines down.
 You can now move more than one character at a time, but constantly typing in a
 count is cumbersome. There are better motions for moving around.
 
-# Lesson something.something: WORD-WISE MOTION
+# Lesson 1.2: WORD-WISE MOTION
 
-** Moving word-wise is faster than character-wise **
+**Moving word-wise is faster than character-wise **
 
   1. Move the cursor to the start of the line marked ---> below.
 
@@ -183,7 +182,6 @@ For the exact definitions consult the help. This also goes to demonstrate a
 common convention: an upper-case variant of an operator performs a similar but
 "supercharged" version of the operator.
 
-
 We will learn more motions later, but with these three you can already move
 much faster through your text than if you were using the cursor keys directly,
 especially if you combine them with a count. Character-wise movement should
@@ -192,7 +190,7 @@ only be used for small position adjustments from now on.
 
 ## Lesson 1.3: TEXT EDITING - DELETION
 
-** Press  `x`{normal}  to delete the character under the cursor. **
+**Press  `x`{normal}  to delete the character under the cursor. **
 
   1. Move the cursor to the line below marked --->.
 
@@ -218,7 +216,7 @@ delete the current word. We will use a different operator for that.
 
 # Lesson 1.4: TEXT EDITING: INSERTION
 
-** Press  `i`{normal} and `I`{normal} to insert text. **
+**Press  `i`{normal} and `I`{normal} to insert text. **
 
   1. Move the cursor to the first line below marked --->.
 
@@ -249,7 +247,7 @@ before transitioning into insert mode, but they wouldn't make sense here.
 
 # Lesson 1.5: TEXT EDITING: APPENDING
 
-** Press `a`{normal} and `A`{normal} to append text. **
+**Press `a`{normal} and `A`{normal} to append text. **
 
   1. Move the cursor to the first line below marked --->.
 
@@ -278,9 +276,9 @@ text, that is slower and less repeatable than appending directly.  One core idea
 in Vim is to do tasks in as few steps as possible, which can then be automated.
 Get early into the habit of being lazy.
 
-# Lesson 6.1: THE OPEN COMMAND
+# Lesson 1.6: THE OPEN COMMAND
 
-** Press `o`{normal} to open a line below the cursor and place you in Insert mode. **
+**Press `o`{normal} to open a line below the cursor and place you in Insert mode. **
 
 You can create a new line and enter insert mode immediately using this one
 operator.
@@ -302,9 +300,9 @@ operator.
 This is faster and more repeatable than moving to the end of a line,
 entering append mode and adding a new line.
 
-# Lesson something.something: DELETING
+# Lesson 1.7: DELETING
 
-** Press `d`{normal} and `D`{normal} to delete text **
+**Press `d`{normal} and `D`{normal} to delete text **
 
   1. Move the cursor to the first line below marked --->.
 
@@ -334,9 +332,9 @@ last character of the current word, `dh`{normal} will delete the character left 
 cursor and `dl`{normal} will delete the character under the cursor, similar to `x`{normal}. Go
 ahead and try the `d`{normal} command with all the motions you have learned so far.
 
-# Lesson something.something: CHANGING TEXT
+# Lesson 1.8: CHANGING TEXT
 
-** The `c`{normal} operator deletes text and places us in insert mode. **
+**The `c`{normal} operator deletes text and places us in insert mode. **
 
   1. Place the cursor at the beginning of a word you want to change.
 
@@ -360,9 +358,9 @@ the `w` motion. Usually that motion would move to the beginning of the next
 word, but in this particular case it acts like the `e`{normal} motion. This is
 conscious design choice by the Vim developers, not a bug.
 
-# Lesson something.something: REPLACING TEXT
+# Lesson 1.9: REPLACING TEXT
 
-** The `r`{normal} operator overwrites a character and `R`{normal} overwrites multiple ones **
+**The `r`{normal} operator overwrites a character and `R`{normal} overwrites multiple ones **
 
 When we want to correct only one character it would be too much work to enter
 and exit insert mode just for that.
@@ -396,7 +394,7 @@ to hit `r`{normal} every time. There is a supercharged version of the operator.
 ---> Adding 123 to 456 gives you 579. {expect:Adding 123 to 456 gives you 579.}
 
 
-# Lesson something.something: BEGINNING AND END OF LINE MOTIONS
+# Lesson 1.10: BEGINNING AND END OF LINE MOTIONS
 
 Often times we want to do something with the beginning or the end of a line.
 There are two particular motions for this: `0`{normal} and `$`{normal}.
@@ -420,9 +418,9 @@ We have already met the `D`{normal} and `C`{normal} operators which act exacly t
 because both are only once action, but the former require fewer keystrokes.
 
 
-# Lesson something.something: CHARACTER- AND LINEWISE MOTION
+# Lesson 1.11: CHARACTER- AND LINEWISE MOTION
 
-** The `l`{normal} motion operates on a single character and `_`{normal} on the line **
+**The `l`{normal} motion operates on a single character and `_`{normal} on the line **
 
   1. Position your cursor on the p in "mption".
 
@@ -455,9 +453,9 @@ makes no difference, but most instructions you will come across use the doubled
 form.
 
 
-# Lesson something.something: FIND MOTION
+# Lesson 1.12: FIND MOTION
 
-** The `f`{normal} and `t`{normal} motions can jump to a particular character **
+**The `f`{normal} and `t`{normal} motions can jump to a particular character **
 
 We have already learned about word-wise motions, but what if we want to make
 even bigger jumps? We can specify a character to jump to. We can repeat the
@@ -500,9 +498,9 @@ common character we will waste keystrokes skipping over the false positives.
 Often times it's better to jump to a nearby but less common character and then
 correct the position by one or two.
 
-# Lesson something.something: UNDO, REDO AND REPEAT
+# Lesson 1.13: UNDO, REDO AND REPEAT
 
-** We can undo and redo changes. More imporantly though, we can repeat them **
+**We can undo and redo changes. More imporantly though, we can repeat them **
 
 To undo a change press `u`{normal}, press <C-R> to redo it again.
 
@@ -537,9 +535,9 @@ The dot is still very powerful because it assigns itself automatically and you
 should use it whenever the possibility arises. Like most other operators it can
 be combined with a motion.
 
-## Lesson something.something: THE PUT COMMAND
+## Lesson 1.14: THE PUT COMMAND
 
-** Type `p`{normal} to put previously deleted text after the cursor. **
+**Type `p`{normal} to put previously deleted text after the cursor. **
 
 The `p`{normal} operator can put previously deleted text after the cursor, and the
 upper-case variant places it in front of the cursor.
@@ -564,9 +562,9 @@ temporarliy, and always contains the last deletion or yank (see next lesson).
 You will later learn about custom registers you can assign yourself. This
 operator allows you to transplant blocks of text at any size.
 
-# Lesson something.something: COPY AND PASTE TEXT
+# Lesson 1.15: COPY AND PASTE TEXT
 
-** Use the  y  operator to copy text and  p  to paste it **
+**Use the  y  operator to copy text and  p  to paste it **
 
 The operator `y`{normal} stands for "yank", it's essentially the same as "copy" in
 other editors. After yanking the text we can put it somewhere else.
@@ -589,9 +587,9 @@ Like other operators `y`{normal} can be be used with a count to yank for example
 words in one go: `2yw`{normal} would yank two words and `2yy`{normal} would yank two lines.
 
 
-# Lesson something.something: MOTIONS INSIDE AND AROUND
+# Lesson 1.6: MOTIONS INSIDE AND AROUND
 
-** Use the `i`{normal} motion inside something and `a`{normal} around **
+**Use the `i`{normal} motion inside something and `a`{normal} around **
 
 Often times your cursor will not be at the edge of a piece of text you want to
 edit. It would be a waste of time to always have to jump to the beginning, so
@@ -626,9 +624,9 @@ You can also motion inside/around parentheses, brackets or braces. Basically, if
 you think something can surround text try this motion. Using this motion saves
 you the jumping back and forth and makes the action more repeatable.
 
-# Lesson 4.1: CURSOR LOCATION AND FILE STATUS
+# Lesson 1.17: CURSOR LOCATION AND FILE STATUS
 
-** Type <Ctrl-g> to show your location in the file and the file status.
+**Type <Ctrl-g> to show your location in the file and the file status.
 Type  `G`{normal}  to move to a line in the file. **
 
 NOTE: Read this entire lesson before executing any of the steps.
@@ -648,9 +646,9 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
   4. If you feel confident to do this, execute steps 1 through 3.
 
-# Lesson 4.3: MATCHING PARENTHESES SEARCH
+# Lesson 1.18: MATCHING PARENTHESES SEARCH
 
-** Type  %  to find a matching ),], or } . **
+**Type  %  to find a matching ),], or } . **
 
   1. Place the cursor on any (, [, or { in the line below marked --->.
 
@@ -667,7 +665,7 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 NOTE: This is very useful in debugging a program with unmatched parentheses!
 
 
-# Conclusion
+# SUMMARY of PART 1
 
 So far we have learned how to do basic text operation, we know how to navigate
 text quickly, how to insert text and finally we learned how to transplant text.
@@ -701,10 +699,9 @@ actions as fast as you can think them.
 =========  =================
 
 
-
 # Part 2: EX COMMANDS
 
-** Command mode is where we can execute powerful commands **
+**Command mode is where we can execute powerful commands**
 
 You have already met command-mode before when you quit Vim. First you press
 `:`{normal}, then you enter your command and possibly some arguments and hit <CR> to
@@ -720,7 +717,7 @@ possible suggestions.
 
 # Lesson 2.1: WRITING AND CLOSING A FILE
 
-** Use the ':write' command to write the current file and ':quit' to close it. **
+**Use the ':write' command to write the current file and ':quit' to close it.**
 
 You have already met 'quit' when you quit Vim. If you have a file open you can
 use ':write' to save it to disc, assuming the file is not write-protected.
@@ -751,7 +748,7 @@ enter a file name as an argument: ':w newfile.txt'
 
 # Lesson 2.2: NEW AND EXISTING FILES
 
-** Use ':new' and 'edit' to open new or existing files **
+**Use ':new' and 'edit' to open new or existing files **
 
   1. Type ':new' to open a new window. Try it out right now, you will see a new
      window pop up.
@@ -769,7 +766,7 @@ prepend a 'v' to the command: ':vnew'.
 
 # Lesson 2.3: SPLITTING A VIEW
 
-** Use ':split' and 'vsplit' to split a window **
+**Use ':split' and 'vsplit' to split a window **
 
   1. Type ':split' and see your file split in two horizontally.
 
@@ -782,7 +779,7 @@ other windows as well.
 
 # Lesson 2.4: THE WORKING DIRECTORY
 
-** Use ':pwd' to print the current working directory **
+**Use ':pwd' to print the current working directory **
 
   1. Type ':pwd' and the command line will show the path in the command line.
 
@@ -792,7 +789,7 @@ to it. We'll learn how to change it in a second.
 
 # Lessong 2.5: EXECUTING EXTERNAL COMMANDS
 
-** Vim provides a shell to execute external commands **
+**Vim provides a shell to execute external commands **
 
 You can use any command for your operating system by prepending it with an
 exclamation mark.
@@ -811,7 +808,7 @@ your screen turn into a mess. You can type ':q' to get back.
 
 # Lesson 2.6: RETRIEVING AND MERGING FILES
 
-** Use ':r' to read contents of a fil into the current file **
+**Use ':r' to read contents of a fil into the current file **
 
 If you want to append the contents of a file to an open file use the ':r'
 command.
@@ -835,7 +832,7 @@ Now you can work with the output of the shell.
 
 # Lesson 2.7 THE SUBSTITUTION COMMAND
 
-** The ':s/old/new/g' command can find and replace text **
+**The ':s/old/new/g' command can find and replace text **
 
   1. Move the cursor to the line below.
 
@@ -885,7 +882,7 @@ Here are a few more examples of what is possible with the substitute command:
 
 # Lesson 2.8: THE SET OPTION COMMAND
 
-** Setting Vim options is done using a command **
+**Setting Vim options is done using a command **
 
   1. Type ':set list' to make Vim display whitespace characters.
 
@@ -916,7 +913,7 @@ Some actions take values instead:
 You can also reset any option to its default:
 
   6. Type
-~~~
+~~~ cmd
     :set foldcolumn&
 ~~~
      to reset.
@@ -927,7 +924,7 @@ abbreviated form of them as well.
 
 # Lesson 2.9: SEARCH MODE
 
-** Type `/`{normal} followed by a pattern to search for the pattern. **
+**Type `/`{normal} followed by a pattern to search for the pattern. **
 
 This is not really a command but it fits here. Press the `/`{normal} key and type the
 word "fox". The cursor will jump to the word on the line below.
@@ -949,7 +946,7 @@ The pattern does not have to be just a word, it can be any regular expression.
 Try searching for "f.x". You will find matches for both "fox" and "fix".
 
 
-# Summary
+# SUMMARY of PART 2
 
 asdf
 
@@ -962,7 +959,7 @@ that selection.
 
 # Lesson 3.1: VISUAL MODE
 
-** Press `v`{normal} to select a sequence of text **
+**Press `v`{normal} to select a sequence of text **
 
   1. Move the cursor on first character of the first word to change.
 
@@ -993,7 +990,7 @@ It is faster to position the cursor on the first wrong word and then change
 
 # Lesson 3.2: VISUAL LINE MODE
 
-** Select entire lines with `V`{normal} **
+**Select entire lines with `V`{normal} **
 
 There are two pairs of lines wrong. We don't want to fix them one at a time, so
 we'll transplant two lines at a time.
@@ -1016,7 +1013,7 @@ transplant many more lines.
 
 # Lesson 3.3: VISUAL BLOCK MODE
 
-** We can also select a rectangular slice of text. **
+**We can also select a rectangular slice of text. **
 
   1. We want to change the prefix all these items. Move the cursor to the first
      '\'.
@@ -1030,15 +1027,15 @@ transplant many more lines.
   4. Press `c`{normal} to change the prefix to "-". When you exit insert mode the
      change will be applied to the entire selection.
 
----> \item Apple {expect:* Apple}
----> \item Banana {expect:* Banana}
----> \item Orange {expect:* Orange}
----> \item Pear {expect:* Pear}
----> \item Lemon {expect:* Lemon}
+---> \item Apple {expect:- Apple}
+---> \item Banana {expect:- Banana}
+---> \item Orange {expect:- Orange}
+---> \item Pear {expect:- Pear}
+---> \item Lemon {expect:- Lemon}
 
-# Lesson 3.4: executing commands on visual selections
+# Lesson 3.4: EXECUTING COMMANDS ON VISUAL SELECTIONS
 
-** We can execute a command over only the selected part **
+**We can execute a command over only the selected part **
 
   1. Select the sentence visually
 
@@ -1055,7 +1052,7 @@ visual selection. Most commands can operate on a range.
 
 # Lesson 3.5: MODIFYING A SELECTION
 
-** Change the visually selected region using `o`{normal} **
+**Change the visually selected region using `o`{normal} **
 
 We know that we can use any motion to change the contents of our selection, but
 they work only on one end of the selection. We can toggle to the other end by
@@ -1079,7 +1076,7 @@ perforing an action on it.
 
 # Part 4: PERMANENT SETTINGS AND GETTING HELP
 
-** Enable Vim features **
+**Enable Vim features**
 
 Vim has many more features than Vi, but most of them are disabled by default.
 To start using more features you have to create a "vimrc" file.
@@ -1098,7 +1095,7 @@ The next time you start Vim it will use syntax highlighting.  You can add all
 your preferred settings to this "vimrc" file.  For more information type  :help
 vimrc-intro
 
-** Use the on-line help system **
+**Use the on-line help system**
 
 You now know the basics of using Vim, enough for everyday text editing. We have
 only scratched the surface of what is possible even on the topics we covered in
@@ -1133,14 +1130,14 @@ many many more commands.  Consult the help often.
 
 There are many resources online to learn more about vim. Here's a list of a bunch of them:
 
-- Learn Vim Progressively: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
-- Learning Vim in 2014: http://benmccormick.org/learning-vim-in-2014/
+- *Learn Vim Progressively*: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+- *Learning Vim in 2014*: http://benmccormick.org/learning-vim-in-2014/
 - Vimcasts: http://vimcasts.org/
 - Vim Video-Tutorials by Derek Wyatt: http://derekwyatt.org/vim/tutorials/
-- Learn Vimscript the Hard Way: http://learnvimscriptthehardway.stevelosh.com/
-- 7 Habits of Effective Text Editing: http://www.moolenaar.net/habits.html
+- *Learn Vimscript the Hard Way*: http://learnvimscriptthehardway.stevelosh.com/
+- *7 Habits of Effective Text Editing*: http://www.moolenaar.net/habits.html
 
-If you prefer a book, Practival Vim by Drew Neil is recommended often.
+If you prefer a book, *Practical Vim* by Drew Neil is recommended often.
 
 This tutorial was written by Michael C. Pierce and Robert K. Ware, Colorado
 School of Mines using ideas supplied by Charles Smith, Colorado State
