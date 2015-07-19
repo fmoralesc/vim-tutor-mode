@@ -18,7 +18,7 @@ add the following to your `vimrc`.
 
 Otherwise copy this repository's contents to your `~/.vim` folder.
 
-This plugin is only available if 'compatible' is not set.
+This plugin is only available if `'compatible'` is not set.
 
 ## Usage
 
@@ -37,6 +37,6 @@ tutorial](https://github.com/fmoralesc/vim-pad/blob/devel/tutorials/pad.tutor).
 
 ## Credits
 
-Some of the materials included in the plugin are based on work from vim's
-maintainers of vimtutor (esp. Michael C. Pierce, Robert K. Ware and Bram
+Some of the materials included in the plugin are based on work from Vim's
+maintainers of Vimtutor (esp. Michael C. Pierce, Robert K. Ware and Bram
 Moolenaar) and in dahu's [LearnVim](https://github.com/dahu/LearnVim).
