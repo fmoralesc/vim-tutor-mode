@@ -1,6 +1,6 @@
 syn match normalOp /[dcrypoaxv!"#%&.-\/:<>=?@ABCDGHIJKLMNOPQRSUVWXYZgmqstz~iu]/ nextgroup=normalMod
-syn match normalMod /m\@<![ia]/
-syn match normalObject /["'()<>BW\[\]`bstweE{}ftFT;,$]/
+syn match normalMod /m\@<![ia]["'()<>BW\[\]bstweE{}ftFT;,$]\@=/
+syn match normalObject /["'()<>BW\[\]`bstweE{}ftFT;,$hjkl]/
 syn match normalCount /[0-9]/
 syn region normalSearch start=/[/?]\@<=./ end=/.<CR>\@=/ contains=normalKey keepend
 syn region normalChange start=/\([cr][wWbBeE()\[\]{}pst]\)\@<=./ end=/.\@=/ contains=normalKey keepend
