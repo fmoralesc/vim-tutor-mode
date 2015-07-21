@@ -791,9 +791,6 @@ exclamation mark.
 
   3. Type `:!rm file`{vim} to delete a file.
 
-The shell is very limited and only good for such simple commands. Don't try
-running a REPL or another instance of Vim that way.
-
 # Lesson 2.6: RETRIEVING AND MERGING FILES
 
 **Use `:r`{vim} to read contents of a fil into the current file **
