@@ -93,7 +93,7 @@ NOTE:  The command  [:q!](:q) `<Enter>`{normal}  discards any changes you have m
 
 Before we continue we need to understand the concept of modal editing first:
 most editors have two "modes", a mode where you enter text and a mode where you
-select text.
+visually select text.
 
 You have already met two of Vim's modes so far: normal mode which is the
 default mode of Vim where you move around the cursor, and command mode when you
@@ -149,7 +149,7 @@ count is cumbersome. There are better motions for moving around.
 
 # Lesson 1.2: WORD-WISE MOTION
 
-**Moving word-wise is faster than character-wise **
+**Moving word-wise can be faster than character-wise **
 
   1. Move the cursor to the start of the line marked ---> below.
 
@@ -204,8 +204,6 @@ only be used for small position adjustments from now on.
      under the cursor.
 
 ---> The ccow jumpedd ovverrr thhhe mooon. {expect:The cow jumped over the moon.}
-
-  5. Now that the line is correct, go on to Lesson 1.4.
 
 The `x`{normal} command is an operator, meaning it tells Vim to do something. You can
 combine it with a count, but it does not take a motion, it always operates on
@@ -288,15 +286,15 @@ operator.
 
   3. Now type some text and press `<Esc>`{normal} to exit Insert mode.
 
----> After typing  o  the cursor is placed on the open line in Insert mode. {expect:ANYTHING}
+---> After typing o the cursor is placed on the open line in Insert mode. {expect:ANYTHING}
 
   4. To open up a line ABOVE the cursor, simply type a [capital O](O), rather
      than a lowercase `o`{normal}.  Try this on the line below.
 
 ---> Open up a line above this by typing O while the cursor is on this line. {expect:ANYTHING}
 
-This is faster and more repeatable than moving to the end of a line,
-entering append mode and adding a new line.
+This is faster and more repeatable than moving to the end of a line, entering append mode
+and adding a new line. A new line created like this will respect indentation rules.
 
 # Lesson 1.7: DELETING
 
@@ -479,7 +477,7 @@ If we don't want to include the character we have searched for we can use the
 
 We can also perform these motion in the other direction using their upper-case
 variants. This time the upper-case does not supercharge the motion, it does its
-opposite. That's also common convention. Try it out:
+opposite. That's also a common convention. Try it out:
 
   1. Place the cursor at the end of the sentence.
 
@@ -694,7 +692,7 @@ actions as fast as you can think them.
 
 # Part 2: EX COMMANDS
 
-**Command mode is where we can execute powerful commands**
+**Command mode is where we can execute editor commands**
 
 You have already met command-mode before when you quit Vim. First you press
 `:`{normal}, then you enter your command and possibly some arguments and hit `<CR>`{normal} to
@@ -778,7 +776,7 @@ other windows as well.
 
 Vim is usually run from a terminal emulator, but even when you are using a GUI
 you still have a working directory. Every path and every file name is relative
-to it. We'll learn how to change it in a second.
+to it. To change the working directory of Vim use the `:cd`{vim} command.
 
 # Lesson 2.5: EXECUTING EXTERNAL COMMANDS
 
@@ -787,17 +785,14 @@ to it. We'll learn how to change it in a second.
 You can use any command for your operating system by prepending it with an
 exclamation mark.
 
-  1. Type `:!ls`{vim} and you will get the contents of the working directory printed.
+  1. Type `:!ls`{vim} to print the contents of the current working directory.
 
-  2. Type `:!cd`{vim} with an argument to change the working directory.
+  2. Type `:!touch file`{vim} to create a file.
 
-  3. Type `:!rm`{vim} with an argument to delete a file.
+  3. Type `:!rm file`{vim} to delete a file.
 
 The shell is very limited and only good for such simple commands. Don't try
-running a REPL or another instance for Vim that way.
-
-Of course you can try it out if you are really curious. Type `:!vim`{vim} and watch
-your screen turn into a mess. You can type `:q`{vim} to get back.
+running a REPL or another instance of Vim that way.
 
 # Lesson 2.6: RETRIEVING AND MERGING FILES
 
@@ -893,7 +888,7 @@ Most options in Vim are boolean values. The syntax for set set command is
 ~~~
 where 'option' is the name of the option. The option name without prefix always
 turns it on and with the 'no' prefix always turns it off. The exclamation mark
-postfix or the 'inv' prefix always toggles between on and off.
+postfix or the 'inv' prefix always toggle between on and off.
 
 Some actions take values instead:
 
@@ -1063,7 +1058,10 @@ pressing `o`{normal} when in visual mode.
 # Summary of Part 3
 
 Visual mode is a tool that lets us fine-tune a selection of text before
-perforing an action on it.
+perforing an action on it.  Use `v`{normal} to select text character-wise,
+`V`{normal} to select linewise, and `<C-V`{normal} to select blockwise, that
+is, in rectangular blocks.  Operators operate on the selected portions and
+most commands use the selection as a range to work on.
 
 
 # Part 4: PERMANENT SETTINGS AND GETTING HELP
@@ -1096,23 +1094,10 @@ manual is the next place to go to.
 
 Vim has a comprehensive on-line help system.  To get started, try one of
 these three:
+    - type `:help`{vim} `<Enter>`{normal}
     - press the `<HELP>`{normal} key (if you have one)
     - press the `<F1>`{normal} key (if you have one)
-    - type
-        `:help`{vim} `<Enter>`{normal}
 
-Read the text in the help window to find out how the help works.
-Type  `<Ctrl-w><Ctrl-w>`{normal}   to jump from one window to another.
-Type  `:q`{vim} `<Enter>`{normal}    to close the help window.
-
-You can find help on just about any subject, by giving an argument to the
-":help" command.  Try these (don't forget pressing `<Enter>`{normal}):
-~~~ cmd
-    :help w
-    :help c_CTRL-D
-    :help insert-index
-    :help user-manual
-~~~
 
 # CONCLUSION
 
