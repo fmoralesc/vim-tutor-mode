@@ -12,6 +12,9 @@ Vim as an all-purpose editor.  It is important to remember that it is set up to
 teach by use. That means you need to do the exercises to learn them properly.
 If you only read the text, you will soon forget what is most important!
 
+To scroll the text press `j`{normal} to move to cursor down or `k`{normal} to
+move the cursor up.
+
 NOTE: The commands in the lessons will modify the text, but those changes won't
 be saved.  Don't worry about messing things up; just remember that pressing
 [`<Esc>`](<Esc>) and then [u](u) will undo the latest change.
@@ -138,10 +141,8 @@ So far You have learned four motions: `h`{normal}, `j`{normal}, `k`{normal} and 
 
 ---> This is just a line with words you can move around in. {expect:ANYTHING}
 
-  6. Move on to Lesson 2.5.
-
-Strictly speaking 0 on its own is not a count, it is a motion that moves to the
-beginning of the current line, but a count can contain the digit 0. Typing `10j`{normal}
+Strictly speaking `0`{normal} on its own is not a count, it is a motion that moves to the
+beginning of the current line, but a count can contain the digit `0`. Typing `10j`{normal}
 will move the cursor ten lines down.
 
 You can now move more than one character at a time, but constantly typing in a
