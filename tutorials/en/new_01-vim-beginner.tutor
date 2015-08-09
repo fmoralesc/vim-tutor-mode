@@ -606,7 +606,7 @@ Like other operators `y`{normal} can be be used with a count to yank for example
 several words in one go: `2yw`{normal} would yank two words and `2yy`{normal} would yank two
 lines.
 
-# Lesson 1.6: MOTIONS INSIDE AND AROUND
+# Lesson 1.16: MOTIONS INSIDE AND AROUND
 
 **Use the `i`{normal} motion inside something and `a`{normal} around **
 
