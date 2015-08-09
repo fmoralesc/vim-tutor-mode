@@ -1,35 +1,38 @@
 #             Welcome   to   the   VIM   Tutor
 
-Vim is a very powerful text editor that has many commands. Unlike most text
-editors where you use the keyboard to enter text and arrow keys to move your
-cursor, in Vim you use the keyboard to enter commands to manipulate text.
-These commands allow you to express complex thoughts in just a few keystrokes
-to move through text and manipulate it much faster than in most text editors.
+Vim is a very powerful text editor that has many commands. Unlike most
+text editors where you use the keyboard to enter text and arrow keys to
+move your cursor, in Vim you use the keyboard to enter commands to
+manipulate text. These commands allow you to express complex thoughts in
+just a few keystrokes to move through text and manipulate it much faster
+than in most text editors.
 
-These commands form a sort of language with its own grammar. This tutor is
-designed to describe enough of the commands that you will be able to easily use
-Vim as an all-purpose editor.  It is important to remember that it is set up to
-teach by use. That means you need to do the exercises to learn them properly.
-If you only read the text, you will soon forget what is most important!
+These commands form a sort of language with its own grammar. This tutor
+is designed to describe enough of the commands that you will be able to
+easily use Vim as an all-purpose editor. It is important to remember
+that it is set up to teach by use. That means you need to do the exer-
+cises to learn them properly. If you only read the text, you will soon
+forget what is most important!
 
-To scroll the text press `j`{normal} to move to cursor down or `k`{normal} to
-move the cursor up.
+To scroll the text press `j`{normal} to move to cursor down or `k`{normal} to move the cur-
+sor up.
 
-NOTE: The commands in the lessons will modify the text, but those changes won't
-be saved.  Don't worry about messing things up; just remember that pressing
-[`<Esc>`](<Esc>) and then [u](u) will undo the latest change.
+NOTE: The commands in the lessons will modify the text, but those
+changes won't be saved.  Don't worry about messing things up; just re-
+member that pressing [`<Esc>`](<Esc>) and then [u](u) will undo the latest change.
 
-This tutorial is interactive, and there are a few things you should know.
-Pressing [`<Enter>`](<Enter>) over text highlighted [like this](holy-grail)
-will take you to some relevant help (hopefully), and pressing ? over any word
-will try to do so too.  You can close the help window by pressing `q`{normal}.
-Sometimes you will be required to modify text like
+This tutorial is interactive, and there are a few things you should
+know. Pressing [`<Enter>`](<Enter>) over text highlighted [like this](holy-grail) will take you
+to some relevant help (hopefully), and pressing ? over any word will try
+to do so too.  You can close the help window by pressing `q`{normal}. Sometimes
+you will be required to modify text like
 
 --->  this here {expect:this here}
 
-Once you have done the changes correctly, the ✗ sign at the left will change to
-✓. We imagine you can already see how neat Vim can be ;) Other times, you'll be
-prompted to run a command (we will explain this later):
+Once you have done the changes correctly, the ✗ sign at the left will
+change to ✓. We imagine you can already see how neat Vim can be ;)
+Other times, you'll be prompted to run a command (we will explain this
+later):
 ~~~ cmd
     :help <Enter>
 ~~~
@@ -37,11 +40,12 @@ or press a sequence of keys
 ~~~ norm
     <Esc>0f<SPACE>d3wP$P
 ~~~
-Text within angle brackets (like `<Enter>`{normal}) describes a key to press instead of
-text to type.
+Text within angle brackets (like `<Enter>`{normal}) describes a key to press in-
+stead of text to type.
 
-Now, make sure that your Shift-Lock key is NOT depressed and press the `j`{normal} key
-enough times to move the cursor so that Lesson 1.1 completely fills the screen.
+Now, make sure that your Shift-Lock key is NOT depressed and press the `j`{normal}
+key enough times to move the cursor so that Lesson 1.1 completely fills
+the screen.
 
 ## Lesson 0.1: MOVING THE CURSOR
 
@@ -57,18 +61,18 @@ enough times to move the cursor so that Lesson 1.1 completely fills the screen.
   2. Hold down the `j`{normal} key and move to the next lesson.
 
 
-NOTE: If you are ever unsure about something you typed, press `<Esc>`{normal} to place
-      you in Normal mode.  Then retype the command you wanted.
+NOTE: If you are ever unsure about something you typed, press `<Esc>`{normal} to
+      place you in Normal mode.  Then retype the command you wanted.
 
 NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{normal} `l`{normal} keys have not
-      been chosen arbitrarily, they are on the right-hand side of the home row,
-      allowing you to mode the curse without taking youre hand off. Once
-      getting used to `h`{normal} `j`{normal} `k`{normal} `l`{normal} you will be able to move around much
-      faster. Really!
+      been chosen arbitrarily, they are on the right-hand side of the
+      home row, allowing you to mode the curse without taking youre hand
+      off. Once getting used to `h`{normal} `j`{normal} `k`{normal} `l`{normal} you will be able to move around
+      much faster. Really!
 
 # Lesson 0.2: EXITING VIM
 
-!! NOTE: Before executing any of the steps below, read this entire lesson !!
+NOTE: Before executing any of the steps below, read this entire lesson
 
   1. Press the `<Esc>`{normal} key (to make sure you are in [Normal](Normal) [mode](vim-modes)).
 
@@ -79,44 +83,48 @@ NOTE: The cursor keys should also work, but the `h`{normal} `j`{normal} `k`{norm
      This exits the editor, DISCARDING any changes you have made. The
      exclamation mark "supercharges" the [:q](:q) command.
 
-  3. Open vim and get back here by executing the command that got you into this
-     tutor. That might be:
+  3. Open vim and get back here by executing the command that got you
+     into this tutor. That might be:
 
      :Vimtutor `<Enter>`{normal}
 
   4. If you have these steps memorized and are confident, execute steps
      1 through 3 to exit and re-enter the editor.
 
-NOTE:  The command  [:q!](:q) `<Enter>`{normal}  discards any changes you have made. In a
-       few lessons you will learn how to save the changes to a file.
+NOTE:  The command  [:q!](:q) `<Enter>`{normal}  discards any changes you have made. In
+       a few lessons you will learn how to save the changes to a file.
 
   5. Move the cursor down to Lesson 1.3.
 
 # Part 1: COUNT, OPERATOR, MOTION -- ACTION
 
-Before we continue we need to understand the concept of modal editing first:
-most editors have two "modes", a mode where you enter text and a mode where you
-visually select text.
+Before we continue we need to understand the concept of modal editing
+first: most editors have two "modes", a mode where you enter text and a
+mode where you visually select text.
 
 You have already met two of Vim's modes so far: normal mode which is the
-default mode of Vim where you move around the cursor, and command mode when you
-entered the command to quit Vim. You will soon meet insert mode which lets you
-type text and visual mode which lets you visually select text. Out of these
-normal mode is where you will spend most of your time.
+default mode of Vim where you move around the cursor, and command mode
+when you entered the command to quit Vim. You will soon meet insert mode
+which lets you type text and visual mode which lets you visually select
+text. Out of these normal mode is where you will spend most of your
+time.
 
-Keyboard keys have different effects depending on the mode you are in: pressing
-the `j`{normal} key in normal mode will move the cursor downwards, but pressing
-the same key in insert mode will place a 'j' character in your text.
+Keyboard keys have different effects depending on the mode you are in:
+pressing the `j`{normal} key in normal mode will move the cursor downwards, but
+pressing the same key in insert mode will place a 'j' character in your
+text.
 
-The next important thing we need to keep in mind is how the syntax of Vim
-commands works: unlike most editors where keyboard commands are just shortcuts,
-Vim commands are part of a language with its own grammar and vocabulary.
+The next important thing we need to keep in mind is how the syntax of
+Vim commands works: unlike most editors where keyboard commands are just
+shortcuts, Vim commands are part of a language with its own grammar and
+vocabulary.
 
 The structure of a "sentence" is *count* *operator* *motion*. Don't think too
-much about if for now, all that is important to know is that once you have
-learned a new vocable you can use it along with the ones you already know to
-construct completely new sentences. This is what makes Vim so productive, you
-tell it exactly what it is you want to do. Soon a sequence like this
+much about if for now, all that is important to know is that once you
+have learned a new vocable you can use it along with the ones you al-
+ready know to construct completely new sentences. This is what makes Vim
+so productive, you tell it exactly what it is you want to do. Soon a
+sequence like this
 ~~~ normal
     <Esc>0f<SPACE>d3wP$P
 ~~~
@@ -141,12 +149,13 @@ So far You have learned four motions: `h`{normal}, `j`{normal}, `k`{normal} and 
 
 ---> This is just a line with words you can move around in. {expect:ANYTHING}
 
-Strictly speaking `0`{normal} on its own is not a count, it is a motion that moves to the
-beginning of the current line, but a count can contain the digit `0`. Typing `10j`{normal}
-will move the cursor ten lines down.
+Strictly speaking `0`{normal} on its own is not a count, it is a motion that moves
+to the beginning of the current line, but a count can contain the digit
+`0`. Typing `10j`{normal} will move the cursor ten lines down.
 
-You can now move more than one character at a time, but constantly typing in a
-count is cumbersome. There are better motions for moving around.
+You can now move more than one character at a time, but constantly
+typing in a count is cumbersome. There are better motions for moving
+around.
 
 # Lesson 1.2: WORD-WISE MOTION
 
@@ -156,10 +165,11 @@ count is cumbersome. There are better motions for moving around.
 
   2. Press `w`{normal} to move the cursor to the first character of the next word.
 
-  3. Press `e`{normal} to move the cursor to the last character of the current word.
+  3. Press `e`{normal} to move the cursor to the last character of the current
+     word.
 
-  4. Press `b`{normal} to move the cursor to the first character of the current word or
-     first character of the previous word.
+  4. Press `b`{normal} to move the cursor to the first character of the current
+     word or first character of the previous word.
 
   5. Now try to above commands by prepending a count: `2w`{normal}.
 
@@ -167,26 +177,26 @@ count is cumbersome. There are better motions for moving around.
 
 ---> This is just a line with words you can move around in. {expect:ANYTHING}
 
-The mnemonics of these operators have been chosen to be easy to remember:
-[w](w) stands for *word*, [e](e) stands for *end* and [b](b) stands for
-*beginning*.
+The mnemonics of these operators have been chosen to be easy to re-
+member: [w](w) stands for *word*, [e](e) stands for *end* and [b](b) stands for *beginning*.
 
-But what do [W](W), [E](E) and [B](B) stand for? Vim knows of two different
-types of "words": [word](word) and [WORD](WORD). A word is what you will want
-pretty much all the time, because it is more restrictive, while a WORD is any
-sequence of non-blank characters. Try it out, compare the lower-case motions
-with their upper-case variants.
+But what do [W](W), [E](E) and [B](B) stand for? Vim knows of two different types of
+"words": [word](word) and [WORD](WORD). A word is what you will want pretty much all the
+time, because it is more restrictive, while a WORD is any sequence of
+non-blank characters. Try it out, compare the lower-case motions with
+their upper-case variants.
 
 ---> The string class.method is three words but only one WORD. {expect:ANYTHING}
 
-For the exact definitions consult the help. This also goes to demonstrate a
-common convention: an upper-case variant of an operator performs a similar but
-"supercharged" version of the operator.
+For the exact definitions consult the help. This also goes to demons-
+trate a common convention: an upper-case variant of an operator performs
+a similar but "supercharged" version of the operator.
 
-We will learn more motions later, but with these three you can already move
-much faster through your text than if you were using the cursor keys directly,
-especially if you combine them with a count. Character-wise movement should
-only be used for small position adjustments from now on.
+We will learn more motions later, but with these three you can already
+move much faster through your text than if you were using the cursor
+keys directly, especially if you combine them with a count. Character-
+wise movement should only be used for small position adjustments from
+now on.
 
 ## Lesson 1.3: TEXT EDITING - DELETION
 
@@ -201,15 +211,16 @@ only be used for small position adjustments from now on.
 
   4. Repeat steps 2 through 4 until the sentence is correct.
 
-  5. Press `2x`{normal} to delete two characters at a time, starting with the character
-     under the cursor.
+  5. Press `2x`{normal} to delete two characters at a time, starting with the
+     character under the cursor.
 
 ---> The ccow jumpedd ovverrr thhhe mooon. {expect:The cow jumped over the moon.}
 
-The `x`{normal} command is an operator, meaning it tells Vim to do something. You can
-combine it with a count, but it does not take a motion, it always operates on
-the character it is on. So you can tell it to delete two characters, but not to
-delete the current word. We will use a different operator for that.
+The `x`{normal} command is an operator, meaning it tells Vim to do something. You
+can combine it with a count, but it does not take a motion, it always
+operates on the character it is on. So you can tell it to delete two
+characters, but not to delete the current word. We will use a different
+operator for that.
 
 # Lesson 1.4: TEXT EDITING: INSERTION
 
@@ -217,30 +228,31 @@ delete the current word. We will use a different operator for that.
 
   1. Move the cursor to the first line below marked --->.
 
-  2. To make the first line the same as the second, move the cursor on top
-     of the first character AFTER where the text is to be inserted.
+  2. To make the first line the same as the second, move the cursor on
+     top of the first character AFTER where the text is to be inserted.
 
-     Tip: use the `w`{normal} motion you learned before to jump to the beginning of the
-          word where you want to insert.
+     Tip: use the `w`{normal} motion you learned before to jump to the beginning
+          of the word where you want to insert.
 
   3. Press  [`i`](i)  and type in the necessary additions.
 
-  4. As each error is fixed press `<Esc>`{normal} to return to Normal mode.
-     Repeat steps 2 through 4 to correct the sentence.
+  4. As each error is fixed press `<Esc>`{normal} to return to Normal mode. Repeat
+     steps 2 through 4 to correct the sentence.
 
 ---> There is text misng this . {expect:There is some text missing from this line.}
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
 
-  5. You can use the upper-case version `I`{normal} to insert text at the beginning of
-     the line regardless of where on the line your cursor is. Place the cursor
-     anywhere on the line below and hit `I`{normal} to insert.
+  5. You can use the upper-case version `I`{normal} to insert text at the begin-
+     ning of the line regardless of where on the line your cursor is.
+     Place the cursor anywhere on the line below and hit `I`{normal} to insert.
 
 ---> is some text missing from this line. {expect:There is some text missing from this line.}
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
 
-The `i`{normal} operator does not take any count or motion, it drops us straight into
-insert mode. There are actually operators that can take a cound and motion
-before transitioning into insert mode, but they wouldn't make sense here.
+The `i`{normal} operator does not take any count or motion, it drops us straight
+into insert mode. There are actually operators that can take a cound and
+motion before transitioning into insert mode, but they wouldn't make
+sense here.
 
 # Lesson 1.5: TEXT EDITING: APPENDING
 
@@ -248,42 +260,43 @@ before transitioning into insert mode, but they wouldn't make sense here.
 
   1. Move the cursor to the first line below marked --->.
 
-  2. To make the first line the same as the second, move the cursor on top
-     of the first character BEFORE where the text is to be inserted.
+  2. To make the first line the same as the second, move the cursor on
+     top of the first character BEFORE where the text is to be inserted.
 
-     Tip: use the `e`{normal} motion you learned before to jump to the end of the word
-     where you want to append.
+     Tip: use the `e`{normal} motion you learned before to jump to the end of the
+     word where you want to append.
 
   3. As the text has been appended press `<Esc>`{normal} to return to Normal mode.
 
 ---> There is text misng this. {expect:There is some text missing from this line.}
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
 
-  5. You can use the upper-case version `A`{normal} to append text at the end of the
-     line regardless of where on the line your custor is. Place the cursor
-     anywhere on the line below and hit `A`{normal} to append.
+  5. You can use the upper-case version `A`{normal} to append text at the end of
+     the line regardless of where on the line your custor is. Place the
+     cursor anywhere on the line below and hit `A`{normal} to append.
 
 ---> There is some text missing from th {expect:There is some text missing from this line.}
 ---> There is some text missing from this line. {expect:There is some text missing from this line.}
 
-Appending is very similar to inserting, except it appends text after the cursor.
-You will use both commands frequently, so you should get into the habit of using
-both when they are appropiate. Don't use `li`{normal} (move left, then insert) to append
-text, that is slower and less repeatable than appending directly.  One core idea
-in Vim is to do tasks in as few steps as possible, which can then be automated.
-Get early into the habit of being lazy.
+Appending is very similar to inserting, except it appends text after the
+cursor. You will use both commands frequently, so you should get into
+the habit of using both when they are appropiate. Don't use `li`{normal} (move
+left, then insert) to append text, that is slower and less repeatable
+than appending directly.  One core idea in Vim is to do tasks in as few
+steps as possible, which can then be automated. Get early into the habit
+of being lazy.
 
 # Lesson 1.6: THE OPEN COMMAND
 
 **Press `o`{normal} to open a line below the cursor and place you in Insert mode. **
 
-You can create a new line and enter insert mode immediately using this one
-operator.
+You can create a new line and enter insert mode immediately using this
+one operator.
 
   1. Move the cursor to the line below marked --->.
 
-  2. Type the lowercase letter `o`{normal} to [open](o) up a line BELOW the cursor and place
-     you in Insert mode.
+  2. Type the lowercase letter `o`{normal} to [open](o) up a line BELOW the cursor and
+     place you in Insert mode.
 
   3. Now type some text and press `<Esc>`{normal} to exit Insert mode.
 
@@ -292,10 +305,11 @@ operator.
   4. To open up a line ABOVE the cursor, simply type a [capital O](O), rather
      than a lowercase `o`{normal}.  Try this on the line below.
 
----> Open up a line above this by typing O while the cursor is on this line. {expect:ANYTHING}
+---> Open a line above this by typing O while the cursor is on this line. {expect:ANYTHING}
 
-This is faster and more repeatable than moving to the end of a line, entering append mode
-and adding a new line. A new line created like this will respect indentation rules.
+This is faster and more repeatable than moving to the end of a line,
+entering append mode and adding a new line. A new line created like
+this will respect indentation rules.
 
 # Lesson 1.7: DELETING
 
@@ -303,31 +317,33 @@ and adding a new line. A new line created like this will respect indentation rul
 
   1. Move the cursor to the first line below marked --->.
 
-  2. Move the cursor to the beginning of a word that needs to be deleted.
+  2. Move the cursor to the beginning of a word that needs to be
+     deleted.
 
   3. Type [`d`](d)[`w`](w) to make the word disappear.
 
 ---> There are a some words fun that don't belong paper in this sentence. {expect:There are some words that don't belong in this sentence.}
 ---> There are a some words that don't belong in this sentence. {expect:There are some words that don't belong in this sentence.}
 
-  4. Now try deleting two words at a time using a count: Position the cursor on
-     the beginning of "two" and type `2dw`{normal}
+  4. Now try deleting two words at a time using a count: Position the
+     cursor on the beginning of "two" and type `2dw`{normal}
 
 ---> There are too many words in this sentence. {expect:There are words in this sentence.}
 ---> There are words in this sentence. {expect:There are words in this sentence.}
 
-  4. On the line below move the curse behind the period. We don't want anyone
-     to read the second sentence, so move the cursor behind the period and hit
-     [`D`](D) to delete until the end of the line.
+  4. On the line below move the curse behind the period. We don't want
+     anyone to read the second sentence, so move the cursor behind the
+     period and hit [`D`](D) to delete until the end of the line.
 
 ---> The report will be done by Thursday. I hate my job so much... {expect:The report will be done by Thursday.}
 
-The operator [`d`](d) stands for "delete" and deletes according to a motion. If
-we type `dw`{normal} it will delete anything up until the beginning of the next word.
-We can use any other motion as well, so `de`{normal} will delete until including the
-last character of the current word, `dh`{normal} will delete the character left from the
-cursor and `dl`{normal} will delete the character under the cursor, similar to `x`{normal}. Go
-ahead and try the `d`{normal} command with all the motions you have learned so far.
+The operator [`d`](d) stands for "delete" and deletes according to a motion.
+If we type `dw`{normal} it will delete anything up until the beginning of the next
+word. We can use any other motion as well, so `de`{normal} will delete until in-
+cluding the last character of the current word, `dh`{normal} will delete the
+character left from the cursor and `dl`{normal} will delete the character under
+the cursor, similar to `x`{normal}. Go ahead and try the `d`{normal} command with all the
+motions you have learned so far.
 
 # Lesson 1.8: CHANGING TEXT
 
@@ -335,32 +351,34 @@ ahead and try the `d`{normal} command with all the motions you have learned so f
 
   1. Place the cursor at the beginning of a word you want to change.
 
-  2. Press `ce`{normal} or `cw`{normal} to change the word without affecting the surrounding whitespace.
+  2. Press `ce`{normal} or `cw`{normal} to change the word without affecting the surrounding
+     whitespace.
 
 ---> This lubw has a few wptfd that mrrf changing usf the change operator. {expect:This line has a few words that need changing using the change operator.}
 ---> This line has a few words that need changing using the change operator. {expect:This line has a few words that need changing using the change operator.}
 
-  3. We want to change the last sentence. Move the cursor behind the first
-     period and press `C`{normal}, enter to correct sentence and leave insert mode.
+  3. We want to change the last sentence. Move the cursor behind the
+     first period and press `C`{normal}, enter to correct sentence and leave
+     insert mode.
 
 ---> The report will be done by Thursday. I hate my job so much... {expect:The report will be done by Thursday. This is the best job ever!}
 ---> The report will be done by Thursday. This is the best job ever! {expect:The report will be done by Thursday. This is the best job ever!}
 
 The `c`{normal} operator is like deleting a piece of text with the `d`{normal} operator and
-then entering instert mode via `i`{normal}. However, having an operator that does both
-in one step makes the action more repeatable.
+then entering instert mode via `i`{normal}. However, having an operator that does
+both in one step makes the action more repeatable.
 
-One word of caution: the `c`{normal} operator is somewhat of an anomaly when used with
-the `w` motion. Usually that motion would move to the beginning of the next
-word, but in this particular case it acts like the `e`{normal} motion. This is
-conscious design choice by the Vim developers, not a bug.
+One word of caution: the `c`{normal} operator is somewhat of an anomaly when used
+with the `w` motion. Usually that motion would move to the beginning of
+the next word, but in this particular case it acts like the `e`{normal} motion.
+This is conscious design choice by the Vim developers, not a bug.
 
 # Lesson 1.9: REPLACING TEXT
 
 **The `r`{normal} operator overwrites a character and `R`{normal} overwrites multiple ones **
 
-When we want to correct only one character it would be too much work to enter
-and exit insert mode just for that.
+When we want to correct only one character it would be too much work to
+enter and exit insert mode just for that.
 
   1. Position your cursor on a wrong character.
 
@@ -371,19 +389,20 @@ and exit insert mode just for that.
 ---> Whan this lime was tuoed in, someone presswd some wrojg keys! {expect:When this line was typed in, someone pressed some wrong keys!}
 ---> When this line was typed in, someone pressed some wrong keys! {expect:When this line was typed in, someone pressed some wrong keys!}
 
-If we have many characters to replace it would be cumbersome and unrepeatable
-to hit `r`{normal} every time. There is a supercharged version of the operator.
+If we have many characters to replace it would be cumbersome and unre-
+peatable to hit `r`{normal} every time. There is a supercharged version of the
+operator.
 
   1. Move the cursor to the beginning of the first "xxx".
 
-  2. Now press `R`{normal} ([capital R](R)) and type the number below it in the second line, so that it
-     replaces the "xxx".
+  2. Now press `R`{normal} ([capital R](R)) and type the number below it in the second
+     line, so that it replaces the "xxx".
 
-  3. Write over the existing characters. If you make a mistake press backspace
-     to restore the character.
+  3. Write over the existing characters. If you make a mistake press
+     backspace to restore the character.
 
-  3. Press `<Esc>`{normal} to leave [Replace mode](mode-replace).  Notice that the rest of the line
-     remains unmodified.
+  3. Press `<Esc>`{normal} to leave [Replace mode](mode-replace).  Notice that the rest of the
+     line remains unmodified.
 
   4. Repeat the steps to replace the remaining xxx.
 
@@ -392,8 +411,8 @@ to hit `r`{normal} every time. There is a supercharged version of the operator.
 
 # Lesson 1.10: BEGINNING AND END OF LINE MOTIONS
 
-Often times we want to do something with the beginning or the end of a line.
-There are two particular motions for this: `0`{normal} and `$`{normal}.
+Often times we want to do something with the beginning or the end of a
+line. There are two particular motions for this: `0`{normal} and `$`{normal}.
 
   1. Move your cursor on the first letter of the word "This".
 
@@ -405,13 +424,14 @@ There are two particular motions for this: `0`{normal} and `$`{normal}.
 ---> asdf This is a. {expect:This is a sentence.}
 ---> This is a sentence. {expect:This is a sentence.}
 
-These two motions can be combined with any of the previous operators to affect
-everything on the line before or after the cursort. You can also use them to
-jump the cursor quickly around.
+These two motions can be combined with any of the previous operators to
+affect everything on the line before or after the cursort. You can also
+use them to jump the cursor quickly around.
 
-We have already met the `D`{normal} and `C`{normal} operators which act exacly the same way as
-`d$`{normal} and `c$`{normal}, so which one should you use? They are both equally repeatable
-because both are only once action, but the former require fewer keystrokes.
+We have already met the `D`{normal} and `C`{normal} operators which act exacly the same way
+as `d$`{normal} and `c$`{normal}, so which one should you use? They are both equally repeat-
+able because both are only once action, but the former require fewer
+keystrokes.
 
 # Lesson 1.11: CHARACTER- AND LINEWISE MOTION
 
@@ -424,8 +444,8 @@ because both are only once action, but the former require fewer keystrokes.
 ---> Every mption we learn allows construction of new actions. {expect:Every motion we learn allows construction of new actions.}
 ---> Every motion we learn allows construction of new actions. {expect:Every motion we learn allows construction of new actions.}
 
-Since this is a very common motion you can also use the space bar, it has the
-same effect. Pick whichever you prefer.
+Since this is a very common motion you can also use the space bar, it
+has the same effect. Pick whichever you prefer.
 
 Now let's try the line-wise motion.
 
@@ -435,39 +455,40 @@ Now let's try the line-wise motion.
 
 ---> This line has to go. {expect:ANYTHING}
 
-Line-wise actions are very common and so there is a special convention: use the
-operator as motion as well to affect the entire line.
+Line-wise actions are very common and so there is a special convention:
+use the operator as motion as well to affect the entire line.
 
   1. Press `cc`{normal} To change the contents of the entire line.
 
 ---> Change this line. {expect:This is the way it should be.}
 ---> This is the way it should be. {expect:This is the way it should be.}
 
-This is generally preferrable to the underscore motion above. Ultimately it
-makes no difference, but most instructions you will come across use the doubled
-form.
+This is generally preferrable to the underscore motion above. Ultimately
+it makes no difference, but most instructions you will come across use
+the doubled form.
 
 # Lesson 1.12: FIND MOTION
 
 **The `f`{normal} and `t`{normal} motions can jump to a particular character **
 
-We have already learned about word-wise motions, but what if we want to make
-even bigger jumps? We can specify a character to jump to. We can repeat the
-jump with `;`{normal} or with `,`{normal} in the other direction.
+We have already learned about word-wise motions, but what if we want to
+make even bigger jumps? We can specify a character to jump to. We can
+repeat the jump with `;`{normal} or with `,`{normal} in the other direction.
 
   1. Move the cursor to the beginning of the line.
 
   2. Press `fu`{normal} to jump to the first occurence of the 'u' character.
 
-  3. Oops, we haven't reached our target yet. Press `;`{normal} to repeat the search.
+  3. Oops, we haven't reached our target yet. Press `;`{normal} to repeat the
+     search.
 
   4. Now change the word.
 
 ---> The brown fox jumps under the lazy dog. {expect:The brown fox jumps over the lazy dog.}
 ---> The brown fox jumps over the lazy dog. {expect:The brown fox jumps over the lazy dog.}
 
-If we don't want to include the character we have searched for we can use the
-`t`{normal} motion. It stands for "'til" as in "until".
+If we don't want to include the character we have searched for we can
+use the `t`{normal} motion. It stands for "'til" as in "until".
 
   1. Place the cursor at the first character of the sequence to change.
 
@@ -476,9 +497,10 @@ If we don't want to include the character we have searched for we can use the
 ---> This sentence was good until I lost it. {expect:This sentence is just right.}
 ---> This sentence is just right. {expect:This sentence is just right.}
 
-We can also perform these motion in the other direction using their upper-case
-variants. This time the upper-case does not supercharge the motion, it does its
-opposite. That's also a common convention. Try it out:
+We can also perform these motion in the other direction using their
+upper-case variants. This time the upper-case does not supercharge the
+motion, it does its opposite. That's also a common convention. Try it
+out:
 
   1. Place the cursor at the end of the sentence.
 
@@ -487,10 +509,10 @@ opposite. That's also a common convention. Try it out:
 ---> The brown fox jumps under the bus. {expect:The brown fox jumps over the lazy dog.}
 ---> The brown fox jumps over the lazy dog. {expect:The brown fox jumps over the lazy dog.}
 
-It is not always a good idea to search for the character we want. If it's a very
-common character we will waste keystrokes skipping over the false positives.
-Often times it's better to jump to a nearby but less common character and then
-correct the position by one or two.
+It is not always a good idea to search for the character we want. If
+it's a very common character we will waste keystrokes skipping over the
+false positives. Often times it's better to jump to a nearby but less
+common character and then correct the position by one or two.
 
 # Lesson 1.13: UNDO, REDO AND REPEAT
 
@@ -506,39 +528,41 @@ To undo a change press `u`{normal}, press `<C-R>`{normal} to redo it again.
 
 ---> Everything is great. {expect:Everything is great.}
 
-In the lessons above we have been metioning repeatability of actions and here
-is where it comes into play. We can repeat any last action using the period `.`{normal}
-operator.
+In the lessons above we have been metioning repeatability of actions and
+here is where it comes into play. We can repeat any last action using
+the period `.`{normal} operator.
 
   1. Navigate to the first wrong word and change it with `ce`{normal}.
 
-  2. After the change exit insert mode immediately and jump to the next word.
+  2. After the change exit insert mode immediately and jump to the next
+     word.
 
   3. Now press `.`{normal} and see the change take effect immediately.
 
 ---> Roses are blue, and tomatoes are blue as well. {expect:Roses are red, and tomatoes are red as well.}
 ---> Roses are red, and tomatoes are red as well. {expect:Roses are red, and tomatoes are red as well.}
 
-An action consits of a count, an operator and a motion, you know that already.
-What we did not tell you is that everything you type in insert mode is part of
-the action as well. This means you can repeat entire phrases, sentences or even
-paragraphs. The only catch is that you cannot leave insert mode or it ends the
-action.
+An action consits of a count, an operator and a motion, you know that
+already. What we did not tell you is that everything you type in insert
+mode is part of the action as well. This means you can repeat entire
+phrases, sentences or even paragraphs. The only catch is that you cannot
+leave insert mode or it ends the action.
 
-The dot is still very powerful because it assigns itself automatically and you
-should use it whenever the possibility arises. Like most other operators it can
-be combined with a motion.
+The dot is still very powerful because it assigns itself automatically
+and you should use it whenever the possibility arises. Like most other
+operators it can be combined with a motion.
 
 ## Lesson 1.14: THE PUT COMMAND
 
 **Type `p`{normal} to put previously deleted text after the cursor. **
 
-The `p`{normal} operator can [put](put) (paste) previously deleted text after
-the cursor, and the upper-case variant places it in front of the cursor.
+The `p`{normal} operator can [put](put) (paste) previously deleted text after the cursor,
+and the upper-case variant places it in front of the cursor.
 
   1. Type `dd`{normal} on the d) line to delete it.
 
-  2. Move the cursor to the c) line, above where the deleted line should go.
+  2. Move the cursor to the c) line, above where the deleted line should
+     go.
 
   3. Type `p`{normal} to put the line below the cursor.
 
@@ -551,10 +575,11 @@ the cursor, and the upper-case variant places it in front of the cursor.
 ---> c) Intelligence is learned, {expect:ANYTHING}
 ---> a) Roses are red, {expect:ANYTHING}
 
-The deleted text is stored in a so-called register, memory holding some text
-temporarliy, and always contains the last deletion or yank (see next lesson).
-You will later learn about custom registers you can assign yourself. This
-operator allows you to transplant blocks of text at any size.
+The deleted text is stored in a so-called register, memory holding some
+text temporarliy, and always contains the last deletion or yank (see
+next lesson). You will later learn about custom registers you can assign
+yourself. This operator allows you to transplant blocks of text at any
+size.
 
 # Lesson 1.15: COPY AND PASTE TEXT
 
@@ -577,16 +602,18 @@ other editors. After yanking the text we can put it somewhere else.
 ---> a) this is the first item.
 ---> b) this is the second item. {expect:b) this is the second item.}
 
-Like other operators `y`{normal} can be be used with a count to yank for example several
-words in one go: `2yw`{normal} would yank two words and `2yy`{normal} would yank two lines.
+Like other operators `y`{normal} can be be used with a count to yank for example
+several words in one go: `2yw`{normal} would yank two words and `2yy`{normal} would yank two
+lines.
 
 # Lesson 1.6: MOTIONS INSIDE AND AROUND
 
 **Use the `i`{normal} motion inside something and `a`{normal} around **
 
-Often times your cursor will not be at the edge of a piece of text you want to
-edit. It would be a waste of time to always have to jump to the beginning, so
-we can use `i`{normal} (inside) and `a`{normal} (around) in that case.
+Often times your cursor will not be at the edge of a piece of text you
+want to edit. It would be a waste of time to always have to jump to the
+beginning, so we can use `i`{normal} (inside) and `a`{normal} (around) in
+that case.
 
   1. Place the cursor somewhere in the messed up word.
 
@@ -595,15 +622,16 @@ we can use `i`{normal} (inside) and `a`{normal} (around) in that case.
 ---> My aksdhfahj pet is my dog. {expect:My favourite pet is my dog.}
 ---> My favourite pet is my dog. {expect:My favourite pet is my dog.}
 
-For words it doesn't matter whether you use inside or around because a word is
-bordered by its own charaters. The mnemonic is easy to remember as "change a
-word".
+For words it doesn't matter whether you use inside or around because a
+word is bordered by its own charaters. The mnemonic is easy to remember
+as "change a word".
 
 There are cases though where it does matter which one you use.
 
   1. Place the cursor somewhere inside the quotation marks.
 
-  2. Type `ci"`{normal} to change the contents of the quotation marks, but not the marks.
+  2. Type `ci"`{normal} to change the contents of the quotation marks, but not the
+     marks.
 
 ---> The "white cat leaps" over the lazy dog. {expect:The "brown fox jumps" over the lazy dog.}
 ---> The "brown fox jumps" over the lazy dog. {expect:The "brown fox jumps" over the lazy dog.}
@@ -613,9 +641,10 @@ There are cases though where it does matter which one you use.
 ---> The "white cat leaps" over the lazy dog. {expect:The brown fox jumps over the lazy dog.}
 ---> The brown fox jumps over the lazy dog. {expect:The brown fox jumps over the lazy dog.}
 
-You can also motion inside/around parentheses, brackets or braces. Basically, if
-you think something can surround text try this motion. Using this motion saves
-you the jumping back and forth and makes the action more repeatable.
+You can also motion inside/around parentheses, brackets or braces.
+Basically, if you think something can surround text try this motion.
+Using this motion saves you the jumping back and forth and makes the
+action more repeatable.
 
 # Lesson 1.17: CURSOR LOCATION AND FILE STATUS
 
@@ -624,12 +653,13 @@ Type  `G`{normal}  to move to a line in the file. **
 
 NOTE: Read this entire lesson before executing any of the steps.
 
-  1. Press `<Ctrl-g>`{normal}, a message will appear at the bottom of the page with the
-     filename and the position in the file.  Remember the line number for Step
-     3.
+  1. Press `<Ctrl-g>`{normal}, a message will appear at the bottom of the page
+     with the filename and the position in the file.  Remember the line
+     number for Step 3.
 
-NOTE:  You may see the cursor position in the lower right corner of the screen
-       This happens when the ['ruler']('ruler') option is set (see  :help 'ruler'  )
+NOTE:  You may see the cursor position in the lower right corner of the
+       screen This happens when the ['ruler']('ruler') option is set (see  :help
+       'ruler')
 
   2. Press [`G`](G)  to move you to the bottom of the file.
      Type  [`gg`](gg)  to move you to the start of the file.
@@ -655,31 +685,32 @@ NOTE:  You may see the cursor position in the lower right corner of the screen
 
 ---> This ( is a test line with ('s, ['s ] and {'s } in it. )) {expect:ANYTHING}
 
-NOTE: This is very useful in debugging a program with unmatched parentheses!
+NOTE: This is very useful in debugging a program with unmatched
+      parentheses!
 
 # Summary of Part 1
 
-So far we have learned how to do basic text operation, we know how to navigate
-text quickly, how to insert text and finally we learned how to transplant text.
-We have also learned that Vim actions are actually sentences constructed
-acctording to a grammar. Learning how to express our thoughts in this Vim
-language is the key to getting really producive, allowing you to execute
-actions as fast as you can think them.
+So far we have learned how to do basic text operation, we know how to
+navigate text quickly, how to insert text and finally we learned how to
+transplant text. We have also learned that Vim actions are actually
+sentences constructed acctording to a grammar. Learning how to express
+our thoughts in this Vim language is the key to getting really product-
+ive, allowing you to execute actions as fast as you can think them.
 
 =========  =================        ========  ========================
  Motion          Effect             Operator  Effect
 =========  =================        ========  ========================
-   `h`{normal}       left                       `x`{normal}       Delete current character
-   `j`{normal}       down                       `i`{normal}       Insert before cursor
-   `k`{normal}       up                         `a`{normal}       Append after cursor
-   `l`{normal}       right                      `o`{normal}       Open a new line
-   `w`{normal}       next word                  `d`{normal}       Delete text with motion
-   `e`{normal}       end of word                `y`{normal}       Yank text with motion
-   `b`{normal}       beginning of word          `c`{normal}       Change text with motion
-   `0`{normal}       beginning of line          `r`{normal}       Replace character/text
-   `$`{normal}       end of line                `u`{normal}       Undo action
+   `h`{normal}       left                        `x`{normal}      Delete current character
+   `j`{normal}       down                        `i`{normal}      Insert before cursor
+   `k`{normal}       up                          `a`{normal}      Append after cursor
+   `l`{normal}       right                       `o`{normal}      Open a new line
+   `w`{normal}       next word                   `d`{normal}      Delete text with motion
+   `e`{normal}       end of word                 `y`{normal}      Yank text with motion
+   `b`{normal}       beginning of word           `c`{normal}      Change text with motion
+   `0`{normal}       beginning of line           `r`{normal}      Replace character/text
+   `$`{normal}       end of line                 `u`{normal}      Undo action
    `l`{normal}       current character         <C-R>    Redo action
- `<SPACE>`{normal}   current character          `p`{normal}       Put yanked/deleted text
+ `<SPACE>`{normal}   current character           `p`{normal}      Put yanked/deleted text
    `_`{normal}       current line             ========  ========================
    `f`{normal}       fing character
    `t`{normal}       'till character         Pressing an operator twice acts as
