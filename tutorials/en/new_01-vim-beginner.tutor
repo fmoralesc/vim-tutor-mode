@@ -973,7 +973,19 @@ and "fix".
 
 # Summary of Part 2
 
-TODO
+Ex commands are well suited for actions over a long range, such as the
+entire file, or for controlling the editor itself. Typing an ex-command
+is usually slower than pressing keys, but normal mode commands are
+limited to a very small section, such as a character or a word.
+
+There are way more ex-commands than we have covered in this short over-
+view, in fact you can do anything in command mode you can do in normal
+and insert mode.
+
+For now the commands we have covered will suffice. Remember that most
+commands have an abbreviated form and can be "supercharged" by appending
+an exclamation mark. You can also execute shell commands by prefixing
+them with an exclamation mark.
 
 
 # PART 3: VISUAL MODE
