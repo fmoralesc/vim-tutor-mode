@@ -354,8 +354,8 @@ motions you have learned so far.
   2. Press `ce`{normal} or `cw`{normal} to change the word without affecting the surrounding
      whitespace.
 
----> This lubw has a few wptfd that mrrf changing usf the change operator. {expect:This line has a few words that need changing using the change operator.}
----> This line has a few words that need changing using the change operator. {expect:This line has a few words that need changing using the change operator.}
+---> This lubw has a few wptfd that mrrf changing usf the change operator. {expect:This line has sone words that need changing using the change operator.}
+---> This line has sone words that need changing using the change operator. {expect:This line has sone words that need changing using the change operator.}
 
   3. We want to change the last sentence. Move the cursor behind the
      first period and press `C`{normal}, enter to correct sentence and leave
@@ -726,39 +726,41 @@ ive, allowing you to execute actions as fast as you can think them.
 
 **Command mode is where we can execute editor commands**
 
-You have already met command-mode before when you quit Vim. First you press
-`:`{normal}, then you enter your command and possibly some arguments and hit `<CR>`{normal} to
-execute it. Executing a command puts us back into normal mode.
+You have already met command-mode before when you quit Vim. First you
+press `:`{normal}, then you enter your command and possibly some arguments and hit
+`<CR>`{normal} to execute it. Executing a command puts us back into normal mode.
 
-The name "ex command" has no particular meaning, it is a historical leftover
-from a previous UNIX text editor called "ex". Ex was a predecessor to vi, which
-is a predecessor to Vim, and was operated exclusively using such commands.
+The name "ex command" has no particular meaning, it is a historical
+leftover from a previous Unix text editor called "ex". Ex was a prede-
+cessor to vi, which is a predecessor to Vim, and was operated exclusiv-
+ely using such commands.
 
-While in command mode you can auto-complete the same way as in the shell by
-hitting the `<TAB>`{normal} key. While typing a command you can press <C-D> to list
-possible suggestions.
+While in command mode you can auto-complete the same way as in the shell
+by hitting the `<TAB>`{normal} key. While typing a command you can press <C-D> to
+list possible suggestions.
 
 # Lesson 2.1: WRITING AND CLOSING A FILE
 
 **Use the `:write`{vim} command to write the current file and `:quit`{vim} to close it.**
 
-You have already met `:quit`{vim} when you quit Vim. If you have a file open you can
-use `:write`{vim} to save it to disc, assuming the file is not write-protected.
+You have already met `:quit`{vim} when you quit Vim. If you have a file open
+you can use `:write`{vim} to save it to disc, assuming the file is not write-
+protected.
 
-To close a file use the `:quit`{vim} command. If the file has been edited Vim will
-not allow you to close it, this is to protect you from losing you changes by
-accidently closing. You can force a quit by supercharging the command with an
-exclamation mark: `quit!`{vim}. This is a common convention, similar to the upper
-case for operators.
+To close a file use the `:quit`{vim} command. If the file has been edited Vim
+will not allow you to close it, this is to protect you from losing you
+changes by accidently closing. You can force a quit by supercharging the
+command with an exclamation mark: `quit!`{vim}. This is a common convention,
+similar to the upper case for operators.
 
-Now is a good time to try it out. Close this file and then re-open it the same
-way you did last time.
+Now is a good time to try it out. Close this file and then re-open it
+the same way you did last time.
 
-Typing out `:write`{vim} and `:quit`{vim} every time is cumbersome, so pretty much every
-ex command can be shortened. The shortest unambiguous part does the job, so you
-could also write `:wri`{vim} and get the same results. On top of that many commands
-also have special abbreviations. You will often see these two commands written
-as `:w`{vim} and `:q`{vim}.
+Typing out `:write`{vim} and `:quit`{vim} every time is cumbersome, so pretty much
+every ex command can be shortened. The shortest unambiguous part does
+the job, so you could also write `:wri`{vim} and get the same results. On top
+of that many commands also have special abbreviations. You will often
+see these two commands written as `:w`{vim} and `:q`{vim}.
 
 To write and close a file in one go use `:wq`{vim}.
 
@@ -766,23 +768,23 @@ You can close all open files with `:qall`{vim} or `:qa`{vim} and write all files
 `:wall`{vim} or `:wa`{vim}. And you might have guessed it already, use `:wqall`{vim} or `:wqa`{vim}
 to write and quit all files.
 
-A file is saved under the same name it already has, to save it as a new file
-enter a file name as an argument: `:w newfile.txt`{vim}
+A file is saved under the same name it already has, to save it as a new
+file enter a file name as an argument: `:w newfile.txt`{vim}
 
 # Lesson 2.2: NEW AND EXISTING FILES
 
 **Use `:new`{vim} and `:edit`{vim} to open new or existing files **
 
-  1. Type `:new`{vim} to open a new window. Try it out right now, you will see a new
-     window pop up.
+  1. Type `:new`{vim} to open a new window. Try it out right now, you will see
+     a new window pop up.
 
-  2. Now type in some text and save the file under some name (`:w newfile.txt`{vim}).
-     Quit the file.
+  2. Now type in some text and save the file under some name
+     (`:w newfile.txt`{vim}). Quit the file.
 
   3. Open a new window again.
 
-  4. Type `:edit newfile.txt`{vim} to open the file again. You can also abbreviate
-     it to `:e`{vim}.
+  4. Type `:edit newfile.txt`{vim} to open the file again. You can also abbre-
+     viate it to `:e`{vim}.
 
 If you want to open a file in a vertical window rather than a horizontal
 prepend a 'v' to the command: `:vnew`{vim}.
@@ -797,25 +799,27 @@ prepend a 'v' to the command: `:vnew`{vim}.
 
   3. You can close the windows again with the `:q`{vim} command.
 
-Split windows are still the same file, so any changes in one window apply to
-other windows as well.
+Split windows are still the same file, so any changes in one window ap-
+ply to other windows as well.
 
 # Lesson 2.4: THE WORKING DIRECTORY
 
 **Use `:pwd`{vim} to print the current working directory **
 
-  1. Type `:pwd`{vim} and the command line will show the path in the command line.
+  1. Type `:pwd`{vim} and the command line will show the path in the command
+     line.
 
-Vim is usually run from a terminal emulator, but even when you are using a GUI
-you still have a working directory. Every path and every file name is relative
-to it. To change the working directory of Vim use the `:cd`{vim} command.
+Vim is usually run from a terminal emulator, but even when you are using
+a GUI you still have a working directory. Every path and every file name
+is relative to it. To change the working directory of Vim use the `:cd`{vim}
+command.
 
 # Lesson 2.5: EXECUTING EXTERNAL COMMANDS
 
 **Vim provides a shell to execute external commands **
 
-You can use any command for your operating system by prepending it with an
-exclamation mark.
+You can use any command for your operating system by prepending it with
+an exclamation mark.
 
   1. Type `:!ls`{vim} to print the contents of the current working directory.
 
@@ -869,15 +873,17 @@ Now you can work with the output of the shell.
      Adding the g [flag](:s_flags) means to substitute globally in the line, change
      all occurrences of "thee" in the line.
 
-The substitution command is followed by a pattern to search for, then the
-replacement and finally a series of option flags. There are other flages as
-well, but 'g' is the most important one. The pattern is a regular expression,
-but in this example we cared only about a specific word so we used the literal
-string we wanted.
+The substitution command is followed by a pattern to search for, then
+the replacement and finally a series of option flags. There are other
+flages as well, but 'g' is the most important one. The pattern is a
+regular expression, but in this example we cared only about a specific
+word so we used the literal string we wanted.
 
-Here are a few more examples of what is possible with the substitute command:
+Here are a few more examples of what is possible with the substitute
+command:
 
-  4. To change every occurrence of a character string between two lines, type
+  4. To change every occurrence of a character string between two lines
+     type
 ~~~ cmd
      :#,#s/old/new/g
 ~~~
@@ -894,8 +900,8 @@ Here are a few more examples of what is possible with the substitute command:
 ~~~ cmd
      :%s/old/new/gc
 ~~~
-     to find every occurrence in the whole file, with a prompt whether to
-     substitute or not.
+     to find every occurrence in the whole file, with a prompt whether
+     to substitute or not.
 
 # Lesson 2.8: THE SET OPTION COMMAND
 
@@ -911,13 +917,15 @@ Here are a few more examples of what is possible with the substitute command:
 
   5. Type `:set list?` to print the current state of the option.
 
-Most options in Vim are boolean values. The syntax for set set command is
+Most options in Vim are boolean values. The syntax for set set command
+is
 ~~~ cmd
     :set [no|inv]option[!]
 ~~~
-where 'option' is the name of the option. The option name without prefix always
-turns it on and with the 'no' prefix always turns it off. The exclamation mark
-postfix or the 'inv' prefix always toggle between on and off.
+where 'option' is the name of the option. The option name without prefix
+always turns it on and with the 'no' prefix always turns it off. The
+exclamation mark postfix or the 'inv' prefix always toggle between on
+and off.
 
 Some actions take values instead:
 
@@ -935,32 +943,33 @@ You can also reset any option to its default:
 ~~~
      to reset.
 
-There are more ways to manipulate options, see the help manual for all of them.
-Check the manual for every individual option as well, usually there is an
-abbreviated form of them as well.
+There are more ways to manipulate options, see the help manual for all
+of them. Check the manual for every individual option as well, usually
+there is an abbreviated form of them as well.
 
 # Lesson 2.9: SEARCH MODE
 
 **Type `/`{normal} followed by a pattern to search for the pattern. **
 
-This is not really a command but it fits here. Press the `/`{normal} key and type the
-word "fox". The cursor will jump to the word on the line below.
+This is not really a command but it fits here. Press the `/`{normal} key and type
+the word "fox". The cursor will jump to the word on the line below.
 
 ---> The brown fox jumps over the lazy dog.
 
-We can repeat this search using the `n`{normal} (next) operator. You will cycle through
-all the matches, so keep pressing it until you are back here. To search in the
-other direction use `N`{normal}.
+We can repeat this search using the `n`{normal} (next) operator. You will cycle
+through all the matches, so keep pressing it until you are back here. To
+search in the other direction use `N`{normal}.
 
-We can also issue a search in the opposite direction using the `?`{normal} key. Search
-again for the word "fox". Try it out.
+We can also issue a search in the opposite direction using the `?`{normal} key.
+Search again for the word "fox". Try it out.
 
-As you have seen the `n`{normal} and `N`{normal} keys are now reversed as well. It's easier to
-issue one backwards search and then keep hitting `n`{normal} than hitting `N`{normal}
-repeatedly.
+As you have seen the `n`{normal} and `N`{normal} keys are now reversed as well. It's easier
+to issue one backwards search and then keep hitting `n`{normal} than hitting `N`{normal} re-
+peatedly.
 
-The pattern does not have to be just a word, it can be any regular expression.
-Try searching for "f.x". You will find matches for both "fox" and "fix".
+The pattern does not have to be just a word, it can be any regular ex-
+pression. Try searching for "f.x". You will find matches for both "fox"
+and "fix".
 
 # Summary of Part 2
 
@@ -969,9 +978,9 @@ TODO
 
 # PART 3: VISUAL MODE
 
-Visual mode is similar to selecting text in other text editors. We define a
-visual selection over a piece of text and execute an action or command over
-that selection.
+Visual mode is similar to selecting text in other text editors. We de-
+fine a visual selection over a piece of text and execute an action or
+command over that selection.
 
 # Lesson 3.1: VISUAL MODE
 
@@ -981,35 +990,37 @@ that selection.
 
   2. Press `v`{normal} to enter visual mode.
 
-  3. Use the motions you know to move the selection to the last character of
-     the last word to change.
+  3. Use the motions you know to move the selection to the last charac-
+     ter of the last word to change.
 
   4. Press `c`{normal} to change the selected portion of text.
 
 ---> Vim is a horribly complicated to use text editor. {expect:Vim is a very efficient and productive text editor.}
 ---> Vim is a very efficient and productive text editor. {expect:Vim is a very efficient and productive text editor.}
 
-We want to change as much text as possible, and counting words is slow. Visual
-mode allows us to make an exact selection before applying our action.
+We want to change as much text as possible, and counting words is slow.
+Visual mode allows us to make an exact selection before applying our
+action.
 
 You can use counts on the motions when defining your selection, but when
-performing the operation we cannot. There is no reason anyway, the selection
-takes the place of count and motion.
+performing the operation we cannot. There is no reason anyway, the se-
+lection takes the place of count and motion.
 
-Visual mode is very nice, but don't overuse it. Take the following example:
+Visual mode is very nice, but don't overuse it. Take the following ex-
+ample:
 
 ---> Vim's usability is an utter and complete mess conceived by madmen. {expect:Vim's usability allows users to edit text as fast as they think.}
 ---> Vim's usability allows users to edit text as fast as they think. {expect:Vim's usability allows users to edit text as fast as they think.}
 
-It is faster to position the cursor on the first wrong word and then change
-'til the period using `ct.`{normal}.
+It is faster to position the cursor on the first wrong word and then
+change 'til the period using `ct.`{normal}.
 
 # Lesson 3.2: VISUAL LINE MODE
 
 **Select entire lines with `V`{normal} **
 
-There are two pairs of lines wrong. We don't want to fix them one at a time, so
-we'll transplant two lines at a time.
+There are two pairs of lines wrong. We don't want to fix them one at a
+time, so we'll transplant two lines at a time.
 
   1. Move the cursor on the first line.
 
@@ -1024,15 +1035,15 @@ we'll transplant two lines at a time.
 ---> a) Roses are red, {expect:ANYTHING}
 ---> b) Violets are blue, {expect:ANYTHING}
 
-We could have used `2dd`{normal} here as well, but in practice we will often have to
-transplant many more lines.
+We could have used `2dd`{normal} here as well, but in practice we will often have
+to transplant many more lines.
 
 # Lesson 3.3: VISUAL BLOCK MODE
 
 **We can also select a rectangular slice of text. **
 
-  1. We want to change the prefix all these items. Move the cursor to the first
-     '\'.
+  1. We want to change the prefix all these items. Move the cursor to the
+     first '\'.
 
   2. Press <C-V> to enter visual mode.
 
@@ -1055,27 +1066,27 @@ transplant many more lines.
 
   1. Select the sentence visually
 
-  2. Press `:`{normal} to enter command mode. The command will already be be prefixed
-     with a range: ':'<,'>'
+  2. Press `:`{normal} to enter command mode. The command will already be be pre-
+     fixed with a range: ':'<,'>'
 
-  3. Complete the command to read ':'<,'>w selection.txt' and press enter to
-     save only the selected slice to a file.
+  3. Complete the command to read ':'<,'>w selection.txt' and press
+     enter to save only the selected slice to a file.
 
 ---> Select this sentence.
 
-The strings "'<" and "'>" act as delimiters for a range: the range of the
-visual selection. Most commands can operate on a range.
+The strings "'<" and "'>" act as delimiters for a range: the range of
+the visual selection. Most commands can operate on a range.
 
 # Lesson 3.5: MODIFYING A SELECTION
 
 **Change the visually selected region using `o`{normal} **
 
-We know that we can use any motion to change the contents of our selection, but
-they work only on one end of the selection. We can toggle to the other end by
-pressing `o`{normal} when in visual mode.
+We know that we can use any motion to change the contents of our se-
+lection, but they work only on one end of the selection. We can toggle
+to the other end by pressing `o`{normal} when in visual mode.
 
-  1. Make a visual selection of any kind on the lines below and try modifying
-     it.
+  1. Make a visual selection of any kind on the lines below and try
+     modifying it.
 
   2. Press `o`{normal} and try modifying it again.
 
@@ -1087,18 +1098,18 @@ pressing `o`{normal} when in visual mode.
 # Summary of Part 3
 
 Visual mode is a tool that lets us fine-tune a selection of text before
-perforing an action on it.  Use `v`{normal} to select text character-wise,
-`V`{normal} to select linewise, and `<C-V`{normal} to select blockwise, that
-is, in rectangular blocks.  Operators operate on the selected portions and
-most commands use the selection as a range to work on.
+perforing an action on it.  Use `v`{normal} to select text character-wise, `V`{normal} to
+select linewise, and `<C-V`{normal} to select blockwise, that is, in rectangular
+blocks.  Operators operate on the selected portions and most commands
+use the selection as a range to work on.
 
 
 # Part 4: PERMANENT SETTINGS AND GETTING HELP
 
 **Enable Vim features**
 
-Vim has many more features than Vi, but most of them are disabled by default.
-To start using more features you have to create a "vimrc" file.
+Vim has many more features than Vi, but most of them are disabled by
+default. To start using more features you have to create a "vimrc" file.
 
   1. Start editing the "vimrc" file.  This depends on your system:
     `:e ~/.vimrc`{vim}     "for Unix-like systems
@@ -1110,16 +1121,16 @@ To start using more features you have to create a "vimrc" file.
   3. Write the file with:
     `:w`{vim}
 
-The next time you start Vim it will use syntax highlighting.  You can add all
-your preferred settings to this "vimrc" file.  For more information type  :help
-vimrc-intro
+The next time you start Vim it will use syntax highlighting. You can add
+all your preferred settings to this "vimrc" file.  For more information
+type `:help vimrc-intro`{vim}
 
 **Use the on-line help system**
 
-You now know the basics of using Vim, enough for everyday text editing. We have
-only scratched the surface of what is possible even on the topics we covered in
-this tutorial. If you want to learn more about individual topics the user
-manual is the next place to go to.
+You now know the basics of using Vim, enough for everyday text editing.
+We have only scratched the surface of what is possible even on the
+topics we covered in this tutorial. If you want to learn more about
+individual topics the user manual is the next place to go to.
 
 Vim has a comprehensive on-line help system.  To get started, try one of
 these three:
@@ -1130,11 +1141,12 @@ these three:
 
 # CONCLUSION
 
-This was intended to give a brief overview of the Vim editor, just enough to
-allow you to use the editor fairly easily. It is far from complete as Vim has
-many many more commands.  Consult the help often.
+This was intended to give a brief overview of the Vim editor, just
+enough to allow you to use the editor fairly easily. It is far from
+complete as Vim has many many more commands.  Consult the help often.
 
-There are many resources online to learn more about vim. Here's a list of a bunch of them:
+There are many resources online to learn more about vim. Here's a list
+of a bunch of them:
 
 - *Learn Vim Progressively*: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 - *Learning Vim in 2014*: http://benmccormick.org/learning-vim-in-2014/
@@ -1145,9 +1157,9 @@ There are many resources online to learn more about vim. Here's a list of a bunc
 
 If you prefer a book, *Practical Vim* by Drew Neil is recommended often.
 
-This tutorial was written by Michael C. Pierce and Robert K. Ware, Colorado
-School of Mines using ideas supplied by Charles Smith, Colorado State
-University.  E-mail: bware@mines.colorado.edu.
+This tutorial was written by Michael C. Pierce and Robert K. Ware,
+Colorado School of Mines using ideas supplied by Charles Smith, Colorado
+State University.  E-mail: bware@mines.colorado.edu.
 
 Modified for Vim by Bram Moolenaar.
 Modified fov vim-tutor-mode by Felipe Morales.
