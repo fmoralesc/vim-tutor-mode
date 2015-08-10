@@ -732,8 +732,8 @@ press `:`{normal}, then you enter your command and possibly some arguments and h
 
 The name "ex command" has no particular meaning, it is a historical
 leftover from a previous Unix text editor called "ex". Ex was a prede-
-cessor to vi, which is a predecessor to Vim, and was operated exclusiv-
-ely using such commands.
+cessor to vi, which is a predecessor to Vim, and was operated exclusive-
+ly using such commands.
 
 While in command mode you can auto-complete the same way as in the shell
 by hitting the `<TAB>`{normal} key. While typing a command you can press <C-D> to
