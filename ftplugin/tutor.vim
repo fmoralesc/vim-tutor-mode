@@ -4,6 +4,7 @@
 call tutor#SetupVim()
 
 " Buffer Settings: {{{1
+set noreadonly
 if !exists('g:tutor_debug') || g:tutor_debug == 0
     setlocal buftype=nofile
     setlocal concealcursor+=inv
