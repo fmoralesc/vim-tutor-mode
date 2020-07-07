@@ -1,3 +1,8 @@
+**NOTE: This plugin has been incorporated into neovim's codebase and might soon
+be added to vim. The purpose of this standalone evrsion of the plugin was to be
+a testbed of the idea, and since it has accomplished its purpose, I am
+archiving the repository.**
+
 # vim-tutor-mode
 
 [![Join the chat at https://gitter.im/fmoralesc/vim-tutor-mode](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fmoralesc/vim-tutor-mode?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
